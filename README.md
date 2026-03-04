@@ -1,8 +1,13 @@
 # cf-node-client
 
-**Author:** [leotrinh](https://github.com/leotrinh) & GitHub Copilot
+**Author:** [leotrinh](https://github.com/leotrinh) & GitHub Copilot & Claude Kit
+## Claude Kit
+Ship Faster With AI Dev Teams
+[Buy here to save 25% (always) ](https://claudekit.cc/?ref=VAK416FU)
+[https://claudekit.cc/?ref=VAK416FU]()
+![https://claudekit.cc/?ref=VAK416FU](https://cdn.tinhtd.info/public/go1/ads_ck.png)
 
-**Status:** This package is a fork of [prosociallearnEU/cf-nodejs-client](https://github.com/prosociallearnEU/cf-nodejs-client) and is no longer actively maintained by the original authors. All new updates and maintenance are managed by [leotrinh](https://github.com/leotrinh).
+**Status:** This package is a fork of [prosociallearnEU/cf-nodejs-client](https://github.com/prosociallearnEU/cf-nodejs-client) by Juan Antonio Breña Moral and is no longer actively maintained by the original authors. All new updates and maintenance are managed by [leotrinh](https://github.com/leotrinh).
 
 ---
 
@@ -95,7 +100,6 @@ See [CHANGELOG.md](CHANGELOG.md) for version history.
 - Bluemix Console: https://console.ng.bluemix.net/
 - PWS Forum: https://support.run.pivotal.io/forums
 - Bluemix Forum: https://developer.ibm.com/answers/
-- CF for Beginners: From Zero to Hero http://slides.cf-hero.cloudcredo.io/
 
 ## Issues
 If you have any question or doubt, please [create an issue](https://github.com/leotrinh/cf-node-client/issues).

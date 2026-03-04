@@ -14,6 +14,7 @@
     "m:publish": "npm run pub:dry && npm publish",
     "m:prepublishOnly": "npm test && npm run lint",
     "test": "npm run lint && npm run test_pws",
+    "test_pws": "mocha test --config=LOCAL_INSTANCE_1 --timeout 30000",
     "test_local": "mocha test --config=LOCAL_INSTANCE_1"
   },
   "homepage": "https://github.com/leotrinh/cf-node-client",
