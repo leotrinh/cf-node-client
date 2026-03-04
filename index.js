@@ -10,21 +10,21 @@ exports.version = '1.0.0';
 
 /**
  * Support for Apps
- * @type {[type]}
+ * @type {typeof Apps}
  */
 var Apps = require('./lib/model/cloudcontroller/Apps');
 exports.Apps = Apps;
 
 /**
  * Support for Buildpacks
- * @type {[type]}
+ * @type {typeof BuildPacks}
  */
 var BuildPacks = require('./lib/model/cloudcontroller/BuildPacks');
 exports.BuildPacks = BuildPacks;
 
 /**
  * Support for Cloud Controller
- * @type {[type]}
+ * @type {typeof CloudController}
  */
 var CloudController = require('./lib/model/cloudcontroller/CloudController');
 exports.CloudController = CloudController;
@@ -32,119 +32,119 @@ exports.CloudController = CloudController;
 
 /**
  * Support for Domains
- * @type {[type]}
+ * @type {typeof Domains}
  */
 var Domains = require('./lib/model/cloudcontroller/Domains');
 exports.Domains = Domains;
 
 /**
  * Support for Events
- * @type {[type]}
+ * @type {typeof Events}
  */
 var Events = require('./lib/model/cloudcontroller/Events');
 exports.Events = Events;
 
 /**
  * Support for Jobs
- * @type {[type]}
+ * @type {typeof Jobs}
  */
 var Jobs = require('./lib/model/cloudcontroller/Jobs');
 exports.Jobs = Jobs;
 
 /**
  * Support for Logs
- * @type {[type]}
+ * @type {typeof Logs}
  */
 var Logs = require('./lib/model/metrics/Logs');
 exports.Logs = Logs;
 
 /**
  * Support for Organizations
- * @type {[type]}
+ * @type {typeof Organizations}
  */
 var Organizations = require('./lib/model/cloudcontroller/Organizations');
 exports.Organizations = Organizations;
 
 /**
  * Support for Organizations Quota
- * @type {[type]}
+ * @type {typeof OrganizationsQuota}
  */
 var OrganizationsQuota = require('./lib/model/cloudcontroller/OrganizationsQuota');
 exports.OrganizationsQuota = OrganizationsQuota;
 
 /**
  * Support for Routes
- * @type {[type]}
+ * @type {typeof Routes}
  */
 var Routes = require('./lib/model/cloudcontroller/Routes');
 exports.Routes = Routes;
 
 /**
  * Support for Services
- * @type {[type]}
+ * @type {typeof Services}
  */
 var Services = require('./lib/model/cloudcontroller/Services');
 exports.Services = Services;
 
 /**
  * Support for ServiceBindings
- * @type {[type]}
+ * @type {typeof ServiceBindings}
  */
 var ServiceBindings = require('./lib/model/cloudcontroller/ServiceBindings');
 exports.ServiceBindings = ServiceBindings;
 
 /**
  * Support for ServiceInstances
- * @type {[type]}
+ * @type {typeof ServiceInstances}
  */
 var ServiceInstances = require('./lib/model/cloudcontroller/ServiceInstances');
 exports.ServiceInstances = ServiceInstances;
 
 /**
  * Support for ServicePlans
- * @type {[type]}
+ * @type {typeof ServicePlans}
  */
 var ServicePlans = require('./lib/model/cloudcontroller/ServicePlans');
 exports.ServicePlans = ServicePlans;
 
 /**
  * Support for Spaces
- * @type {[type]}
+ * @type {typeof Spaces}
  */
 var Spaces = require('./lib/model/cloudcontroller/Spaces');
 exports.Spaces = Spaces;
 
 /**
  * Support for Spaces Quota
- * @type {[type]}
+ * @type {typeof SpacesQuota}
  */
 var SpacesQuota = require('./lib/model/cloudcontroller/SpacesQuota');
 exports.SpacesQuota = SpacesQuota;
 
 /**
  * Support for Stacks
- * @type {[type]}
+ * @type {typeof Stacks}
  */
 var Stacks = require('./lib/model/cloudcontroller/Stacks');
 exports.Stacks = Stacks;
 
 /**
  * Support for User Provided Services
- * @type {[type]}
+ * @type {typeof UserProvidedServices}
  */
 var UserProvidedServices = require('./lib/model/cloudcontroller/UserProvidedServices');
 exports.UserProvidedServices = UserProvidedServices;
 
 /**
  * Support for Users
- * @type {[type]}
+ * @type {typeof Users}
  */
 var Users = require('./lib/model/cloudcontroller/Users');
 exports.Users = Users;
 
 /**
  * Support for Users UAA
- * @type {[type]}
+ * @type {typeof UsersUAA}
  */
 var UsersUAA = require('./lib/model/uaa/UsersUAA');
 exports.UsersUAA = UsersUAA;

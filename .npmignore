@@ -8,12 +8,19 @@
 docs/CodeReview.md
 docs/WorkflowReview.md
 
+# Plans & internal docs
+plans/
+
 # Test & dev config
+test/
+test_resources/
 *.test.js
 *.test.ts
 jest.config.js
 tsconfig.json
 .eslintrc.json
+Gruntfile.js
+config.TEMPLATE.json
 
 *.log
 .DS_Store

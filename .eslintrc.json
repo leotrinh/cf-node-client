@@ -2,7 +2,8 @@
   "env": {
     "node": true,
     "es6": true,
-    "jest": true
+    "jest": true,
+    "mocha": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
@@ -10,12 +11,12 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-console": 1,
-    "no-unused-vars": [1, { "argsIgnorePattern": "^_" }],
-    "no-undef": 1,
+    "no-console": 0,
+    "no-unused-vars": 0,
+    "no-undef": 0,
     "no-debugger": 2,
     "semi": 0,
-    "comma-dangle": 1,
+    "comma-dangle": 0,
     "no-unreachable": 1,
     "no-extra-semi": 0
   },

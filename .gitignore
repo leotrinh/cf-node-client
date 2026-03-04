@@ -38,3 +38,6 @@ doc
 
 #configuracion
 config.json
+
+# Plans (auto-generated)
+# plans/

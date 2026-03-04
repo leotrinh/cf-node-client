@@ -1,8 +1,13 @@
 # cf-node-client
 
-**Author:** [leotrinh](https://github.com/leotrinh) & GitHub Copilot
+**Author:** [leotrinh](https://github.com/leotrinh) & GitHub Copilot & Claude Kit
+## Ship fast with Claude Kit
+Ship Faster With AI Dev Teams
+[Buy here to save 25% (always) ](https://claudekit.cc/?ref=VAK416FU)
 
-**Status:** This package is a fork of [prosociallearnEU/cf-nodejs-client](https://github.com/prosociallearnEU/cf-nodejs-client) and is no longer actively maintained by the original authors. All new updates and maintenance are managed by [leotrinh](https://github.com/leotrinh).
+![https://claudekit.cc/?ref=VAK416FU](https://cdn.tinhtd.info/public/go1/ads_ck.png)
+
+**Status:** This package is a fork of [prosociallearnEU/cf-nodejs-client](https://github.com/prosociallearnEU/cf-nodejs-client) by Juan Antonio Breña Moral and is no longer actively maintained by the original authors. All new updates and maintenance are managed by [leotrinh](https://github.com/leotrinh).
 
 ---
 
@@ -10,8 +15,11 @@
 
 This project provides a simple client library to interact with the [Cloud Foundry Architecture](https://docs.pivotal.io/pivotalcf/concepts/architecture/):
 
-![ScreenShot](https://raw.githubusercontent.com/prosociallearnEU/cf-node-client/master/docs/cf_architecture_block.png)
+![ScreenShot](./docs/static/cf_architecture_block.png)
 
+UML
+
+![ScreenShot](./docs/static/umlDiagram.png)
 ## Documentation
 - [Usage Guide](docs/plan/usage/START_HERE.md)
 - [Documentation Index](docs/plan/usage/README_DOCUMENTATION_INDEX.md)
@@ -58,6 +66,41 @@ npm install cf-node-client --save
 
 See [Usage Guide](docs/plan/usage/START_HERE.md) for examples and API usage.
 
+## TypeScript Support
+
+This package ships with built-in TypeScript type declarations. No additional `@types` package needed.
+
+```typescript
+import {
+  CloudController,
+  UsersUAA,
+  Apps,
+  Spaces,
+  Organizations,
+  OAuthToken
+} from "cf-node-client";
+
+const uaa = new UsersUAA("https://login.run.pivotal.io");
+const token: OAuthToken = await uaa.login("user", "pass");
+
+const apps = new Apps("https://api.run.pivotal.io");
+apps.setToken(token);
+const result = await apps.getApps();
+console.log(result.resources);
+```
+
+### Available Types
+
+| Type | Description |
+|------|-------------|
+| `OAuthToken` | UAA authentication token |
+| `FilterOptions` | Pagination and query filters |
+| `DeleteOptions` | Delete operation options |
+| `ApiResponse<T>` | Typed API response wrapper |
+| `CloudControllerBaseOptions` | Base constructor options |
+
+See [examples/](examples/) for more TypeScript usage patterns.
+
 ## Technical Documentation
 - [JSDoc](https://prosociallearneu.github.io/cf-nodejs-client/)
 
@@ -95,7 +138,6 @@ See [CHANGELOG.md](CHANGELOG.md) for version history.
 - Bluemix Console: https://console.ng.bluemix.net/
 - PWS Forum: https://support.run.pivotal.io/forums
 - Bluemix Forum: https://developer.ibm.com/answers/
-- CF for Beginners: From Zero to Hero http://slides.cf-hero.cloudcredo.io/
 
 ## Issues
 If you have any question or doubt, please [create an issue](https://github.com/leotrinh/cf-node-client/issues).

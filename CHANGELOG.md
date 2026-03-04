@@ -2,6 +2,14 @@
 
 **MAJOR RELEASE - Cloud Foundry API v3 Migration & Package Rename**
 
+### TypeScript Support
+- **Type Declarations**: Full `.d.ts` type definitions for all public APIs (`types/index.d.ts`)
+- **IntelliSense**: Autocomplete and type checking for all 19 Cloud Controller models, UAA, and Logs
+- **Typed Interfaces**: `OAuthToken`, `FilterOptions`, `DeleteOptions`, `ApiResponse<T>`, `CloudControllerBaseOptions`
+- **CI Validation**: `tsc --noEmit` runs in CI pipeline to prevent type regressions
+- **Examples**: TypeScript usage examples in `examples/` directory
+- **Zero Runtime Impact**: Type declarations only — no runtime dependencies added
+
 ### Highlights
 - **Cloud Foundry API v3 Support (Default)**: All 17 Cloud Controller models now support Cloud Foundry API v3 endpoints
 - **Backward Compatibility**: Cloud Foundry API v2 support available via explicit configuration
