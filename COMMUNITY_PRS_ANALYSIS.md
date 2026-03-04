@@ -1,18 +1,68 @@
 # Community PRs Analysis & Adaptation Plan
 
-**Repository:** prosociallearnEU/cf-nodejs-client (old, unmaintained)  
+**Sources:**
+1. prosociallearnEU/cf-nodejs-client (old, unmaintained)  
+2. IBM-Cloud/cf-nodejs-client (IBM-managed fork)
+
 **Date:** 260304  
-**Status:** 3 Open PRs found
+**Status:** 5 Open PRs found (consolidated from 2 sources)
 
 ---
 
-## PR Summary Table
+## PR Summary Table (Consolidated)
+
+**prosociallearnEU/cf-nodejs-client (3 PRs):**
 
 | PR # | Title | Author | Date | Status | Impact | Adapt? |
 |------|-------|--------|------|--------|--------|--------|
-| #195 | Fix updating apps | piotr-s-brainhub | Sep 2018 | Open | 🔴 CRITICAL | ✅ YES |
+| #195 | Fix updating apps | piotr-s-brainhub | Sep 2018 | Open | 🔴 CRITICAL | ✅ **DONE** |
 | #187 | Add support for ServiceKeys | hsiliev | Aug 2016 | Open | 🟡 FEATURE | ✅ YES |
 | #193 | Link to documentation was wrong | WorkAlexGahr | Apr 2018 | Open | 🔵 TRIVIAL | ❌ SKIP |
+
+**IBM-Cloud/cf-nodejs-client (2 PRs):**
+
+| PR # | Title | Author | Date | Status | Impact | Adapt? |
+|------|-------|--------|------|--------|--------|--------|
+| #46 | Update request version (security) | kyle-apex | Nov 2017 | Open | 🔴 **SECURITY** | ✅ YES |
+| #48 | Add ServiceKeys implementation | zuhito | Aug 2018 | Open | 🟡 FEATURE | ✅ YES (same as #187) |
+
+**Total Actionable Items:** 3 unique PRs to adapt
+
+---
+
+## 🔴 NEW CRITICAL FINDING: IBM-Cloud PR #46 - Security Vulnerability
+
+**IBM-Cloud/cf-nodejs-client PR #46:** Update "request" version to avoid security vulnerability
+
+### Security Issues Found:
+1. **tough-cookie@2.2.2** - ReDoS vulnerability parsing Set-Cookie
+   - CVE Advisory: https://nodesecurity.io/advisories/130
+   - Impact: Denial of Service via malicious Set-Cookie header
+   
+2. **ws** - Unspecified dependency vulnerability  
+   - CVE Advisory: https://nodesecurity.io/advisories/550
+   
+3. **Summary:** 9 out of 10 vulnerabilities can be fixed by updating dependencies with ^versions
+
+### Fix Applied in PR #46:
+```json
+{
+  "dependencies": {
+    "bluebird": "^3.0.6",      // Allow minor updates
+    "protobufjs": "^5.0.1",    // Allow minor updates
+    "request": "^2.81.0",      // Allow minor updates (was pinned)
+    "restler": "^3.4.0",       // Allow minor updates
+    "ws": "^1.1.1"             // Allow minor updates
+  }
+}
+```
+
+### Our Action:
+✅ **MUST ADOPT** - Update package.json with caret-based versioning to allow security patches
+
+**Status in v1.0.0:** 
+- ⚠️ Current package.json likely has pinned vulnerable versions
+- Action: Update to use ^ for security updates
 
 ---
 
@@ -99,11 +149,12 @@ class ServiceKeys extends CloudControllerBase {
 
 ## Adaptation Priority & Effort
 
-| PR # | Priority | Effort | Target | Include? |
-|------|----------|--------|--------|----------|
-| #195 | 🔴 CRITICAL | ✅ DONE | Phase 1 | ✅ **DONE** |
-| #187 | 🟡 HIGH | 2-3 days | Phase 9 (New) | ✅ **YES** |
-| #193 | 🔵 LOW | 30 min | v2.0 | ❌ **SKIP** |
+| PR # | Source | Priority | Effort | Target | Include? | Notes |
+|------|--------|----------|--------|--------|----------|-------|
+| #195 | prosociallearnEU | 🔴 CRITICAL | ✅ DONE | Phase 1 | ✅ **DONE** | Form property bug |
+| #46 | IBM-Cloud | 🔴 **SECURITY** | 30 min | Phase 1.5 | ✅ **YES** | Dependency versions |
+| #187/#48 | Both repos | 🟡 HIGH | 2-3 days | Phase 9 | ✅ **YES** | ServiceKeys feature |
+| #193 | prosociallearnEU | 🔵 LOW | 30 min | v2.0 | ❌ **SKIP** | Doc link only |
 
 ---
 
@@ -113,6 +164,11 @@ class ServiceKeys extends CloudControllerBase {
 - [x] HttpUtils.requestV2() form fix (matches PR #195 approach)
 - [x] Token validation
 - [x] Cleanup
+1.5: NEW - Security Dependencies ⚠️ **URGENT**
+- [ ] Update package.json with ^ for security patches
+- [ ] Run `npm audit` to verify
+- [ ] Test compatibility with updated versions
+- [ ] Commit security update
 
 ### Phase 4: DRY Refactoring (as planned)
 - Extract header builders
@@ -128,10 +184,23 @@ class ServiceKeys extends CloudControllerBase {
 
 ---
 
-## Community Impact
-- ✅ Incorporated PR #195 fix (bug fix)
-- ✅ Will implement PR #187 feature (enhancement)
-- ⏭️ PR #193 can be considered for v2.0 docs refresh
+## Community Impact Summary
 
+**From prosociallearnEU/cf-nodejs-client:**
+- ✅ PR #195 bug fix (incorporated)
+- ✅ PR #187 feature (will implement)
+- ⏭️ PR #193 doc fix (skip for now)
+
+**From IBM-Cloud/cf-nodejs-client:**
+- ✅ PR #46 security (will implement - URGENT!)
+- ✅ PR #48 feature (same as #187)
+
+**Total Value:**
+- 1 Critical bug fix ✅
+- 1 Security update ⚠️ (NEW)
+- 1 Feature enhancement 
+- Consolidated from 5 PRs across 2 repos
+
+**Outstanding:** 2 actionable improvements for v1.0.0
 **Total Community Value:** 2 major items (1 bugfix + 1 feature)
 
