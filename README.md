@@ -21,11 +21,10 @@ UML
 
 ![ScreenShot](./docs/static/umlDiagram.png)
 ## Documentation
-- [Usage Guide](docs/plan/usage/START_HERE.md)
-- [Documentation Index](docs/plan/usage/README_DOCUMENTATION_INDEX.md)
-- [Implementation Plan](docs/plan/phases/IMPLEMENTATION_PLAN_FINAL.md)
-- [Migration Guide](docs/plan/migration/MIGRATION_GUIDE.md)
-- [Code Review](docs/plan/code-review/Code-Review-260304.md)
+- [Usage Guide](docs/Usage.md)
+- [Service Usage](docs/Usage-cf-service.md)
+- [System Architecture](docs/SystemArchitecture.md)
+- [Code Review](docs/code-review/Code-Review-260304.md)
 
 ## API Reference
 
@@ -64,7 +63,7 @@ UML
 npm install cf-node-client --save
 ```
 
-See [Usage Guide](docs/plan/usage/START_HERE.md) for examples and API usage.
+See [Usage Guide](docs/Usage.md) for examples and API usage.
 
 ## TypeScript Support
 
@@ -106,7 +105,7 @@ See [examples/](examples/) for more TypeScript usage patterns.
 
 ## Testing
 
-This project has a test suite to ensure reliability. See [Test Cases](docs/plan/usage/START_HERE.md) for Mocha & Chai usage and coverage details.
+This project has a test suite to ensure reliability.
 
 Tested with:
 | [Local Instance](https://github.com/yudai/cf_nise_installer) | [PWS](https://console.run.pivotal.io) | [Bluemix](https://console.ng.bluemix.net/) |
