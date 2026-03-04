@@ -11,6 +11,7 @@
     "lint": "eslint  ./lib/*.js ./lib/**/*.js ./test/*.js ./test/**/*.js",
     "lint:fix": "eslint . --fix",
     "tsc:check": "tsc --noEmit",
+    "test:unit": "mocha test/lib/ApiMigrationTests.js test/utils/ZipGeneratorTests.js --timeout 5000",
     "build": "tsc",
     "pub:dry": "npm publish --dry-run",
     "m:publish": "npm run pub:dry && npm publish",

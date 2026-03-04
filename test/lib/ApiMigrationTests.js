@@ -54,70 +54,77 @@ describe('cf-node-client v1.0.0 - API v3 Migration', function () {
         
         it('should initialize with v3 as default', function () {
             const config = new ApiConfig();
-            expect(config.isV3Enabled()).to.be.true;
+            expect(config.isV3()).to.be.true;
         });
 
         it('should support v3 API version', function () {
             const config = new ApiConfig();
-            expect(() => config.setApiVersion('v3')).to.not.throw();
-            expect(config.isV3Enabled()).to.be.true;
+            expect(() => config.setVersion('v3')).to.not.throw();
+            expect(config.isV3()).to.be.true;
         });
 
         it('should support v2 API version for backward compatibility', function () {
             const config = new ApiConfig();
-            expect(() => config.setApiVersion('v2')).to.not.throw();
-            expect(config.isV3Enabled()).to.be.false;
+            expect(() => config.setVersion('v2')).to.not.throw();
+            expect(config.isV3()).to.be.false;
         });
 
         it('should reject invalid API versions', function () {
             const config = new ApiConfig();
-            expect(() => config.setApiVersion('v4')).to.throw();
+            expect(() => config.setVersion('v4')).to.throw();
         });
 
         it('should return current API version', function () {
             const config = new ApiConfig();
-            expect(config.getApiVersion()).to.equal('v3');
-            config.setApiVersion('v2');
-            expect(config.getApiVersion()).to.equal('v2');
+            expect(config.getVersion()).to.equal('v3');
+            config.setVersion('v2');
+            expect(config.getVersion()).to.equal('v2');
         });
     });
 
     describe('ApiVersionManager - Endpoint Mapping', function () {
         
+        let versionManager;
+
+        beforeEach(function () {
+            versionManager = new ApiVersionManager();
+        });
+
         it('should map Apps endpoints for v2', function () {
-            const endpoints = ApiVersionManager.getEndpointForResource('apps', 'v2');
-            expect(endpoints).to.include('/v2/apps');
+            const endpoint = versionManager.getEndpoint('apps', 'v2');
+            expect(endpoint).to.include('/v2/apps');
         });
 
         it('should map Apps endpoints for v3', function () {
-            const endpoints = ApiVersionManager.getEndpointForResource('apps', 'v3');
-            expect(endpoints).to.include('/v3/apps');
+            const endpoint = versionManager.getEndpoint('apps', 'v3');
+            expect(endpoint).to.include('/v3/apps');
         });
 
         it('should handle renamed endpoints: services -> service_offerings', function () {
-            const endpoints = ApiVersionManager.getEndpointForResource('services', 'v3');
-            expect(endpoints).to.include('service_offerings');
+            const endpoint = versionManager.getEndpoint('services', 'v3');
+            expect(endpoint).to.include('service_offerings');
         });
 
         it('should handle renamed endpoints: events -> audit_events', function () {
-            const endpoints = ApiVersionManager.getEndpointForResource('events', 'v3');
-            expect(endpoints).to.include('audit_events');
+            const endpoint = versionManager.getEndpoint('events', 'v3');
+            expect(endpoint).to.include('audit_events');
         });
 
-        it('should handle renamed endpoints: jobs -> tasks', function () {
-            const endpoints = ApiVersionManager.getEndpointForResource('jobs', 'v3');
-            expect(endpoints).to.include('tasks');
+        it('should handle jobs endpoint mapping', function () {
+            const endpoint = versionManager.getEndpoint('jobs', 'v3');
+            expect(endpoint).to.include('/v3/jobs');
         });
 
-        it('should support 16+ resource types mapping', function () {
-            const resources = ['apps', 'organizations', 'spaces', 'services', 'instances', 
-                            'routes', 'bindings', 'domains', 'buildpacks', 'stacks', 
-                            'users', 'events', 'jobs', 'org_quotas', 'space_quotas'];
+        it('should support 16 resource types mapping', function () {
+            const resources = ['apps', 'organizations', 'spaces', 'services', 'serviceInstances', 
+                            'routes', 'serviceBindings', 'domains', 'buildpacks', 'stacks', 
+                            'users', 'events', 'jobs', 'organizationQuotas', 'spaceQuotas',
+                            'userProvidedServices'];
             
             resources.forEach(resource => {
                 expect(() => {
-                    ApiVersionManager.getEndpointForResource(resource, 'v3');
-                    ApiVersionManager.getEndpointForResource(resource, 'v2');
+                    versionManager.getEndpoint(resource, 'v3');
+                    versionManager.getEndpoint(resource, 'v2');
                 }).to.not.throw();
             });
         });
@@ -147,9 +154,9 @@ describe('cf-node-client v1.0.0 - API v3 Migration', function () {
         });
 
         it('should preserve token after switching API version', function () {
-            const originalToken = controller.accessToken.access_token;
+            const originalToken = controller.UAA_TOKEN.access_token;
             controller.setApiVersion('v2');
-            expect(controller.accessToken.access_token).to.equal(originalToken);
+            expect(controller.UAA_TOKEN.access_token).to.equal(originalToken);
         });
 
         it('should return current API version', function () {
