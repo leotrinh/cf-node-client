@@ -1,0 +1,14 @@
+# Legacy files - high maintenance cost for linting compliance
+lib/model/cloudcontroller/Spaces.js
+lib/model/cloudcontroller/Apps.js
+
+# Build output
+build/
+dist/
+node_modules/
+
+# Obsolete backups
+obsolete/
+
+# Test resources
+test_resources/

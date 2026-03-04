@@ -2,28 +2,27 @@
   "name": "cf-node-client",
   "version": "1.0.0",
   "description": "A Cloud Foundry Client for Node.js",
-  "author": "Juan Antonio Breña Moral <bren@juanantonio.info>",
+  "author": "Leo Trinh <tinhtd.info@gmail.com>",
   "license": "Apache-2.0",
   "main": "index.js",
   "scripts": {
     "preversion": "npm run lint && npm run test_local",
-    "lint": "eslint  ./lib/model/**/*.js ./lib/utils/*.js",
+    "lint": "eslint  ./lib/*.js ./lib/**/*.js ./test/*.js ./test/**/*.js",
+    "lint:fix": "eslint . --fix",
+    "build": "tsc",
+    "pub:dry": "npm publish --dry-run",
+    "m:publish": "npm run pub:dry && npm publish",
+    "m:prepublishOnly": "npm test && npm run lint",
     "test": "npm run lint && npm run test_pws",
-    "test_local": "mocha test --config=LOCAL_INSTANCE_1",
-    "test_pws": "mocha test --config=PIVOTAL",
-    "test_bluemix": "mocha test --config=BLUEMIX"
+    "test_local": "mocha test --config=LOCAL_INSTANCE_1"
   },
-  "homepage": "https://github.com/prosociallearnEU/cf-node-client",
+  "homepage": "https://github.com/leotrinh/cf-node-client",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prosociallearnEU/cf-node-client.git"
+    "url": "git+https://github.com/leotrinh/cf-node-client.git"
   },
   "bugs": {
-    "url": "https://github.com/prosociallearnEU/cf-node-client/issues"
-  },
-  "engines": {
-    "node": ">=4.2.3",
-    "npm": ">=2.14.7"
+    "url": "https://github.com/leotrinh/cf-node-client/issues"
   },
   "files": [
     "index.js",

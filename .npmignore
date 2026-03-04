@@ -1,1 +1,23 @@
 .git*
+.github/
+.vscode/
+.agent/
+.claude/
+
+# Internal review docs
+docs/CodeReview.md
+docs/WorkflowReview.md
+
+# Test & dev config
+*.test.js
+*.test.ts
+jest.config.js
+tsconfig.json
+.eslintrc.json
+
+*.log
+.DS_Store
+node_modules/
+coverage/
+.nyc_output/
+obsolete
