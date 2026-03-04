@@ -398,10 +398,7 @@ describe("Cloud foundry Service Bindings", function () {
                 };             
                 return CloudFoundryServiceBindings.getServiceBindings(filter);
             }).then(function (result) {
-                expect(result.total_results).to.equal(0); 
-                return new Promise(function (resolve) {
-                    return resolve();
-                });            
+                expect(result.total_results).to.equal(0);
                 return CloudFoundryUserProvidedServices.remove(service_guid);
             }).then(function (result) {
                 return CloudFoundryApps.remove(app_guid);

@@ -1,0 +1,356 @@
+
+> cf-node-client@1.0.0 lint
+> eslint  ./lib/*.js ./lib/**/*.js ./test/*.js ./test/**/*.js
+
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\lib\model\cloudcontroller\CloudControllerBase.js
+  5:7  warning  "ApiConfig" is defined but never used          no-unused-vars
+  6:7  warning  "ApiVersionManager" is defined but never used  no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\AppsTests.js
+   13:1   warning  Unexpected console statement                no-console
+   33:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   34:9   warning  "token_type" is defined but never used      no-unused-vars
+   35:9   warning  "access_token" is defined but never used    no-unused-vars
+   92:13  warning  Unexpected console statement                no-console
+  211:21  warning  Unexpected console statement                no-console
+  240:13  warning  Unexpected console statement                no-console
+  248:13  warning  Unexpected console statement                no-console
+  310:27  warning  "result" is defined but never used          no-unused-vars
+  314:13  warning  Unexpected console statement                no-console
+  389:27  warning  "result" is defined but never used          no-unused-vars
+  402:65  warning  "result" is defined but never used          no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\BuildPacksTests.js
+  5:5  warning  "Promise" is defined but never used  no-unused-vars
+  6:5  warning  "chai" is defined but never used     no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\CloudControllerTests.js
+   5:5   warning  "Promise" is defined but never used         no-unused-vars
+  28:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+  48:13  warning  Unexpected console statement                no-console
+  58:66  warning  "result" is defined but never used          no-unused-vars
+  68:17  warning  Unexpected console statement                no-console
+  75:79  warning  "result" is defined but never used          no-unused-vars
+  78:17  warning  Unexpected console statement                no-console
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\DockerTests.js
+    7:5   warning  "chai" is defined but never used               no-unused-vars
+   41:5   warning  "fs" is defined but never used                 no-unused-vars
+   48:9   warning  "token_endpoint" is defined but never used     no-unused-vars
+   49:9   warning  "logging_endpoint" is defined but never used   no-unused-vars
+   50:9   warning  "token_type" is defined but never used         no-unused-vars
+   51:9   warning  "access_token" is defined but never used       no-unused-vars
+   97:13  warning  "routeName" is defined but never used          no-unused-vars
+   99:13  warning  "route_create_flag" is defined but never used  no-unused-vars
+  157:17  warning  Unexpected console statement                   no-console
+  185:79  warning  "result" is defined but never used             no-unused-vars
+  188:17  warning  Unexpected console statement                   no-console
+  200:17  warning  Unexpected console statement                   no-console
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\DomainsTests.js
+   6:5  warning  "Promise" is defined but never used         no-unused-vars
+   7:5  warning  "chai" is defined but never used            no-unused-vars
+  29:9  warning  "token_endpoint" is defined but never used  no-unused-vars
+  30:9  warning  "token_type" is defined but never used      no-unused-vars
+  31:9  warning  "access_token" is defined but never used    no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\EventsTests.js
+   4:5  warning  "chai" is defined but never used            no-unused-vars
+  26:9  warning  "token_endpoint" is defined but never used  no-unused-vars
+  27:9  warning  "token_type" is defined but never used      no-unused-vars
+  28:9  warning  "access_token" is defined but never used    no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\JobTests.js
+    4:5   warning  "chai" is defined but never used               no-unused-vars
+   43:9   warning  "token_endpoint" is defined but never used     no-unused-vars
+   44:9   warning  "token_type" is defined but never used         no-unused-vars
+   45:9   warning  "access_token" is defined but never used       no-unused-vars
+   49:5   warning  "before" is not defined                        no-undef
+   95:13  warning  "routeName" is defined but never used          no-unused-vars
+   97:13  warning  "route_create_flag" is defined but never used  no-unused-vars
+  155:17  warning  Unexpected console statement                   no-console
+  170:17  warning  Unexpected console statement                   no-console
+  197:13  warning  "job_status" is defined but never used         no-unused-vars
+  226:27  warning  "result" is defined but never used             no-unused-vars
+  295:21  warning  Unexpected console statement                   no-console
+  301:25  warning  Unexpected console statement                   no-console
+  324:21  warning  Unexpected console statement                   no-console
+  330:25  warning  Unexpected console statement                   no-console
+  351:21  warning  Unexpected console statement                   no-console
+  357:25  warning  Unexpected console statement                   no-console
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\OrganizationsQuotaTests.js
+    5:5   warning  "Promise" is defined but never used         no-unused-vars
+    6:5   warning  "chai" is defined but never used            no-unused-vars
+   31:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   32:9   warning  "token_type" is defined but never used      no-unused-vars
+   33:9   warning  "access_token" is defined but never used    no-unused-vars
+   60:13  warning  "org_guid" is defined but never used        no-unused-vars
+   62:74  warning  "result" is defined but never used          no-unused-vars
+   74:13  warning  Unexpected console statement                no-console
+   78:13  warning  Unexpected console statement                no-console
+   97:13  warning  Unexpected console statement                no-console
+  111:13  warning  Unexpected console statement                no-console
+  139:31  warning  "result" is defined but never used          no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\OrganizationsTests.js
+    6:5   warning  "chai" is defined but never used            no-unused-vars
+   38:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   39:9   warning  "token_type" is defined but never used      no-unused-vars
+   40:9   warning  "access_token" is defined but never used    no-unused-vars
+   76:13  warning  "org_guid" is defined but never used        no-unused-vars
+   93:27  warning  "result" is defined but never used          no-unused-vars
+  107:27  warning  "result" is defined but never used          no-unused-vars
+  121:27  warning  "result" is defined but never used          no-unused-vars
+  142:13  warning  "org_guid" is defined but never used        no-unused-vars
+  147:63  warning  "result" is defined but never used          no-unused-vars
+  172:31  warning  "result" is defined but never used          no-unused-vars
+  215:31  warning  "result" is defined but never used          no-unused-vars
+  221:31  warning  "result" is defined but never used          no-unused-vars
+  226:31  warning  "result" is defined but never used          no-unused-vars
+  257:37  warning  Unexpected trailing comma                   comma-dangle
+  280:31  warning  "result" is defined but never used          no-unused-vars
+  300:31  warning  "result" is defined but never used          no-unused-vars
+  302:31  warning  "result" is defined but never used          no-unused-vars
+  310:31  warning  "result" is defined but never used          no-unused-vars
+  317:31  warning  "result" is defined but never used          no-unused-vars
+  323:31  warning  "result" is defined but never used          no-unused-vars
+  328:31  warning  "result" is defined but never used          no-unused-vars
+  339:25  warning  "accountName" is not defined                no-undef
+  352:28  warning  "accountName" is not defined                no-undef
+  359:44  warning  Unexpected trailing comma                   comma-dangle
+  362:59  warning  "accountName" is not defined                no-undef
+  368:29  warning  "accountName" is not defined                no-undef
+  376:29  warning  "accountName" is not defined                no-undef
+  383:31  warning  "result" is defined but never used          no-unused-vars
+  406:31  warning  "result" is defined but never used          no-unused-vars
+  409:31  warning  "result" is defined but never used          no-unused-vars
+  411:51  warning  "accountName" is not defined                no-undef
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\RoutesTests.js
+    6:5   warning  "chai" is defined but never used            no-unused-vars
+   32:10  warning  "randomInt" is defined but never used       no-unused-vars
+   39:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   40:9   warning  "token_type" is defined but never used      no-unused-vars
+   41:9   warning  "access_token" is defined but never used    no-unused-vars
+  111:13  warning  Unexpected console statement                no-console
+  185:13  warning  "routeName" is defined but never used       no-unused-vars
+  206:9   warning  Unexpected console statement                no-console
+  219:17  warning  Unexpected console statement                no-console
+  245:52  warning  "result" is defined but never used          no-unused-vars
+  258:13  warning  Unexpected console statement                no-console
+  293:56  warning  "reject" is defined but never used          no-unused-vars
+  303:13  warning  Unexpected console statement                no-console
+  319:64  warning  "reject" is defined but never used          no-unused-vars
+  323:21  warning  Unexpected console statement                no-console
+  362:13  warning  Unexpected console statement                no-console
+  364:13  warning  Unexpected console statement                no-console
+  369:21  warning  Unexpected console statement                no-console
+  390:13  warning  Unexpected console statement                no-console
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\ServiceBindingsTests.js
+    6:5   warning  "chai" is defined but never used            no-unused-vars
+   37:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   38:9   warning  "token_type" is defined but never used      no-unused-vars
+   39:9   warning  "access_token" is defined but never used    no-unused-vars
+  119:27  warning  "result" is defined but never used          no-unused-vars
+  131:13  warning  Unexpected console statement                no-console
+  151:27  warning  "result" is defined but never used          no-unused-vars
+  188:27  warning  "result" is defined but never used          no-unused-vars
+  201:27  warning  "result" is defined but never used          no-unused-vars
+  256:27  warning  "result" is defined but never used          no-unused-vars
+  264:27  warning  "result" is defined but never used          no-unused-vars
+  275:27  warning  "result" is defined but never used          no-unused-vars
+  292:27  warning  "result" is defined but never used          no-unused-vars
+  294:27  warning  "result" is defined but never used          no-unused-vars
+  296:27  warning  "result" is defined but never used          no-unused-vars
+  298:27  warning  "result" is defined but never used          no-unused-vars
+  357:31  warning  "result" is defined but never used          no-unused-vars
+  365:31  warning  "result" is defined but never used          no-unused-vars
+  376:31  warning  "result" is defined but never used          no-unused-vars
+  393:31  warning  "result" is defined but never used          no-unused-vars
+  395:31  warning  "result" is defined but never used          no-unused-vars
+  405:17  warning  Found unexpected statement after a return   no-unreachable
+  406:31  warning  "result" is defined but never used          no-unused-vars
+  408:31  warning  "result" is defined but never used          no-unused-vars
+  430:13  warning  Unexpected console statement                no-console
+  446:13  warning  Unexpected console statement                no-console
+  455:13  warning  Unexpected console statement                no-console
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\ServiceInstancesTests.js
+    5:5   warning  "chai" is defined but never used            no-unused-vars
+    7:5   warning  "randomWords" is defined but never used     no-unused-vars
+   38:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   39:9   warning  "token_type" is defined but never used      no-unused-vars
+   40:9   warning  "access_token" is defined but never used    no-unused-vars
+   70:14  warning  "randomInt" is defined but never used       no-unused-vars
+  175:27  warning  "result" is defined but never used          no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\ServicePlansTests.js
+    6:5   warning  "chai" is defined but never used            no-unused-vars
+    8:5   warning  "randomWords" is defined but never used     no-unused-vars
+   37:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   38:9   warning  "token_type" is defined but never used      no-unused-vars
+   39:9   warning  "access_token" is defined but never used    no-unused-vars
+   40:9   warning  "space_guid" is defined but never used      no-unused-vars
+   61:14  warning  "randomInt" is defined but never used       no-unused-vars
+   76:17  warning  Unexpected console statement                no-console
+  172:27  warning  "result" is defined but never used          no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\ServicesTests.js
+    5:5   warning  "chai" is defined but never used            no-unused-vars
+    7:5   warning  "randomWords" is defined but never used     no-unused-vars
+   36:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   37:9   warning  "token_type" is defined but never used      no-unused-vars
+   38:9   warning  "access_token" is defined but never used    no-unused-vars
+   39:9   warning  "space_guid" is defined but never used      no-unused-vars
+   58:14  warning  "randomInt" is defined but never used       no-unused-vars
+   67:17  warning  Unexpected console statement                no-console
+  135:27  warning  "result" is defined but never used          no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\SpacesQuotaTests.js
+   5:5  warning  "Promise" is defined but never used         no-unused-vars
+   6:5  warning  "chai" is defined but never used            no-unused-vars
+  28:9  warning  "token_endpoint" is defined but never used  no-unused-vars
+  29:9  warning  "token_type" is defined but never used      no-unused-vars
+  30:9  warning  "access_token" is defined but never used    no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\SpacesTests.js
+    5:5   warning  "Promise" is defined but never used         no-unused-vars
+    6:5   warning  "chai" is defined but never used            no-unused-vars
+   30:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   31:9   warning  "token_type" is defined but never used      no-unused-vars
+   32:9   warning  "access_token" is defined but never used    no-unused-vars
+  101:27  warning  "result" is defined but never used          no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\StacksTests.js
+   3:5  warning  "Promise" is defined but never used         no-unused-vars
+   4:5  warning  "chai" is defined but never used            no-unused-vars
+  27:9  warning  "token_endpoint" is defined but never used  no-unused-vars
+  28:9  warning  "token_type" is defined but never used      no-unused-vars
+  29:9  warning  "access_token" is defined but never used    no-unused-vars
+  31:5  warning  "before" is not defined                     no-undef
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\UploadJEEAppsTests.js
+    7:5   warning  "chai" is defined but never used               no-unused-vars
+   39:5   warning  "fs" is defined but never used                 no-unused-vars
+   46:9   warning  "token_endpoint" is defined but never used     no-unused-vars
+   47:9   warning  "token_type" is defined but never used         no-unused-vars
+   48:9   warning  "access_token" is defined but never used       no-unused-vars
+   90:13  warning  "routeName" is defined but never used          no-unused-vars
+   92:13  warning  "route_create_flag" is defined but never used  no-unused-vars
+  150:17  warning  Unexpected console statement                   no-console
+  181:27  warning  "result" is defined but never used             no-unused-vars
+  216:27  warning  "result" is defined but never used             no-unused-vars
+  235:13  warning  "route_guid" is defined but never used         no-unused-vars
+  251:27  warning  "result" is defined but never used             no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\UploadStaticAppsTests.js
+    7:5   warning  "chai" is defined but never used               no-unused-vars
+   48:9   warning  "token_endpoint" is defined but never used     no-unused-vars
+   50:9   warning  "token_type" is defined but never used         no-unused-vars
+   51:9   warning  "access_token" is defined but never used       no-unused-vars
+  103:13  warning  "routeName" is defined but never used          no-unused-vars
+  105:13  warning  "route_create_flag" is defined but never used  no-unused-vars
+  163:17  warning  Unexpected console statement                   no-console
+  182:17  warning  Unexpected console statement                   no-console
+  205:17  warning  Unexpected console statement                   no-console
+  229:17  warning  Unexpected console statement                   no-console
+  335:31  warning  "result" is defined but never used             no-unused-vars
+  338:31  warning  "result" is defined but never used             no-unused-vars
+  407:13  warning  Unexpected console statement                   no-console
+  416:17  warning  Unexpected console statement                   no-console
+  425:17  warning  Unexpected console statement                   no-console
+  428:27  warning  "result" is defined but never used             no-unused-vars
+  430:17  warning  Unexpected console statement                   no-console
+  433:27  warning  "result" is defined but never used             no-unused-vars
+  435:17  warning  Unexpected console statement                   no-console
+  438:27  warning  "result" is defined but never used             no-unused-vars
+  440:17  warning  Unexpected console statement                   no-console
+  443:27  warning  "result" is defined but never used             no-unused-vars
+  445:17  warning  Unexpected console statement                   no-console
+  448:27  warning  "result" is defined but never used             no-unused-vars
+  449:13  warning  Unexpected console statement                   no-console
+  467:13  warning  Unexpected console statement                   no-console
+  469:13  warning  Unexpected console statement                   no-console
+  472:13  warning  Unexpected console statement                   no-console
+  474:13  warning  Unexpected console statement                   no-console
+  477:13  warning  Unexpected console statement                   no-console
+  479:13  warning  Unexpected console statement                   no-console
+  487:13  warning  Unexpected console statement                   no-console
+  489:13  warning  Unexpected console statement                   no-console
+  492:13  warning  Unexpected console statement                   no-console
+  494:13  warning  Unexpected console statement                   no-console
+  512:13  warning  Unexpected console statement                   no-console
+  514:13  warning  Unexpected console statement                   no-console
+  522:27  warning  "result" is defined but never used             no-unused-vars
+  526:13  warning  Unexpected console statement                   no-console
+  534:13  warning  Unexpected console statement                   no-console
+  601:13  warning  Unexpected console statement                   no-console
+  610:27  warning  "result" is defined but never used             no-unused-vars
+  718:13  warning  Unexpected console statement                   no-console
+  733:17  warning  Unexpected console statement                   no-console
+  741:27  warning  "result" is defined but never used             no-unused-vars
+  806:13  warning  Unexpected console statement                   no-console
+  821:17  warning  Unexpected console statement                   no-console
+  829:27  warning  "result" is defined but never used             no-unused-vars
+  831:27  warning  "result" is defined but never used             no-unused-vars
+  852:13  warning  "job_status" is defined but never used         no-unused-vars
+  881:27  warning  "result" is defined but never used             no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\UserProvidedServicesTests.js
+    6:5   warning  "chai" is defined but never used            no-unused-vars
+   31:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   32:9   warning  "token_type" is defined but never used      no-unused-vars
+   33:9   warning  "access_token" is defined but never used    no-unused-vars
+   95:13  warning  "service_guid" is defined but never used    no-unused-vars
+  135:27  warning  "result" is defined but never used          no-unused-vars
+  165:27  warning  "result" is defined but never used          no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\cloudcontroller\UserTests.js
+   31:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+   32:9   warning  "token_type" is defined but never used      no-unused-vars
+   33:9   warning  "access_token" is defined but never used    no-unused-vars
+   86:73  warning  "result" is defined but never used          no-unused-vars
+  104:31  warning  "result" is defined but never used          no-unused-vars
+  106:31  warning  "result" is defined but never used          no-unused-vars
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\metrics\LogTests.js
+   6:5   warning  "chai" is defined but never used            no-unused-vars
+  30:9   warning  "token_endpoint" is defined but never used  no-unused-vars
+  32:9   warning  "token_type" is defined but never used      no-unused-vars
+  33:9   warning  "access_token" is defined but never used    no-unused-vars
+  81:13  warning  Unexpected console statement                no-console
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\lib\model\uaa\UserUAATests.js
+   28:9   warning  "token_endpoint" is defined but never used      no-unused-vars
+   31:9   warning  "refresh_token" is defined but never used       no-unused-vars
+   33:5   warning  "before" is not defined                         no-undef
+   80:13  warning  "token_type_test" is defined but never used     no-unused-vars
+   81:13  warning  "access_token_test" is defined but never used   no-unused-vars
+   82:13  warning  "refresh_token_test" is defined but never used  no-unused-vars
+   87:17  warning  Unexpected console statement                    no-console
+   94:27  warning  "result" is defined but never used              no-unused-vars
+  122:42  warning  Unexpected trailing comma                       comma-dangle
+  125:99  warning  "result" is defined but never used              no-unused-vars
+  149:17  warning  Unexpected console statement                    no-console
+  169:44  warning  Unexpected trailing comma                       comma-dangle
+  173:73  warning  "result" is defined but never used              no-unused-vars
+  183:31  warning  "result" is defined but never used              no-unused-vars
+  216:42  warning  Unexpected trailing comma                       comma-dangle
+  221:17  warning  Unexpected console statement                    no-console
+  231:31  warning  "result" is defined but never used              no-unused-vars
+  243:17  warning  Unexpected console statement                    no-console
+  245:31  warning  "result" is defined but never used              no-unused-vars
+  255:17  warning  Unexpected console statement                    no-console
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\utils\HttpUtilsTests.js
+   5:5   warning  "chai" is defined but never used  no-unused-vars
+  39:13  warning  Unexpected console statement      no-console
+
+D:\DevSpaces\LEOPACKWS\cf-nodejs-client\test\utils\ZipGeneratorTests.js
+  5:5  warning  "chai" is defined but never used  no-unused-vars
+
+✖ 297 problems (0 errors, 297 warnings)
+

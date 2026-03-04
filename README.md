@@ -1,10 +1,10 @@
 # cf-node-client
 
 **Author:** [leotrinh](https://github.com/leotrinh) & GitHub Copilot & Claude Kit
-## Claude Kit
+## Ship fast with Claude Kit
 Ship Faster With AI Dev Teams
 [Buy here to save 25% (always) ](https://claudekit.cc/?ref=VAK416FU)
-[https://claudekit.cc/?ref=VAK416FU]()
+
 ![https://claudekit.cc/?ref=VAK416FU](https://cdn.tinhtd.info/public/go1/ads_ck.png)
 
 **Status:** This package is a fork of [prosociallearnEU/cf-nodejs-client](https://github.com/prosociallearnEU/cf-nodejs-client) by Juan Antonio Breña Moral and is no longer actively maintained by the original authors. All new updates and maintenance are managed by [leotrinh](https://github.com/leotrinh).
@@ -15,8 +15,11 @@ Ship Faster With AI Dev Teams
 
 This project provides a simple client library to interact with the [Cloud Foundry Architecture](https://docs.pivotal.io/pivotalcf/concepts/architecture/):
 
-![ScreenShot](https://raw.githubusercontent.com/prosociallearnEU/cf-node-client/master/docs/cf_architecture_block.png)
+![ScreenShot](./docs/static/cf_architecture_block.png)
 
+UML
+
+![ScreenShot](./docs/static/umlDiagram.png)
 ## Documentation
 - [Usage Guide](docs/plan/usage/START_HERE.md)
 - [Documentation Index](docs/plan/usage/README_DOCUMENTATION_INDEX.md)
