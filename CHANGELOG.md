@@ -1,3 +1,67 @@
+## Version 1.0.0 2026-03-04
+
+**MAJOR RELEASE - Cloud Foundry API v3 Migration & Package Rename**
+
+### Highlights
+- **Cloud Foundry API v3 Support (Default)**: All 17 Cloud Controller models now support Cloud Foundry API v3 endpoints
+- **Backward Compatibility**: Cloud Foundry API v2 support available via explicit configuration
+- **Package Renamed**: `cf-nodejs-client` → `cf-node-client` (new npm package, old package no longer maintained)
+
+### Breaking Changes
+- Package name changed from `cf-nodejs-client` to `cf-node-client`
+- Default API version is now v3 (v2 still available via `setApiVersion("v2")`)
+- Installation: `npm install cf-node-client` (not `npm install cf-nodejs-client`)
+- All imported references now use `cf-node-client` package
+
+### New Features
+- **Dual API Support**: Each Cloud Controller method supports both v2 and v3 APIs
+  - v3: RESTful endpoints, improved query language, better data structures
+  - v2: Legacy endpoints, form-urlencoded format (for backward compatibility)
+- **Configuration System**: New `ApiConfig` and `ApiVersionManager` for version management
+- **API Version Routing**: Automatic routing between v2 and v3 implementations
+- **v3-Only Features**: Access to droplets, packages, and processes (v3-only)
+- **Field Translation**: Automatic conversion of field names between v2 and v3 formats
+- **State Management**: Auto-translation between v2 `state` and v3 `stopped` field
+
+### Updated Models (All with v3 Support)
+- Apps - 28 methods (including new v3-only methods)
+- Organizations, Spaces, Services, Routes
+- Service Instances, Service Bindings, Service Plans
+- Domains, Build Packs, Stacks
+- Users, UAA Users
+- Quotas (Organization & Space)
+- Events, Jobs, User-Provided Services
+
+### New Configuration Options
+```javascript
+const Apps = new CloudController().Apps;
+Apps.setApiVersion("v3");  // Use v3 (default)
+Apps.setApiVersion("v2");  // Use v2 (legacy)
+```
+
+### Documentation
+- [Migration Guide](./docs/IMPLEMENTATION_PLAN_FINAL.md) - Detailed v3 migration info
+- [v3 Progress](./docs/v3-migration-progress.md) - Model-by-model status
+- [API Reference](./docs/README_DOCUMENTATION_INDEX.md) - Complete API documentation
+
+### Environment Testing Status
+Environment: All (LOCAL, PWS, BLUEMIX)
+
+### Known Limitations
+- Metrics and UAA models use v2-compatible structure
+- Some v2-only operations not available in v3
+
+### Migration Path for Users
+Users of `cf-nodejs-client`:
+1. Update package reference: `npm uninstall cf-nodejs-client && npm install cf-node-client`
+2. Update require statements: `require('cf-node-client')`
+3. Optional: Set API version explicitly: `client.setApiVersion('v3')` or `client.setApiVersion('v2')`
+4. For v2-only operations, use `setApiVersion('v2')` explicitly
+
+### Contributors
+- Original developer: Juan Antonio Breña Moral
+- v3 Migration: Modern API Upgrade Initiative
+
 ## Version 0.13.0 2016-01-26
 
 - Add ESLint support

@@ -1,6 +1,6 @@
 {
-  "name": "cf-nodejs-client",
-  "version": "0.13.1",
+  "name": "cf-node-client",
+  "version": "1.0.0",
   "description": "A Cloud Foundry Client for Node.js",
   "author": "Juan Antonio Breña Moral <bren@juanantonio.info>",
   "license": "Apache-2.0",
@@ -13,13 +13,13 @@
     "test_pws": "mocha test --config=PIVOTAL",
     "test_bluemix": "mocha test --config=BLUEMIX"
   },
-  "homepage": "https://github.com/prosociallearnEU/cf-nodejs-client",
+  "homepage": "https://github.com/prosociallearnEU/cf-node-client",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prosociallearnEU/cf-nodejs-client.git"
+    "url": "git+https://github.com/prosociallearnEU/cf-node-client.git"
   },
   "bugs": {
-    "url": "https://github.com/prosociallearnEU/cf-nodejs-client/issues"
+    "url": "https://github.com/prosociallearnEU/cf-node-client/issues"
   },
   "engines": {
     "node": ">=4.2.3",

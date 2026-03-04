@@ -1,17 +1,16 @@
-# cf-nodejs-client 
+# cf-node-client 
 
-[![Build Status](https://travis-ci.org/prosociallearnEU/cf-nodejs-client.svg)](https://travis-ci.org/prosociallearnEU/cf-nodejs-client) 
-[![Dependency Status](https://david-dm.org/prosociallearnEU/cf-nodejs-client.svg)](https://david-dm.org/prosociallearnEU/cf-nodejs-client) 
-[![devDependency Status](https://david-dm.org/prosociallearnEU/cf-nodejs-client/dev-status.svg)](https://david-dm.org/prosociallearnEU/cf-nodejs-client#info=devDependencies)
-[![Changelog](https://img.shields.io/badge/see-CHANGELOG-red.svg?style=flat-square)](https://github.com/prosociallearnEU/cf-nodejs-client/blob/master/CHANGELOG.md)
+[![Build Status](https://travis-ci.org/prosociallearnEU/cf-node-client.svg)](https://travis-ci.org/prosociallearnEU/cf-node-client) 
+[![npm downloads](https://img.shields.io/npm/dm/cf-node-client.svg)](https://www.npmjs.com/package/cf-node-client)
+[![Changelog](https://img.shields.io/badge/see-CHANGELOG-red.svg?style=flat-square)](https://github.com/prosociallearnEU/cf-node-client/blob/master/CHANGELOG.md)
 
-[![NPM](https://nodei.co/npm/cf-nodejs-client.png?stars=true)](https://nodei.co/npm/cf-nodejs-client/)
+[![NPM](https://nodei.co/npm/cf-node-client.png?stars=true)](https://nodei.co/npm/cf-node-client/)
 
 #### Note: This package is not ready for a production App yet.
 
 This project provides a simple client library to interact with the [Cloud Foundry Architecture](https://docs.pivotal.io/pivotalcf/concepts/architecture/):
 
-![ScreenShot](https://raw.githubusercontent.com/prosociallearnEU/cf-nodejs-client/master/docs/cf_architecture_block.png)
+![ScreenShot](https://raw.githubusercontent.com/prosociallearnEU/cf-node-client/master/docs/cf_architecture_block.png)
 
 Using this library, you could interact with the following platforms: [PWS](https://console.run.pivotal.io)
 , [Bluemix](https://console.ng.bluemix.net/) or a [Local Cloud Foundry instance](https://github.com/yudai/cf_nise_installer):
