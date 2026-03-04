@@ -5,10 +5,12 @@
   "author": "Leo Trinh <tinhtd.info@gmail.com>",
   "license": "Apache-2.0",
   "main": "index.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "preversion": "npm run lint && npm run test_local",
     "lint": "eslint  ./lib/*.js ./lib/**/*.js ./test/*.js ./test/**/*.js",
     "lint:fix": "eslint . --fix",
+    "tsc:check": "tsc --noEmit",
     "build": "tsc",
     "pub:dry": "npm publish --dry-run",
     "m:publish": "npm run pub:dry && npm publish",
@@ -27,7 +29,8 @@
   },
   "files": [
     "index.js",
-    "lib"
+    "lib",
+    "types"
   ],
   "dependencies": {
     "bluebird": "^3.0.6",
@@ -40,8 +43,10 @@
     "archiver": "0.20.0",
     "chai": "3.4.1",
     "chai-as-promised": "5.1.0",
+    "@types/node": "^20.0.0",
     "eslint": "1.10.3",
     "grunt": "0.4.5",
+    "typescript": "^5.0.0",
     "grunt-cli": "0.1.13",
     "grunt-connect": "0.2.0",
     "grunt-jsdoc": "1.1.0",
@@ -51,6 +56,9 @@
     "nconf": "0.8.2",
     "optimist": "0.6.1",
     "random-words": "0.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   },
   "keywords": [
     "cloud foundry",
@@ -65,6 +73,8 @@
     "api",
     "REST",
     "cf",
-    "cf client"
+    "cf client",
+    "typescript",
+    "types"
   ]
 }

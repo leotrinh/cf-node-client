@@ -66,6 +66,41 @@ npm install cf-node-client --save
 
 See [Usage Guide](docs/plan/usage/START_HERE.md) for examples and API usage.
 
+## TypeScript Support
+
+This package ships with built-in TypeScript type declarations. No additional `@types` package needed.
+
+```typescript
+import {
+  CloudController,
+  UsersUAA,
+  Apps,
+  Spaces,
+  Organizations,
+  OAuthToken
+} from "cf-node-client";
+
+const uaa = new UsersUAA("https://login.run.pivotal.io");
+const token: OAuthToken = await uaa.login("user", "pass");
+
+const apps = new Apps("https://api.run.pivotal.io");
+apps.setToken(token);
+const result = await apps.getApps();
+console.log(result.resources);
+```
+
+### Available Types
+
+| Type | Description |
+|------|-------------|
+| `OAuthToken` | UAA authentication token |
+| `FilterOptions` | Pagination and query filters |
+| `DeleteOptions` | Delete operation options |
+| `ApiResponse<T>` | Typed API response wrapper |
+| `CloudControllerBaseOptions` | Base constructor options |
+
+See [examples/](examples/) for more TypeScript usage patterns.
+
 ## Technical Documentation
 - [JSDoc](https://prosociallearneu.github.io/cf-nodejs-client/)
 
