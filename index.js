@@ -7,7 +7,7 @@ var used = [],
  * Library Version
  * @type {String}
  */
-exports.version = '0.13.0';
+exports.version = '1.0.0';
 
 /**
  * Support for Apps
