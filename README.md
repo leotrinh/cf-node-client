@@ -43,6 +43,55 @@ This library works with any platform that implements the Cloud Foundry API:
 
 ---
 
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [**JSDoc API Reference**](https://leotrinh.github.io/cf-node-client/doc/) | Full generated API documentation (all classes, methods, params) |
+| [Usage Guide](docs/Usage.md) | Configuration & API usage examples |
+| [Service Usage](docs/Usage-cf-service.md) | CF Service integration guide |
+| [System Architecture](docs/SystemArchitecture.md) | Internal architecture overview |
+
+### Documentation Detail
+
+The JSDoc API Reference covers every public class and method in the library:
+
+| Class | Description | JSDoc |
+|-------|-------------|-------|
+| `CloudController` | CF API info & version | [View](https://leotrinh.github.io/cf-node-client/doc/CloudController.html) |
+| `Apps` | Application lifecycle (CRUD, start, stop, env, routes) | [View](https://leotrinh.github.io/cf-node-client/doc/Apps.html) |
+| `Organizations` | Org management, quotas, domains, users | [View](https://leotrinh.github.io/cf-node-client/doc/Organizations.html) |
+| `Spaces` | Space management, apps, services per space | [View](https://leotrinh.github.io/cf-node-client/doc/Spaces.html) |
+| `Services` | Service offerings & plans | [View](https://leotrinh.github.io/cf-node-client/doc/Services.html) |
+| `ServiceInstances` | Service instance CRUD & bindings | [View](https://leotrinh.github.io/cf-node-client/doc/ServiceInstances.html) |
+| `ServiceBindings` | Service binding management | [View](https://leotrinh.github.io/cf-node-client/doc/ServiceBindings.html) |
+| `ServicePlans` | Service plan listing & management | [View](https://leotrinh.github.io/cf-node-client/doc/ServicePlans.html) |
+| `UserProvidedServices` | User-provided service instances | [View](https://leotrinh.github.io/cf-node-client/doc/UserProvidedServices.html) |
+| `Routes` | Route management & mappings | [View](https://leotrinh.github.io/cf-node-client/doc/Routes.html) |
+| `Domains` | Domain management | [View](https://leotrinh.github.io/cf-node-client/doc/Domains.html) |
+| `BuildPacks` | Buildpack management | [View](https://leotrinh.github.io/cf-node-client/doc/BuildPacks.html) |
+| `Stacks` | Stack listing | [View](https://leotrinh.github.io/cf-node-client/doc/Stacks.html) |
+| `Users` | User management | [View](https://leotrinh.github.io/cf-node-client/doc/Users.html) |
+| `Events` | Audit events | [View](https://leotrinh.github.io/cf-node-client/doc/Events.html) |
+| `Jobs` | Background tasks | [View](https://leotrinh.github.io/cf-node-client/doc/Jobs.html) |
+| `OrganizationsQuota` | Org quota definitions | [View](https://leotrinh.github.io/cf-node-client/doc/OrganizationsQuota.html) |
+| `SpacesQuota` | Space quota definitions | [View](https://leotrinh.github.io/cf-node-client/doc/SpacesQuota.html) |
+| `UsersUAA` | UAA authentication (login, tokens) | [View](https://leotrinh.github.io/cf-node-client/doc/UsersUAA.html) |
+| `Logs` | Application log streaming | [View](https://leotrinh.github.io/cf-node-client/doc/Logs.html) |
+| `HttpUtils` | HTTP request utilities | [View](https://leotrinh.github.io/cf-node-client/doc/HttpUtils.html) |
+
+#### Generate Docs Locally
+
+```bash
+# Generate JSDoc HTML into doc/ folder
+npm run docs
+
+# Generate + serve on localhost:9000 + open browser
+npm run docs:serve
+```
+
+---
+
 ## Installation
 
 ```bash
@@ -228,17 +277,6 @@ const orgs = new Organizations("https://api.<your-cf-domain>", { apiVersion: "v2
 | Stacks | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Stacks.html) |
 | User Provided Services | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/UserProvidedServices.html) |
 | Users | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Users.html) |
-
----
-
-## Documentation
-
-| Document | Description |
-|----------|-------------|
-| [Usage Guide](docs/Usage.md) | Configuration & API usage examples |
-| [Service Usage](docs/Usage-cf-service.md) | CF Service integration guide |
-| [System Architecture](docs/SystemArchitecture.md) | Internal architecture overview |
-| [JSDoc API](https://prosociallearneu.github.io/cf-nodejs-client/) | Generated API documentation |
 
 ---
 

@@ -115,7 +115,7 @@ export class CloudControllerBase {
  * Provides info, feature flags, and general CF API access.
  */
 export class CloudController extends CloudControllerBase {
-  constructor(endPoint: string);
+  constructor(endPoint: string, options?: CloudControllerBaseOptions);
 
   /** Get Cloud Controller info */
   getInfo(): Promise<any>;
@@ -124,7 +124,7 @@ export class CloudController extends CloudControllerBase {
   /** Get a specific feature flag */
   getFeaturedFlag(flag: string): Promise<any>;
   /** Enable / set a feature flag */
-  setFeaturedFlag(flag: string): Promise<any>;
+  setFeaturedFlag(flag: string, flagOptions?: any): Promise<any>;
 }
 
 // ============================================================================
@@ -418,7 +418,7 @@ export class ServiceBindings extends CloudControllerBase {
 
 /** Manage Cloud Foundry service plans */
 export class ServicePlans extends CloudControllerBase {
-  constructor(endpointUrl: string, accessToken?: OAuthToken);
+  constructor(endpointUrl: string, options?: CloudControllerBaseOptions);
 
   /** List all service plans */
   getServicePlans(filter?: FilterOptions): Promise<any>;
@@ -521,7 +521,7 @@ export class Stacks {
 
 /** Manage Cloud Foundry user-provided services */
 export class UserProvidedServices extends CloudControllerBase {
-  constructor(endpointUrl: string, accessToken?: OAuthToken);
+  constructor(endpointUrl: string, options?: CloudControllerBaseOptions);
 
   /** List all user-provided services */
   getServices(): Promise<any>;

@@ -1,6 +1,6 @@
 {
   "name": "cf-node-client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Cloud Foundry Client for Node.js supporting TypeScript and JavaScript.",
   "author": "Leo Trinh <tinhtd.info@gmail.com>",
   "license": "Apache-2.0",
@@ -17,7 +17,9 @@
     "build": "tsc",
     "pub:dry": "npm publish --dry-run",
     "m:publish": "npm run pub:dry && npm publish",
-    "m:prepublishOnly": "npm test && npm run lint"
+    "m:prepublishOnly": "npm test && npm run lint",
+    "docs": "grunt jsdoc:dist",
+    "docs:serve": "grunt docs"
   },
   "homepage": "https://github.com/leotrinh/cf-node-client",
   "repository": {
@@ -45,6 +47,10 @@
     "chai": "^4.5.0",
     "chai-as-promised": "^7.1.2",
     "eslint": "^8.57.1",
+    "grunt": "^1.6.1",
+    "grunt-contrib-connect": "^5.0.1",
+    "grunt-jsdoc": "^2.4.1",
+    "grunt-open": "^0.2.4",
     "mocha": "^10.8.0",
     "nconf": "^0.13.0",
     "optimist": "0.6.1",
