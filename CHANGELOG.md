@@ -1,3 +1,27 @@
+## Version 1.0.4 2026-03-05
+
+**HOTFIX RELEASE — Critical: v3 Authentication Flow Broken**
+
+### Bug Fixes (Critical)
+- **`getInfo()` v3 mode called non-existent `/v3/info`**: CF API v3 has no `/v3/info` endpoint. Changed to root endpoint `/` which returns `{ links: { uaa, login, ... } }`. Response is normalized to include `authorization_endpoint` and `token_endpoint` at top level for backward compatibility with all existing consumer code.
+- **`authorization_endpoint` was `undefined` in v3 mode**: The standard auth flow `info.authorization_endpoint → usersUAA.setEndPoint()` was completely broken for all v1.0.0+ users using default v3.
+
+### New Features
+- **`CloudController.getAuthorizationEndpoint()`**: Convenience method that returns UAA endpoint URL directly. Works with both v2 and v3, abstracts away response shape differences.
+
+### TypeScript
+- Added `getAuthorizationEndpoint(): Promise<string>` to `CloudController` type declarations
+
+### Files Modified
+- `lib/model/cloudcontroller/CloudController.js`
+- `types/index.d.ts`
+- `examples/cf-service-usage-example.js`
+
+### Tests
+- All **93 passing**, 0 failing
+
+---
+
 ## Version 1.0.3 2026-03-05
 
 **PATCH RELEASE — Code Quality Fixes & JSDoc Documentation**

@@ -1,3 +1,55 @@
+# cf-node-client v1.0.4 — Hotfix: v3 getInfo() Broken Authentication Flow
+
+**Package**: cf-node-client v1.0.4  
+**Release Date**: March 5, 2026  
+**Status**: Production Ready  
+**Severity**: **Critical Hotfix**
+
+## What's Fixed in v1.0.4
+
+### Bug Fix — `getInfo()` Returns `undefined` for `authorization_endpoint` (v3 Mode)
+
+**Impact**: All users on v1.0.0+ using default v3 mode. The standard authentication flow was completely broken:
+
+```javascript
+// This common pattern was broken in v3 mode:
+const info = await cfController.getInfo();
+usersUAA.setEndPoint(info.authorization_endpoint);  // ❌ undefined → Error thrown
+```
+
+**Root Cause**: `CloudController.getInfo()` called `/v3/info` which does not exist in Cloud Foundry. CF v3 uses the root endpoint `/` which returns a different response shape:
+- v2: `{ authorization_endpoint: "https://...", token_endpoint: "https://..." }`
+- v3 root: `{ links: { uaa: { href: "https://..." }, login: { href: "https://..." } } }`
+
+**Fix**: `getInfo()` in v3 mode now calls the correct root endpoint `/` and **normalizes** the response by adding `authorization_endpoint` and `token_endpoint` at the top level. All existing consumer code works without changes.
+
+### New Convenience Method — `getAuthorizationEndpoint()`
+
+A version-agnostic helper that extracts the UAA endpoint from CF info. Recommended for new code:
+
+```javascript
+// Old pattern (still works):
+const info = await cfController.getInfo();
+usersUAA.setEndPoint(info.authorization_endpoint);
+
+// New pattern (cleaner):
+const authEndpoint = await cfController.getAuthorizationEndpoint();
+usersUAA.setEndPoint(authEndpoint);
+```
+
+### Files Modified
+
+| File | Change |
+|------|--------|
+| `lib/model/cloudcontroller/CloudController.js` | Fixed `getInfo()` v3 endpoint + response normalization; added `getAuthorizationEndpoint()` |
+| `types/index.d.ts` | Added `getAuthorizationEndpoint(): Promise<string>` type declaration |
+| `examples/cf-service-usage-example.js` | Added `getAuthTokenV2()` example using new convenience method |
+
+### Tests
+- All **93 tests passing**, 0 failing
+
+---
+
 # cf-node-client v1.0.2 — Security: Zero Vulnerabilities
 
 **Package**: cf-node-client v1.0.2  

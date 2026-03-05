@@ -1,5 +1,26 @@
 # Migration Guide: cf-nodejs-client → cf-node-client v1.0.0
 
+## Important: v1.0.4 Hotfix — Authentication Flow
+
+If you upgraded to v1.0.0–v1.0.3 and hit the error:
+```
+Invalid endpoint URL: "undefined". Must be a valid http:// or https:// URL.
+```
+
+**Upgrade to v1.0.4** — this fixes `getInfo()` in v3 mode. The standard auth pattern now works correctly:
+
+```javascript
+// This works in v1.0.4+ (both v2 and v3):
+const info = await cfController.getInfo();
+usersUAA.setEndPoint(info.authorization_endpoint);  // ✅ No longer undefined
+
+// Or use the new convenience method (recommended):
+const authEndpoint = await cfController.getAuthorizationEndpoint();
+usersUAA.setEndPoint(authEndpoint);
+```
+
+---
+
 ## Overview
 
 The cf-nodejs-client package has been renamed to `cf-node-client` and upgraded to version 1.0.0 with full Cloud Foundry API v3 support.

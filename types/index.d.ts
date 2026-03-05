@@ -117,8 +117,10 @@ export class CloudControllerBase {
 export class CloudController extends CloudControllerBase {
   constructor(endPoint: string, options?: CloudControllerBaseOptions);
 
-  /** Get Cloud Controller info */
+  /** Get Cloud Controller info (normalized: always has authorization_endpoint & token_endpoint) */
   getInfo(): Promise<any>;
+  /** Get UAA authorization endpoint URL (works with both v2 and v3) */
+  getAuthorizationEndpoint(): Promise<string>;
   /** Get all feature flags */
   getFeaturedFlags(): Promise<any>;
   /** Get a specific feature flag */

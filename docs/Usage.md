@@ -12,10 +12,20 @@ const { CloudController, UsersUAA } = require('cf-node-client');
 const cfController = new CloudController('https://api.cf.example.com');
 const usersUAA = new UsersUAA();
 
+// Option 1: Using getInfo() — works with both v2 and v3
 const info = await cfController.getInfo();
 usersUAA.setEndPoint(info.authorization_endpoint);
 const token = await usersUAA.login('username', 'password');
+
+// Option 2: Using getAuthorizationEndpoint() — recommended, cleaner
+const authEndpoint = await cfController.getAuthorizationEndpoint();
+usersUAA.setEndPoint(authEndpoint);
+const token = await usersUAA.login('username', 'password');
 ```
+
+> **Note (v1.0.4):** In v3 mode, `getInfo()` calls the CF root endpoint `/` and normalizes
+> the response so `info.authorization_endpoint` is always available. The new
+> `getAuthorizationEndpoint()` convenience method is the recommended approach for new code.
 
 ## Organizations
 

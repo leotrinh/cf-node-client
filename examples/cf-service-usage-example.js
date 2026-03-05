@@ -32,8 +32,24 @@ function getAuthToken() {
     const cfController = new CloudController(apiCF);
     const usersUAA = new UsersUAA();
 
+    // Works with both v2 and v3 — getInfo() normalizes the response
     return cfController.getInfo().then(function (info) {
         usersUAA.setEndPoint(info.authorization_endpoint);
+        return usersUAA.login(credentials.username, credentials.password);
+    });
+}
+
+/**
+ * Alternative: Use the convenience method getAuthorizationEndpoint().
+ * Cleaner and version-agnostic — recommended for new code.
+ * @returns {Promise<Object>} OAuth token object
+ */
+function getAuthTokenV2() {
+    const cfController = new CloudController(apiCF);
+    const usersUAA = new UsersUAA();
+
+    return cfController.getAuthorizationEndpoint().then(function (authEndpoint) {
+        usersUAA.setEndPoint(authEndpoint);
         return usersUAA.login(credentials.username, credentials.password);
     });
 }
