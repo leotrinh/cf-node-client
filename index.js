@@ -1,7 +1,7 @@
 "use strict";
 
 /** Library Version */
-module.exports.version = "1.0.4";
+module.exports.version = "1.0.5";
 
 // ── Cloud Controller models ────────────────────────────────────────────
 const Apps              = require("./lib/model/cloudcontroller/Apps");

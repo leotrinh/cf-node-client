@@ -1,3 +1,43 @@
+## Version 1.0.5 2026-03-05
+
+**PATCH RELEASE — Fix 11 Incorrect v3 API Endpoints**
+
+### Bug Fixes — AppsDeployment.js (4 fixes)
+
+- **`getStats()` wrong v3 endpoint**: Was `/v3/apps/:guid/stats` → Fixed to `/v3/apps/:guid/processes/web/stats` (v3 stats are per-process)
+- **`associateRoute()` wrong v3 method & endpoint**: Was `PUT /v3/apps/:guid/routes/:routeGuid` → Fixed to `POST /v3/routes/:routeGuid/destinations` with `{ destinations: [{ app: { guid } }] }` body
+- **`getServiceBindings()` wrong v3 endpoint**: Was `/v3/apps/:guid/service_credential_bindings` → Fixed to `/v3/service_credential_bindings?app_guids=:guid` (top-level endpoint with filter)
+- **`_uploadV3()` wrong single-step upload**: Was single request to `/v3/apps/:guid/bits` → Fixed to 2-step: create package via `POST /v3/packages` then upload bits to `POST /v3/packages/:guid/upload`
+
+### Bug Fixes — Organizations.js (3 fixes)
+
+- **`_getUsersV3()` wrong endpoint**: Was `/v3/organizations/:guid/relationships/users` → Fixed to `/v3/roles?organization_guids=:guid&types=organization_user`
+- **`_getManagersV3()` wrong endpoint**: Was `/v3/organizations/:guid/relationships/managers` → Fixed to `/v3/roles?organization_guids=:guid&types=organization_manager`
+- **`_getAuditorsV3()` wrong endpoint**: Was `/v3/organizations/:guid/relationships/auditors` → Fixed to `/v3/roles?organization_guids=:guid&types=organization_auditor`
+
+### Bug Fixes — Spaces.js (4 fixes)
+
+- **`_getUsersV3()` wrong endpoint**: Was `/v3/spaces/:guid/relationships/members` → Fixed to `/v3/roles?space_guids=:guid`
+- **`_getManagersV3()` wrong endpoint**: Was `/v3/spaces/:guid/relationships/managers` → Fixed to `/v3/roles?space_guids=:guid&types=space_manager`
+- **`_getDevelopersV3()` wrong endpoint**: Was `/v3/spaces/:guid/relationships/developers` → Fixed to `/v3/roles?space_guids=:guid&types=space_developer`
+- **`_getAuditorsV3()` wrong endpoint**: Was `/v3/spaces/:guid/relationships/auditors` → Fixed to `/v3/roles?space_guids=:guid&types=space_auditor`
+
+### Enhancements
+- **`Spaces.getSpaceApps()`**: Added backward-compatibility alias for `Spaces.getApps()` — existing consumer code referencing the old method name continues to work
+
+### Audit Summary
+- 27 additional files scanned & confirmed clean — no issues found in Apps.js, AppsCopy.js, Routes.js, Domains.js, ServiceBindings.js, ServiceInstances.js, ServicePlans.js, Services.js, Events.js, Jobs.js, BuildPacks.js, Stacks.js, Users.js, UserProvidedServices.js, OrganizationsQuota.js, SpacesQuota.js, UsersUAA.js, Logs.js, HttpUtils.js, HttpStatus.js, ApiConfig.js, ApiVersionManager.js, ConfigManagerService.js, ErrorService.js, CacheService.js, CloudController.js, CloudControllerBase.js
+
+### Files Modified
+- `lib/model/cloudcontroller/AppsDeployment.js`
+- `lib/model/cloudcontroller/Organizations.js`
+- `lib/model/cloudcontroller/Spaces.js`
+
+### Tests
+- All **93 passing**, 0 failing
+
+---
+
 ## Version 1.0.4 2026-03-05
 
 **HOTFIX RELEASE — Critical: v3 Authentication Flow Broken**

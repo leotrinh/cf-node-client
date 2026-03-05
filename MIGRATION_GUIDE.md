@@ -1,5 +1,15 @@
 # Migration Guide: cf-nodejs-client → cf-node-client v1.0.0
 
+## Important: v1.0.5 — 11 Incorrect v3 Endpoints Fixed
+
+If you are using v1.0.0–v1.0.4 in **v3 mode (default)**, the following methods called wrong endpoints:
+
+- `AppsDeployment`: `getStats()`, `associateRoute()`, `getServiceBindings()`, `upload()` (v3 path)
+- `Organizations`: `getUsers()`, `getManagers()`, `getAuditors()` (v3 path)
+- `Spaces`: `getUsers()`, `getManagers()`, `getDevelopers()`, `getAuditors()` (v3 path)
+
+**Upgrade to v1.0.5** to get correct v3 API endpoints. No consumer code changes needed.
+
 ## Important: v1.0.4 Hotfix — Authentication Flow
 
 If you upgraded to v1.0.0–v1.0.3 and hit the error:
