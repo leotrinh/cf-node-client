@@ -26,6 +26,12 @@
       "rules": {
         "no-console": 0
       }
+    },
+    {
+      "files": ["test/**/*.js"],
+      "rules": {
+        "no-redeclare": 0
+      }
     }
   ]
 }

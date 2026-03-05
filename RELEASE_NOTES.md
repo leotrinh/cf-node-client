@@ -1,3 +1,90 @@
+# cf-node-client v1.0.1 — Auto-Pagination & Memory Cache
+
+**Package**: cf-node-client v1.0.1  
+**Release Date**: March 5, 2026  
+**Status**: Production Ready
+
+## What's New in v1.0.1
+
+### Auto-Pagination (`getAllResources`)
+
+No more manual pagination loops. The library now auto-paginates through every page and returns a flat array of all resources:
+
+```javascript
+const allOrgs   = await orgs.getAllOrganizations();
+const allSpaces = await spaces.getAllSpaces();
+const allApps   = await apps.getAllApps({ q: "space_guid:xxx" });
+const allSIs    = await si.getAllInstances();
+```
+
+- Handles both **v2** (`next_url`) and **v3** (`pagination.next`) transparently
+- v3 fetches 200 per page; v2 fetches 100 per page
+- Generic `getAllResources(fetchFn, filter)` in `CloudControllerBase` for custom endpoints
+- Thin wrappers: `getAllOrganizations()`, `getAllSpaces()`, `getAllApps()`, `getAllInstances()`
+
+### Memory Cache (Opt-in)
+
+Built-in in-memory cache with per-entry TTL to reduce redundant API calls:
+
+```javascript
+// Enable at construction
+const orgs = new Organizations(api, { cache: true, cacheTTL: 60000 });
+
+// Or toggle at runtime
+orgs.enableCache(30000);  // 30 s TTL
+orgs.clearCache();        // clear entries, keep cache on
+orgs.disableCache();      // off + clear
+```
+
+- Map-based store with lazy expiration
+- Default TTL: 30 000 ms (30 s)
+- Per-entry TTL override via `CacheService.set(key, value, ttlMs)`
+- Prefix invalidation via `CacheService.invalidateByPrefix(prefix)`
+
+### TypeScript Types Updated
+
+All new APIs have full type declarations in `types/index.d.ts`:
+- `CloudControllerBaseOptions.cache` / `cacheTTL`
+- `enableCache()`, `disableCache()`, `clearCache()`, `getAllResources()`
+- `getAllOrganizations()`, `getAllSpaces()`, `getAllApps()`, `getAllInstances()`
+- Exported `CacheService` class type
+
+### Tests
+
+- **93 passing**, 0 failing, lint clean
+- 8 CacheService unit tests
+- 8 auto-pagination tests (v2 + v3)
+- 5 cache integration tests
+
+### Updated Documentation & Examples
+
+- `examples/cf-service-usage-example.js` — sections 8 (Auto-Pagination) & 9 (Memory Cache)
+- `examples/typescript-basic.ts` — pagination + cache examples
+- `examples/typescript-advanced.ts` — replaced manual `getAllPages()` with built-in methods
+- `docs/Usage.md` — new "Auto-Pagination" & "Memory Cache" sections
+- `docs/Usage-cf-service.md` — migration note for `getAllResources`
+- `README.md` — new "Auto-Pagination" & "Memory Cache" sections
+
+### New Files
+
+| File | Purpose |
+|------|---------|
+| `lib/services/CacheService.js` | Map-based in-memory cache with per-entry TTL |
+| `test/lib/PaginationCacheTests.js` | 21 tests for cache, pagination, integration |
+
+### Modified Files
+
+| File | Change |
+|------|--------|
+| `lib/model/cloudcontroller/CloudControllerBase.js` | `getAllResources()`, cache methods, `_cachedFetch()` |
+| `lib/model/cloudcontroller/Organizations.js` | `getAllOrganizations(filter)` |
+| `lib/model/cloudcontroller/Spaces.js` | `getAllSpaces(filter)` |
+| `lib/model/cloudcontroller/AppsCore.js` | `getAllApps(filter)` |
+| `lib/model/cloudcontroller/ServiceInstances.js` | `getAllInstances(filter)` |
+| `types/index.d.ts` | Cache + pagination type declarations |
+
+---
+
 # cf-node-client v1.0.0 - Migration Complete ✅
 
 **Package**: cf-node-client v1.0.0  

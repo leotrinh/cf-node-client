@@ -1,24 +1,23 @@
 {
   "name": "cf-node-client",
-  "version": "1.0.0",
-  "description": "A Cloud Foundry Client for Node.js",
+  "version": "1.0.1",
+  "description": "A Cloud Foundry Client for Node.js supporting TypeScript and JavaScript.",
   "author": "Leo Trinh <tinhtd.info@gmail.com>",
   "license": "Apache-2.0",
   "main": "index.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "preversion": "npm run lint && npm run test_local",
-    "lint": "eslint  ./lib/*.js ./lib/**/*.js ./test/*.js ./test/**/*.js",
+    "preversion": "npm run lint && npm run test",
+    "lint": "eslint ./lib/**/*.js ./test/**/*.js",
     "lint:fix": "eslint . --fix",
     "tsc:check": "tsc --noEmit",
-    "test:unit": "mocha test/lib/ApiMigrationTests.js test/utils/ZipGeneratorTests.js --timeout 5000",
+    "test": "npm run lint && npm run test:unit",
+    "test:unit": "mocha test/lib/ApiMigrationTests.js test/lib/ConvenienceMethodTests.js test/lib/PaginationCacheTests.js test/utils/ZipGeneratorTests.js test/utils/HttpUtilsTests.js --timeout 5000",
+    "test:integration": "mocha test/lib/model --config=LOCAL_INSTANCE_1 --timeout 30000",
     "build": "tsc",
     "pub:dry": "npm publish --dry-run",
     "m:publish": "npm run pub:dry && npm publish",
-    "m:prepublishOnly": "npm test && npm run lint",
-    "test": "npm run lint && npm run test_pws",
-    "test_pws": "mocha test --config=LOCAL_INSTANCE_1 --timeout 30000",
-    "test_local": "mocha test --config=LOCAL_INSTANCE_1"
+    "m:prepublishOnly": "npm test && npm run lint"
   },
   "homepage": "https://github.com/leotrinh/cf-node-client",
   "repository": {
@@ -34,20 +33,19 @@
     "types"
   ],
   "dependencies": {
-    "bluebird": "^3.0.6",
-    "protobufjs": "^5.0.1",
-    "request": "^2.81.0",
-    "restler": "^3.4.0",
-    "ws": "^1.1.1"
+    "form-data": "^4.0.0",
+    "node-fetch": "^2.7.0",
+    "protobufjs": "^7.0.0",
+    "ws": "^8.0.0"
   },
   "devDependencies": {
+    "@types/node": "^20.0.0",
     "archiver": "0.20.0",
+    "bluebird": "^3.7.2",
     "chai": "3.4.1",
     "chai-as-promised": "5.1.0",
-    "@types/node": "^20.0.0",
-    "eslint": "1.10.3",
+    "eslint": "^8.57.1",
     "grunt": "0.4.5",
-    "typescript": "^5.0.0",
     "grunt-cli": "0.1.13",
     "grunt-connect": "0.2.0",
     "grunt-jsdoc": "1.1.0",
@@ -56,7 +54,8 @@
     "mocha": "2.3.4",
     "nconf": "0.8.2",
     "optimist": "0.6.1",
-    "random-words": "0.0.1"
+    "random-words": "0.0.1",
+    "typescript": "^5.0.0"
   },
   "engines": {
     "node": ">=14.0.0"
