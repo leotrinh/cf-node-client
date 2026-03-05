@@ -14,12 +14,18 @@ module.exports = function (grunt) {
         //Run a web server
         connect: {
             coverage: {
-                port: default_port,
-                base: 'coverage/'
+                options: {
+                    port: default_port,
+                    base: 'coverage/',
+                    keepalive: true
+                }
             },
             docs: {
-                port: default_port,
-                base: 'doc/'
+                options: {
+                    port: default_port,
+                    base: 'doc/',
+                    keepalive: true
+                }
             }           
         },
         //Open a Web Browser
@@ -50,7 +56,7 @@ module.exports = function (grunt) {
 
     //Dependencies
     grunt.loadNpmTasks('grunt-open');
-    grunt.loadNpmTasks('grunt-connect');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-jsdoc');
 
     //Task definition

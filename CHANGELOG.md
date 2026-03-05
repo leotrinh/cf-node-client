@@ -1,3 +1,34 @@
+## Version 1.0.3 2026-03-05
+
+**PATCH RELEASE — Code Quality Fixes & JSDoc Documentation**
+
+### Bug Fixes (Critical)
+- **C-01/C-02/C-03**: Fixed wrong HTTP status codes in `requestV3()` calls across `CloudController.js`, `ServicePlans.js`, `UserProvidedServices.js`
+
+### Bug Fixes (Warnings)
+- **W-01**: Fixed v3 filter silently ignored in 8 list endpoints (`Domains`, `Users`, `Stacks`, `BuildPacks`, `Jobs`, `OrganizationsQuota`, `SpacesQuota`, `Events`) — switched to `this.REST.request()` with `qs` support
+- **W-02**: Fixed input filter object mutation in `Spaces`, `Services`, `ServiceInstances`, `Organizations` — added shallow clone via `Object.assign()`
+- **W-04**: Fixed `AppsDeployment.getInstances()` wrong v3 endpoint → `/v3/apps/:guid/processes`
+- **W-05**: Added mixin guard in `AppsDeployment.setEnvironmentVariables()` for v2 path
+- **W-06**: Added v2 guard in `Jobs.add()` — task creation only supported in v3
+- **W-07**: Fixed `ApiVersionManager` wrong v3 mapping for `userProvidedServices`, added `tasks` entry
+- **W-08**: Added JSDoc for `ServiceInstances._removeV3()` explaining `acceptsIncomplete` no-op in v3
+- **W-09**: Added JSDoc class-level comments for `ServicePlans`, `UserProvidedServices` explaining mixed request pattern
+
+### Documentation
+- **JSDoc Generation**: Added `grunt-jsdoc` with full HTML API docs output to `doc/` folder
+- **npm scripts**: `npm run docs` (generate) and `npm run docs:serve` (generate + serve on localhost:9000)
+- **README**: Added comprehensive Documentation Detail section with links to all 21 class JSDoc pages
+- **GitHub Pages**: JSDoc hosted at `https://leotrinh.github.io/cf-node-client/doc/`
+
+### DevDependencies Added
+- `grunt`, `grunt-jsdoc`, `grunt-open`, `grunt-contrib-connect`
+
+### Tests
+- All **93 tests passing**, 0 failing
+
+---
+
 ## Version 1.0.2 2026-03-05
 
 **PATCH RELEASE — Security: Fix all 41 npm vulnerabilities**
