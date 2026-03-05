@@ -1,3 +1,24 @@
+# cf-node-client v1.0.2 — Security: Zero Vulnerabilities
+
+**Package**: cf-node-client v1.0.2  
+**Release Date**: March 5, 2026  
+**Status**: Production Ready
+
+## What's New in v1.0.2
+
+### Security — 41 Vulnerabilities → 0
+
+| Action | Details |
+|--------|--------|
+| **Removed** 6 devDeps | `grunt`, `grunt-cli`, `grunt-connect`, `grunt-jsdoc`, `grunt-open`, `istanbul` |
+| **Upgraded** 5 devDeps | `mocha` 2→10, `chai` 3→4, `chai-as-promised` 5→7, `nconf` 0.8→0.13, `archiver` 0.20→7 |
+| **Added** 2 overrides | `minimist` ^1.2.8, `serialize-javascript` ^7.0.3 |
+| **Migrated** config | `test/mocha.opts` → `.mocharc.yml` |
+
+All **93 tests passing**, ESLint clean, `npm audit` reports **0 vulnerabilities**.
+
+---
+
 # cf-node-client v1.0.1 — Auto-Pagination & Memory Cache
 
 **Package**: cf-node-client v1.0.1  
