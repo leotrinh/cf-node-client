@@ -1,3 +1,34 @@
+## Version 1.0.8 2026-03-05
+
+**PATCH RELEASE — 6 MEDIUM + 4 LOW Priority Feature Enhancements**
+
+Implements remaining MEDIUM and LOW priority features from issue tracker: HANA Cloud lifecycle management, API key authentication, enhanced timestamp parsing, improved validation, and app copy/download utilities.
+
+### Features — MEDIUM (M1–M6)
+
+- **M1 — ServiceInstances.js:** Fixed `startInstance(guid)` and `stopInstance(guid)` to use correct HANA Cloud parameters format (`parameters.data.serviceStopped: true/false`).
+- **M2 — CloudControllerBase.js:** URL validation in `setEndPoint()` already implemented via `isValidEndpoint()` function (verified).
+- **M3 — UsersUAA.js:** Added `loginWithApiKey(apiKey)` method for Bearer token authentication (SAP BTP support).
+- **M4 — ServiceInstances.js:** Space-scoped queries `getInstancesBySpace(spaceGuid)` and `getInstanceByNameInSpace(spaceGuid, name)` already implemented (verified).
+- **M5 — UsersUAA.js:** Token introspection method `getTokenInfo(token, clientId, clientSecret)` already implemented (verified).
+- **M6 — Logs.js:** Enhanced `parseLogs()` to properly handle RFC3339 and ISO8601 timestamps with timezone support.
+
+### Features — LOW (L1–L4)
+
+- **L1 — AppsCopy.js:** Copy bits/packages between apps already implemented: `copyBits(appGuid, sourceAppGuid)` for v2 and `copyPackage(sourcePackageGuid, targetAppGuid)` for v3 (verified).
+- **L2 — CfIgnoreHelper.js:** .cfignore parser and filter utility already implemented and now exported for user integration (verified).
+- **L3 — AppsCopy.js:** Download droplet `downloadDroplet(dropletGuid)` for v3 already implemented (verified).
+- **L4 — AppsCopy.js:** Download app bits `downloadBits(guid)` for v2/v3 already implemented (verified).
+
+### Tests
+- 21 new unit tests covering M3 (API key auth) and M6 (timestamp parsing)
+- All tests passing: **160 total** (139 previous + 21 new)
+
+### TypeScript
+- Updated `types/index.d.ts` with `loginWithApiKey(apiKey: string)` signature
+
+---
+
 ## Version 1.0.7 2026-03-05
 
 **PATCH RELEASE — 7 v3 API Fixes (4 MEDIUM + 3 LOW)**

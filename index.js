@@ -32,6 +32,9 @@ const AppsCore          = require("./lib/model/cloudcontroller/AppsCore");
 const AppsDeployment    = require("./lib/model/cloudcontroller/AppsDeployment");
 const AppsCopy          = require("./lib/model/cloudcontroller/AppsCopy");
 
+// ── Utilities ──────────────────────────────────────────────────────────
+const CfIgnoreHelper    = require("./lib/utils/CfIgnoreHelper");
+
 // ── Public exports ─────────────────────────────────────────────────────
 module.exports.Apps              = Apps;
 module.exports.AppsCore          = AppsCore;
@@ -56,3 +59,6 @@ module.exports.Stacks            = Stacks;
 module.exports.UserProvidedServices = UserProvidedServices;
 module.exports.Users             = Users;
 module.exports.UsersUAA          = UsersUAA;
+
+// ── Utilities ──────────────────────────────────────────────────────────
+module.exports.CfIgnoreHelper    = CfIgnoreHelper;

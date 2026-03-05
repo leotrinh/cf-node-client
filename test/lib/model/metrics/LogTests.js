@@ -83,4 +83,69 @@ describe("Cloud foundry Logs", function () {
         });
     });
 
+    // M6: Enhanced timestamp parsing tests
+    it("parseLogs should handle RFC3339 timestamps with timezone", function () {
+        var rawLogs = "2024-01-15T14:30:00.123Z [APP/PROC/WEB/0] OUT Application started";
+        var parsed = CloudFoundryLogs.parseLogs(rawLogs);
+        
+        expect(parsed).to.be.an('array');
+        expect(parsed.length).to.equal(1);
+        expect(parsed[0].timestamp).to.be.instanceof(Date);
+        expect(parsed[0].timestamp.getTime()).to.not.be.NaN;
+        expect(parsed[0].timestampRaw).to.equal("2024-01-15T14:30:00.123Z");
+        expect(parsed[0].source).to.equal("APP");
+        expect(parsed[0].sourceId).to.equal("PROC/WEB/0");
+        expect(parsed[0].messageType).to.equal("OUT");
+        expect(parsed[0].message).to.equal("Application started");
+    });
+
+    it("parseLogs should handle ISO8601 timestamps without timezone", function () {
+        var rawLogs = "2024-01-15T14:30:00 [APP/0] ERR Error occurred";
+        var parsed = CloudFoundryLogs.parseLogs(rawLogs);
+        
+        expect(parsed).to.be.an('array');
+        expect(parsed.length).to.equal(1);
+        expect(parsed[0].timestamp).to.be.instanceof(Date);
+        expect(parsed[0].timestamp.getTime()).to.not.be.NaN;
+        expect(parsed[0].timestampRaw).to.equal("2024-01-15T14:30:00");
+        expect(parsed[0].messageType).to.equal("ERR");
+    });
+
+    it("parseLogs should handle RFC3339 with offset timezone", function () {
+        var rawLogs = "2024-01-15T14:30:00+01:00 [RTR/1] OUT Request processed";
+        var parsed = CloudFoundryLogs.parseLogs(rawLogs);
+        
+        expect(parsed).to.be.an('array');
+        expect(parsed.length).to.equal(1);
+        expect(parsed[0].timestamp).to.be.instanceof(Date);
+        expect(parsed[0].timestamp.getTime()).to.not.be.NaN;
+        expect(parsed[0].timestampRaw).to.equal("2024-01-15T14:30:00+01:00");
+    });
+
+    it("parseLogs should handle malformed timestamps gracefully", function () {
+        var rawLogs = "invalid-timestamp [APP/0] OUT Message";
+        var parsed = CloudFoundryLogs.parseLogs(rawLogs);
+        
+        expect(parsed).to.be.an('array');
+        expect(parsed.length).to.equal(1);
+        expect(parsed[0].timestamp).to.be.null;
+        expect(parsed[0].timestampRaw).to.equal("invalid-timestamp");
+        expect(parsed[0].message).to.equal("Message");
+    });
+
+    it("parseLogs should handle multiple log entries", function () {
+        var rawLogs = 
+            "2024-01-15T14:30:00.123Z [APP/0] OUT Line 1\n" +
+            "2024-01-15T14:30:01.456Z [APP/0] ERR Line 2\n" +
+            "2024-01-15T14:30:02+00:00 [RTR/1] OUT Line 3";
+        var parsed = CloudFoundryLogs.parseLogs(rawLogs);
+        
+        expect(parsed).to.be.an('array');
+        expect(parsed.length).to.equal(3);
+        parsed.forEach(function(entry) {
+            expect(entry.timestamp).to.be.instanceof(Date);
+            expect(entry.timestamp.getTime()).to.not.be.NaN;
+        });
+    });
+
 });

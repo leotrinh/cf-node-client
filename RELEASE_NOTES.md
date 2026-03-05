@@ -1,3 +1,56 @@
+# cf-node-client v1.0.8 — 6 MEDIUM + 4 LOW Priority Feature Enhancements
+
+**Package**: cf-node-client v1.0.8  
+**Release Date**: March 5, 2026  
+**Status**: Production Ready  
+**Severity**: **Medium/Low — Feature Enhancements**
+
+## What's New in v1.0.8
+
+Implements remaining MEDIUM and LOW priority features from issue tracker: HANA Cloud lifecycle management, API key authentication, enhanced timestamp parsing, improved validation, and app copy/download utilities.
+
+### MEDIUM — Feature Enhancements (M1–M6)
+
+| ID | File | Feature | Implementation |
+|----|------|---------|----------------|
+| M1 | ServiceInstances.js | HANA Cloud start/stop | Fixed parameters format: `parameters.data.serviceStopped: true/false` |
+| M2 | CloudControllerBase.js | URL validation | Verified existing `isValidEndpoint()` function in `setEndPoint()` |
+| M3 | UsersUAA.js | API key authentication | Added `loginWithApiKey(apiKey)` method for Bearer token auth |
+| M4 | ServiceInstances.js | Space-scoped queries | Verified existing `getInstancesBySpace()` and `getInstanceByNameInSpace()` |
+| M5 | UsersUAA.js | Token introspection | Verified existing `getTokenInfo(token, clientId, clientSecret)` method |
+| M6 | Logs.js | RFC3339/ISO8601 timestamps | Enhanced `parseLogs()` to handle timezone-aware timestamps |
+
+### LOW — Copy & Download Utilities (L1–L4)
+
+| ID | File | Feature | Implementation |
+|----|------|---------|----------------|
+| L1 | AppsCopy.js | Copy bits/packages | Verified `copyBits()` (v2) and `copyPackage()` (v3) already implemented |
+| L2 | CfIgnoreHelper.js | .cfignore support | Utility class exported for filtering files before zip creation |
+| L3 | AppsCopy.js | Download droplet | Verified `downloadDroplet(dropletGuid)` (v3) already implemented |
+| L4 | AppsCopy.js | Download app bits | Verified `downloadBits(guid)` (v2/v3) already implemented |
+
+### Tests
+- 21 new unit tests covering M3 (API key auth with validation) and M6 (timestamp parsing with various formats)
+- All tests passing: **160 total** (139 previous + 21 new)
+
+### TypeScript
+- Updated `types/index.d.ts` with `loginWithApiKey(apiKey: string): Promise<OAuthToken>` signature
+
+### Issue Tracker
+All 6 MEDIUM and 4 LOW priority issues moved to "✅ Resolved in This Fork":
+- [#199](https://github.com/leotrinh/cf-node-client/issues/199) — HANA Cloud DB start/stop control
+- [#156](https://github.com/leotrinh/cf-node-client/issues/156) — URL validation in constructors
+- [#44](https://github.com/leotrinh/cf-node-client/issues/44) — APIKey auth (SAP BTP support)
+- [#47](https://github.com/leotrinh/cf-node-client/issues/47) — Same-name services in different spaces
+- [#15](https://github.com/leotrinh/cf-node-client/issues/15) — `getTokenInfo(accessToken)` method
+- [#183](https://github.com/leotrinh/cf-node-client/issues/183) — Log timestamp parsing
+- [#196](https://github.com/leotrinh/cf-node-client/issues/196) — Copy bits between apps
+- [#173](https://github.com/leotrinh/cf-node-client/issues/173) — .cfignore support (utility exported)
+- [#158](https://github.com/leotrinh/cf-node-client/issues/158) — Download droplet from app
+- [#157](https://github.com/leotrinh/cf-node-client/issues/157) — Download bits from app
+
+---
+
 # cf-node-client v1.0.7 — 7 v3 API Fixes (4 MEDIUM + 3 LOW)
 
 **Package**: cf-node-client v1.0.7  
