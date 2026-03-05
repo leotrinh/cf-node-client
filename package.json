@@ -1,6 +1,6 @@
 {
   "name": "cf-node-client",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A Cloud Foundry Client for Node.js supporting TypeScript and JavaScript.",
   "author": "Leo Trinh <tinhtd.info@gmail.com>",
   "license": "Apache-2.0",
