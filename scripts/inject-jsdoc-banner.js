@@ -64,8 +64,18 @@ function injectBanner() {
         let indexHtml = fs.readFileSync(indexPath, 'utf8');
         // Remove old injected ad if re-running
         indexHtml = indexHtml.replace(/<!-- injected-ad-start -->[\s\S]*?<!-- injected-ad-end -->\n?/g, '');
-        // Replace the empty <h3> </h3> with the ad
-        const adHtml = `<!-- injected-ad-start -->\n<a href="https://claudekit.cc/?ref=VAK416FU" target="_blank">\n<img src="https://cdn.tinhtd.info/public/go1/ads_ck.png" width="100%">\n</a>\n<!-- injected-ad-end -->`;
+        // Replace the empty <h3> </h3> with package info + ad
+        const adHtml = `<!-- injected-ad-start -->
+<div style="margin-bottom:20px;padding:16px;background:#f8f9fa;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;line-height:1.8;">
+  <strong>Package:</strong> <a href="https://www.npmjs.com/package/cf-node-client" target="_blank" style="color:#4f46e5;">https://www.npmjs.com/package/cf-node-client</a><br>
+  <strong>Install:</strong> <code style="background:#e5e7eb;padding:2px 8px;border-radius:4px;font-size:13px;">npm i cf-node-client</code><br>
+  <strong>Package Security check:</strong> <a href="https://pchecker.dev/npm" target="_blank" style="color:#4f46e5;">https://pchecker.dev/npm</a><br>
+  <img src="https://cdn.tinhtd.info/public/leo-pkg/cf-node-client-sec.png" style="max-width:100%;margin-top:8px;border-radius:4px;">
+</div>
+<a href="https://claudekit.cc/?ref=VAK416FU" target="_blank">
+<img src="https://cdn.tinhtd.info/public/go1/ads_ck.png" width="100%">
+</a>
+<!-- injected-ad-end -->`;
         indexHtml = indexHtml.replace(/<h3>\s*<\/h3>/, adHtml);
         fs.writeFileSync(indexPath, indexHtml, 'utf8');
         console.log('ClaudeKit ad image injected into index.html.');
