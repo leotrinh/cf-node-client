@@ -1,3 +1,19 @@
+## Version 1.0.2 2026-03-05
+
+**PATCH RELEASE — Security: Fix all 41 npm vulnerabilities**
+
+### Security
+- Removed 6 vulnerable devDependencies: `grunt`, `grunt-cli`, `grunt-connect`, `grunt-jsdoc`, `grunt-open`, `istanbul`
+- Upgraded `mocha` 2.3.4 → 10.8.x, `chai` 3.4.1 → 4.5.x, `chai-as-promised` 5.1.0 → 7.1.x
+- Upgraded `nconf` 0.8.2 → 0.13.x (fixed prototype pollution)
+- Upgraded `archiver` 0.20.0 → 7.x
+- Added npm `overrides` for `minimist` (^1.2.8) and `serialize-javascript` (^7.0.3)
+- **41 vulnerabilities → 0 vulnerabilities**
+
+### Maintenance
+- Migrated mocha config from deprecated `test/mocha.opts` to `.mocharc.yml`
+- All 93 tests passing, ESLint clean
+
 ## Version 1.0.1 2026-03-05
 
 **PATCH RELEASE — Auto-Pagination & Memory Cache**
