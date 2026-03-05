@@ -18,7 +18,7 @@
     "pub:dry": "npm publish --dry-run",
     "m:publish": "npm run pub:dry && npm publish",
     "m:prepublishOnly": "npm test && npm run lint",
-    "docs": "grunt jsdoc:dist",
+    "docs": "grunt jsdoc:dist && node scripts/inject-jsdoc-banner.js",
     "docs:serve": "grunt docs"
   },
   "homepage": "https://github.com/leotrinh/cf-node-client",
