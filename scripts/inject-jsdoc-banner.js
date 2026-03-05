@@ -57,6 +57,19 @@ function injectBanner() {
     }
 
     console.log(`Banner injected into ${count} HTML file(s) in doc/.`);
+
+    // index.html only: replace empty <h3> with ClaudeKit ad image
+    const indexPath = path.join(DOC_DIR, 'index.html');
+    if (fs.existsSync(indexPath)) {
+        let indexHtml = fs.readFileSync(indexPath, 'utf8');
+        // Remove old injected ad if re-running
+        indexHtml = indexHtml.replace(/<!-- injected-ad-start -->[\s\S]*?<!-- injected-ad-end -->\n?/g, '');
+        // Replace the empty <h3> </h3> with the ad
+        const adHtml = `<!-- injected-ad-start -->\n<a href="https://claudekit.cc/?ref=VAK416FU" target="_blank">\n<img src="https://cdn.tinhtd.info/public/go1/ads_ck.png" width="100%">\n</a>\n<!-- injected-ad-end -->`;
+        indexHtml = indexHtml.replace(/<h3>\s*<\/h3>/, adHtml);
+        fs.writeFileSync(indexPath, indexHtml, 'utf8');
+        console.log('ClaudeKit ad image injected into index.html.');
+    }
 }
 
 injectBanner();
