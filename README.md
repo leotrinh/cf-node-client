@@ -272,22 +272,22 @@ const orgs = new Organizations("https://api.<your-cf-domain>", { apiVersion: "v2
 
 | Resource | Docs |
 |----------|------|
-| Apps | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Apps.html) |
-| Buildpacks | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/BuildPacks.html) |
-| Domains | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Domains.html) |
-| Jobs | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Jobs.html) |
-| Organizations | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Organizations.html) |
-| Organizations Quotas | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/OrganizationsQuota.html) |
-| Routes | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Routes.html) |
-| Services | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Services.html) |
-| Service Bindings | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/ServiceBindings.html) |
-| Service Instances | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/ServiceInstances.html) |
-| Service Plans | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/ServicePlans.html) |
-| Spaces | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Spaces.html) |
-| Spaces Quotas | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/SpacesQuota.html) |
-| Stacks | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Stacks.html) |
-| User Provided Services | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/UserProvidedServices.html) |
-| Users | [API](https://prosociallearneu.github.io/cf-nodejs-client/docs/v0.12.0/Users.html) |
+| Apps | [API](https://leotrinh.github.io/cf-node-client/doc/Apps.html) |
+| Buildpacks | [API](https://leotrinh.github.io/cf-node-client/doc/BuildPacks.html) |
+| Domains | [API](https://leotrinh.github.io/cf-node-client/doc/Domains.html) |
+| Jobs | [API](https://leotrinh.github.io/cf-node-client/doc/Jobs.html) |
+| Organizations | [API](https://leotrinh.github.io/cf-node-client/doc/Organizations.html) |
+| Organizations Quotas | [API](https://leotrinh.github.io/cf-node-client/doc/OrganizationsQuota.html) |
+| Routes | [API](https://leotrinh.github.io/cf-node-client/doc/Routes.html) |
+| Services | [API](https://leotrinh.github.io/cf-node-client/doc/Services.html) |
+| Service Bindings | [API](https://leotrinh.github.io/cf-node-client/doc/ServiceBindings.html) |
+| Service Instances | [API](https://leotrinh.github.io/cf-node-client/doc/ServiceInstances.html) |
+| Service Plans | [API](https://leotrinh.github.io/cf-node-client/doc/ServicePlans.html) |
+| Spaces | [API](https://leotrinh.github.io/cf-node-client/doc/Spaces.html) |
+| Spaces Quotas | [API](https://leotrinh.github.io/cf-node-client/doc/SpacesQuota.html) |
+| Stacks | [API](https://leotrinh.github.io/cf-node-client/doc/Stacks.html) |
+| User Provided Services | [API](https://leotrinh.github.io/cf-node-client/doc/UserProvidedServices.html) |
+| Users | [API](https://leotrinh.github.io/cf-node-client/doc/Users.html) |
 
 ---
 

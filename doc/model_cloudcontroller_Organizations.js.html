@@ -90,7 +90,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             },
             qs: qs
         };
@@ -106,7 +106,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`,
+                Authorization: this.getAuthorizationHeader(),
                 "Content-Type": "application/json"
             },
             qs: qs,
@@ -161,7 +161,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             }
         };
 
@@ -174,7 +174,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`,
+                Authorization: this.getAuthorizationHeader(),
                 "Content-Type": "application/json"
             },
             json: true
@@ -203,7 +203,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             }
         };
 
@@ -231,7 +231,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             }
         };
 
@@ -241,7 +241,12 @@ class Organizations extends CloudControllerBase {
     /**
      * Get private domains from an Organization
      * v2: {@link http://apidocs.cloudfoundry.org/214/organizations/list_all_private_domains_for_the_organization.html}
-     * v3: {@link https://v3-apidocs.cloudfoundry.org/#list-domains}
+     * v3: {@link https://v3-apidocs.cloudfoundry.org/#list-domains-for-an-organization}
+     *
+     * NOTE (v3): /v3/organizations/:guid/domains returns all domains accessible to
+     * the org (both owned/private and shared). The v3 API does not support a
+     * `visibility` query parameter. Client-side filtering on
+     * `relationships.organization.data` is needed for strict private-only results.
      *
      * @param  {String} guid [Organization GUID]
      * @param  {Object} filter [Filter options]
@@ -263,7 +268,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             },
             qs: qs
         };
@@ -274,13 +279,12 @@ class Organizations extends CloudControllerBase {
     _getPrivateDomainsV3(guid, filter) {
         const url = `${this.API_URL}/v3/organizations/${guid}/domains`;
         const qs = Object.assign({}, filter || {});
-        qs.visibility = "private";
 
         const options = {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`,
+                Authorization: this.getAuthorizationHeader(),
                 "Content-Type": "application/json"
             },
             qs: qs,
@@ -312,7 +316,7 @@ class Organizations extends CloudControllerBase {
             method: "POST",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             },
             form: JSON.stringify(orgOptions)
         };
@@ -326,7 +330,7 @@ class Organizations extends CloudControllerBase {
             method: "POST",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`,
+                Authorization: this.getAuthorizationHeader(),
                 "Content-Type": "application/json"
             },
             json: orgOptions
@@ -358,7 +362,7 @@ class Organizations extends CloudControllerBase {
             method: "PUT",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             },
             form: JSON.stringify(orgOptions)
         };
@@ -372,7 +376,7 @@ class Organizations extends CloudControllerBase {
             method: "PATCH",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`,
+                Authorization: this.getAuthorizationHeader(),
                 "Content-Type": "application/json"
             },
             json: orgOptions
@@ -406,7 +410,7 @@ class Organizations extends CloudControllerBase {
             method: "DELETE",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             },
             qs: qs
         };
@@ -422,7 +426,7 @@ class Organizations extends CloudControllerBase {
             method: "DELETE",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`,
+                Authorization: this.getAuthorizationHeader(),
                 "Content-Type": "application/json"
             },
             qs: qs
@@ -456,7 +460,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             },
             qs: qs
         };
@@ -474,7 +478,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: `${this.API_URL}/v3/roles`,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`,
+                Authorization: this.getAuthorizationHeader(),
                 "Content-Type": "application/json"
             },
             qs: qs,
@@ -509,7 +513,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             },
             qs: qs
         };
@@ -527,7 +531,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: `${this.API_URL}/v3/roles`,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`,
+                Authorization: this.getAuthorizationHeader(),
                 "Content-Type": "application/json"
             },
             qs: qs,
@@ -562,7 +566,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: url,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`
+                Authorization: this.getAuthorizationHeader()
             },
             qs: qs
         };
@@ -580,7 +584,7 @@ class Organizations extends CloudControllerBase {
             method: "GET",
             url: `${this.API_URL}/v3/roles`,
             headers: {
-                Authorization: `${this.UAA_TOKEN.token_type} ${this.UAA_TOKEN.access_token}`,
+                Authorization: this.getAuthorizationHeader(),
                 "Content-Type": "application/json"
             },
             qs: qs,
@@ -623,7 +627,7 @@ module.exports = Organizations;
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 05 2026 17:22:07 GMT+0700 (Indochina Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 05 2026 19:01:34 GMT+0700 (Indochina Time)
 </footer>
 
 <script> prettyPrint(); </script>

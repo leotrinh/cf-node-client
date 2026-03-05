@@ -363,7 +363,7 @@ v3: <a href="https://v3-apidocs.cloudfoundry.org/#create-an-organization">https:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line253">line 253</a>
+        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line257">line 257</a>
     </li></ul></dd>
     
 
@@ -537,7 +537,7 @@ Results are cached when caching is enabled.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line554">line 554</a>
+        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line558">line 558</a>
     </li></ul></dd>
     
 
@@ -721,7 +721,7 @@ v3: <a href="https://v3-apidocs.cloudfoundry.org/#list-auditors">https://v3-apid
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line501">line 501</a>
+        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line505">line 505</a>
     </li></ul></dd>
     
 
@@ -905,7 +905,7 @@ v3: <a href="https://v3-apidocs.cloudfoundry.org/#list-managers">https://v3-apid
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line448">line 448</a>
+        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line452">line 452</a>
     </li></ul></dd>
     
 
@@ -1618,7 +1618,12 @@ v3: <a href="https://v3-apidocs.cloudfoundry.org/#list-organizations">https://v3
 <div class="description">
     Get private domains from an Organization
 v2: <a href="http://apidocs.cloudfoundry.org/214/organizations/list_all_private_domains_for_the_organization.html">http://apidocs.cloudfoundry.org/214/organizations/list_all_private_domains_for_the_organization.html</a>
-v3: <a href="https://v3-apidocs.cloudfoundry.org/#list-domains">https://v3-apidocs.cloudfoundry.org/#list-domains</a>
+v3: <a href="https://v3-apidocs.cloudfoundry.org/#list-domains-for-an-organization">https://v3-apidocs.cloudfoundry.org/#list-domains-for-an-organization</a>
+
+NOTE (v3): /v3/organizations/:guid/domains returns all domains accessible to
+the org (both owned/private and shared). The v3 API does not support a
+`visibility` query parameter. Client-side filtering on
+`relationships.organization.data` is needed for strict private-only results.
 </div>
 
 
@@ -1734,7 +1739,7 @@ v3: <a href="https://v3-apidocs.cloudfoundry.org/#list-domains">https://v3-apido
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line202">line 202</a>
+        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line207">line 207</a>
     </li></ul></dd>
     
 
@@ -2078,7 +2083,7 @@ v3: <a href="https://v3-apidocs.cloudfoundry.org/#list-users">https://v3-apidocs
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line395">line 395</a>
+        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line399">line 399</a>
     </li></ul></dd>
     
 
@@ -2262,7 +2267,7 @@ v3: <a href="https://v3-apidocs.cloudfoundry.org/#delete-an-organization">https:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line345">line 345</a>
+        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line349">line 349</a>
     </li></ul></dd>
     
 
@@ -2446,7 +2451,7 @@ v3: <a href="https://v3-apidocs.cloudfoundry.org/#update-an-organization">https:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line299">line 299</a>
+        <a href="model_cloudcontroller_Organizations.js.html">model/cloudcontroller/Organizations.js</a>, <a href="model_cloudcontroller_Organizations.js.html#line303">line 303</a>
     </li></ul></dd>
     
 
@@ -2520,7 +2525,7 @@ v3: <a href="https://v3-apidocs.cloudfoundry.org/#update-an-organization">https:
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 05 2026 17:22:07 GMT+0700 (Indochina Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 05 2026 19:01:34 GMT+0700 (Indochina Time)
 </footer>
 
 <script> prettyPrint(); </script>

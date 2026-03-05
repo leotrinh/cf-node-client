@@ -1,3 +1,68 @@
+## Version 1.0.7 2026-03-05
+
+**PATCH RELEASE — 7 v3 API Fixes (4 MEDIUM + 3 LOW)**
+
+Implements all remaining audit findings for v3 API correctness and robustness. Adds support for dual status codes, v3 async job polling, and improves v3/v2 consistency.
+
+### Bug Fixes — MEDIUM (M1–M4)
+
+- **M1+L3 — Jobs.js:** Added `getV3Job(jobGuid)` and `pollJob(jobGuid, options)` for v3 async operation polling (`/v3/jobs/:guid`). Clarified distinction between v3 Jobs (async ops) and v3 Tasks (app processes).
+- **M2 — AppsDeployment.js:** `removeServiceBindings()` v3 now accepts both 202 (managed async) and 204 (key/UPS sync).
+- **M3 — ServiceBindings.js:** `_addV3()` accepts 201 or 202; `_removeV3()` accepts 202 or 204.
+- **M4 — ServiceInstances.js:** `_removeV3()` accepts 202 (managed async) or 204 (UPS sync).
+
+### Bug Fixes — LOW (L1–L3)
+
+- **L1 — Organizations.js:** Removed ineffective `visibility=private` filter from `_getPrivateDomainsV3()`.
+- **L2 — Organizations.js:** All v2/v3 methods now use `getAuthorizationHeader()` consistently.
+- **L3 — Jobs.js:** Clarified endpoint mapping and JSDoc for v3 async jobs vs tasks.
+
+### Enabler
+- **HttpUtils.js:** `request()` now accepts `Number|Number[]` for status codes (enables dual-status handling above).
+
+### Tests
+- 27 new unit tests covering all fixes (`test/lib/V3AuditFixMediumLowTests.js`)
+- All **139 passing**, 0 failing
+
+---
+
+## Version 1.0.6 2026-03-05
+
+**PATCH RELEASE — Fix 9 v3 API Issues (5 CRITICAL + 4 HIGH)**
+
+Full library audit identified incorrect HTTP status code expectations and wrong v3 request body structures across 8 files. All issues fixed and verified.
+
+### Bug Fixes — CRITICAL (C1–C5): Runtime Failures
+
+- **C1 — `AppsCore.remove()` wrong v3 status**: Expected 204 (NO_CONTENT) → Fixed to 202 (ACCEPTED). CF v3 `DELETE /v3/apps/:guid` returns 202 with a job URL for async deletion.
+- **C2 — `Domains.remove()` wrong v3 status**: Expected 204 → Fixed to 202. CF v3 `DELETE /v3/domains/:guid` returns 202 Accepted.
+- **C3 — `BuildPacks.remove()` wrong v3 status**: Expected 204 → Fixed to 202. CF v3 `DELETE /v3/buildpacks/:guid` returns 202 Accepted.
+- **C4 — `Users.remove()` wrong v3 status**: Expected 204 → Fixed to 202. CF v3 `DELETE /v3/users/:guid` returns 202 Accepted.
+- **C5 — `HttpUtils.upload()` hardcoded PUT**: v3 package upload (`POST /v3/packages/:guid/upload`) requires POST. Added `options.method` parameter, `AppsDeployment._uploadV3()` now passes `method: "POST"`. v2 path unchanged (defaults to PUT).
+
+### Bug Fixes — HIGH (H1–H4): API Rejection
+
+- **H1 — `Domains.add()` wrong v3 body**: Sent flat `organization_guid` field → Fixed to nested `relationships.organization.data.guid` per CF v3 spec.
+- **H2 — `Users.add()` wrong v3 body**: Sent `{username, origin}` → Fixed to `{guid}` (UAA user GUID). CF v3 `POST /v3/users` requires the UAA `guid` as the primary identifier.
+- **H3 — `OrganizationsQuota._translateToV3()` wrong body structure**: Used flat `limits` object with wrong field names → Fixed to proper nested `apps`, `services`, `routes`, `domains` sub-objects matching CF v3 `organization_quotas` spec.
+- **H4 — `SpacesQuota._translateToV3()` wrong body structure**: Same flat `limits` issue → Fixed to nested `apps`, `services`, `routes` sub-objects. Preserves `relationships.organization` on create.
+
+### Files Modified
+- `lib/model/cloudcontroller/AppsCore.js` — C1
+- `lib/model/cloudcontroller/Domains.js` — C2, H1
+- `lib/model/cloudcontroller/BuildPacks.js` — C3
+- `lib/model/cloudcontroller/Users.js` — C4, H2
+- `lib/utils/HttpUtils.js` — C5
+- `lib/model/cloudcontroller/AppsDeployment.js` — C5
+- `lib/model/cloudcontroller/OrganizationsQuota.js` — H3
+- `lib/model/cloudcontroller/SpacesQuota.js` — H4
+
+### Tests
+- 19 new unit tests covering all 9 fixes (`test/lib/V3AuditFixTests.js`)
+- All **112 passing**, 0 failing
+
+---
+
 ## Version 1.0.5 2026-03-05
 
 **PATCH RELEASE — Fix 11 Incorrect v3 API Endpoints**

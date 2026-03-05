@@ -1,5 +1,43 @@
 # Migration Guide: cf-nodejs-client → cf-node-client v1.0.0
 
+## Important: v1.0.7 — 7 v3 Status Code, Job Polling, Consistency Fixes
+
+If you are using v1.0.0–v1.0.6 in **v3 mode (default)**, the following methods had wrong HTTP status expectations, missing async job polling, or inconsistent headers:
+
+**Status code fixes (would reject successful v3 DELETE responses):**
+- `AppsDeployment.removeServiceBindings()`, `ServiceBindings._addV3/_removeV3()`, `ServiceInstances._removeV3()` — now correctly accept both 202 and 204 where appropriate
+
+**Async job polling:**
+- `Jobs.getV3Job()` and `Jobs.pollJob()` now available for v3 async operation tracking (`/v3/jobs/:guid`)
+
+**Consistency fixes:**
+- `Organizations._getPrivateDomainsV3()` no longer adds ineffective `visibility=private` filter
+- All `Organizations` v2/v3 methods now use `getAuthorizationHeader()`
+
+**Upgrade to v1.0.7** for correct v3 behavior and async job support. No consumer code changes needed unless you want to use new polling helpers.
+
+---
+
+## Important: v1.0.6 — 9 v3 Status Code & Body Structure Fixes
+
+If you are using v1.0.0–v1.0.5 in **v3 mode (default)**, the following methods had wrong HTTP status expectations or request body structures:
+
+**Status code fixes (would reject successful v3 DELETE responses):**
+- `AppsCore.remove()`, `Domains.remove()`, `BuildPacks.remove()`, `Users.remove()` — now correctly expect 202 instead of 204
+
+**Request body fixes (CF API would reject the request):**
+- `Domains.add()` — `organization_guid` now nested in `relationships` structure
+- `Users.add()` — now sends `{ guid }` instead of `{ username, origin }` per v3 spec
+- `OrganizationsQuota._translateToV3()` — proper nested `apps/services/routes/domains` structure
+- `SpacesQuota._translateToV3()` — proper nested `apps/services/routes` structure
+
+**Upload fix:**
+- `HttpUtils.upload()` now accepts `options.method` — v3 package upload uses POST (was hardcoded PUT)
+
+**Upgrade to v1.0.6** for correct v3 behavior. If you pass v2-style quota options, no caller changes needed.
+
+> **Breaking**: `Users.add()` in v3 now requires `{ guid: "uaa-user-guid" }` instead of `{ username, origin }`.
+
 ## Important: v1.0.5 — 11 Incorrect v3 Endpoints Fixed
 
 If you are using v1.0.0–v1.0.4 in **v3 mode (default)**, the following methods called wrong endpoints:

@@ -1,3 +1,88 @@
+# cf-node-client v1.0.7 — 7 v3 API Fixes (4 MEDIUM + 3 LOW)
+
+**Package**: cf-node-client v1.0.7  
+**Release Date**: March 5, 2026  
+**Status**: Production Ready  
+**Severity**: **Medium/Low — v3 Status Code, Job Polling, Consistency**
+
+## What's Fixed in v1.0.7
+
+Implements all remaining audit findings for v3 API correctness and robustness. Adds support for dual status codes, v3 async job polling, and improves v3/v2 consistency.
+
+### MEDIUM — Dual Status Codes, Job Polling
+
+| ID | File | Method | Before | After |
+|----|------|--------|--------|-------|
+| M1+L3 | Jobs.js | v3 async jobs | No polling for /v3/jobs/:guid | Added getV3Job(), pollJob() |
+| M2 | AppsDeployment.js | removeServiceBindings() | expects 204 | expects **202 or 204** |
+| M3 | ServiceBindings.js | _addV3/_removeV3 | expects 201/202 only | expects **201 or 202** (add), **202 or 204** (remove) |
+| M4 | ServiceInstances.js | _removeV3 | expects 202 only | expects **202 or 204** |
+
+### LOW — Consistency & Docs
+
+| ID | File | Issue | Fix |
+|----|------|-------|-----|
+| L1 | Organizations.js | v3 private domains filter | Removed ineffective visibility=private |
+| L2 | Organizations.js | inconsistent auth header | All v2/v3 methods use getAuthorizationHeader() |
+| L3 | Jobs.js | endpoint map/docs | Clarified v3 jobs vs tasks |
+
+### Enabler
+- **HttpUtils.js:** `request()` now accepts `Number|Number[]` for status codes (enables dual-status handling above).
+
+### Tests
+- 27 new unit tests in `test/lib/V3AuditFixMediumLowTests.js`
+- All **139 tests passing**, 0 failing
+
+---
+
+# cf-node-client v1.0.6 — Fix 9 v3 API Issues (5 CRITICAL + 4 HIGH)
+
+**Package**: cf-node-client v1.0.6  
+**Release Date**: March 5, 2026  
+**Status**: Production Ready  
+**Severity**: **Critical — v3 Status Code & Request Body Corrections**
+
+## What's Fixed in v1.0.6
+
+Full library audit against the [CF API v3 specification](https://v3-apidocs.cloudfoundry.org/) found 9 issues causing runtime failures or API rejections when using v3 mode. All fixed.
+
+### CRITICAL — Wrong HTTP Status Expectations (C1–C4)
+
+CF v3 DELETE operations return `202 Accepted` (with async job URL), not `204 No Content`. The library was rejecting successful deletions.
+
+| ID | File | Method | Before | After |
+|----|------|--------|--------|-------|
+| C1 | AppsCore.js | `remove()` | expects 204 | expects **202** |
+| C2 | Domains.js | `remove()` | expects 204 | expects **202** |
+| C3 | BuildPacks.js | `remove()` | expects 204 | expects **202** |
+| C4 | Users.js | `remove()` | expects 204 | expects **202** |
+
+### CRITICAL — Upload Method Mismatch (C5)
+
+| ID | File | Issue | Fix |
+|----|------|-------|-----|
+| C5 | HttpUtils.js | `upload()` hardcoded `PUT` | Now accepts `options.method` (default: PUT). AppsDeployment v3 passes `POST` for `/v3/packages/:guid/upload`. |
+
+### HIGH — Wrong v3 Request Body Structure (H1–H4)
+
+| ID | File | Method | Before (broken) | After (correct) |
+|----|------|--------|-----------------|-----------------|
+| H1 | Domains.js | `add()` | `{ organization_guid: "..." }` | `{ relationships: { organization: { data: { guid: "..." } } } }` |
+| H2 | Users.js | `add()` | `{ username, origin }` | `{ guid: "uaa-user-guid" }` |
+| H3 | OrganizationsQuota.js | `_translateToV3()` | flat `limits` object | nested `apps`, `services`, `routes`, `domains` sub-objects |
+| H4 | SpacesQuota.js | `_translateToV3()` | flat `limits` object | nested `apps`, `services`, `routes` sub-objects |
+
+### Breaking Changes
+
+- **`Users.add()` v3 body**: Now requires `{ guid: "uaa-user-guid" }` instead of `{ username, origin }`. This matches the CF v3 spec. If you were passing `{ guid: "..." }`, it works as before. If you relied on `username` / `origin` fields being sent to v3, update your caller code.
+- **`OrganizationsQuota` / `SpacesQuota` v3 body**: The `_translateToV3()` internal method now produces the correct nested structure. If you were passing v2-style options (`memory_limit`, `total_services`, etc.), the translation is now correct — no caller changes needed.
+
+### Tests
+- 19 new unit tests in `test/lib/V3AuditFixTests.js`
+- All **112 tests passing**, 0 failing
+
+---
+
 # cf-node-client v1.0.5 — Fix 11 Incorrect v3 API Endpoints
 
 **Package**: cf-node-client v1.0.5  
