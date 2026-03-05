@@ -10,7 +10,7 @@ const CloudController = require('../../lib/model/cloudcontroller/CloudController
 const ApiConfig = require('../../lib/config/ApiConfig');
 const ApiVersionManager = require('../../lib/config/ApiVersionManager');
 
-describe('cf-node-client v1.0.2 - API v3 Migration', function () {
+describe('cf-node-client v1.0.3 - API v3 Migration', function () {
     this.timeout(5000);
 
     describe('Package Configuration', function () {
@@ -20,14 +20,14 @@ describe('cf-node-client v1.0.2 - API v3 Migration', function () {
             expect(pkg.name).to.equal('cf-node-client');
         });
 
-        it('should have version 1.0.2', function () {
+        it('should have version 1.0.3', function () {
             const pkg = require('../../package.json');
-            expect(pkg.version).to.equal('1.0.2');
+            expect(pkg.version).to.equal('1.0.3');
         });
 
-        it('should have index.js export version 1.0.2', function () {
+        it('should have index.js export version 1.0.3', function () {
             const lib = require('../../index.js');
-            expect(lib.version).to.equal('1.0.2');
+            expect(lib.version).to.equal('1.0.3');
         });
 
         it('should export all 16 Cloud Foundry models', function () {
