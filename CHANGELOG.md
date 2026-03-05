@@ -1,3 +1,42 @@
+## Version 1.0.1 2026-03-05
+
+**PATCH RELEASE — Auto-Pagination & Memory Cache**
+
+### New Features
+- **Auto-Pagination**: Built-in `getAllResources(fetchFn, filter)` in `CloudControllerBase` that auto-paginates through all pages and returns a flat resource array. Works with both v2 (`next_url`) and v3 (`pagination.next`).
+- **Convenience Pagination Methods**: `getAllOrganizations(filter?)`, `getAllSpaces(filter?)`, `getAllApps(filter?)`, `getAllInstances(filter?)` — thin wrappers for the most common resources
+- **Memory Cache**: Opt-in `CacheService` (Map + TTL) integrated into `CloudControllerBase`. Enable via constructor `{ cache: true, cacheTTL: 60000 }` or runtime `enableCache()` / `disableCache()` / `clearCache()`
+- **CacheService Module**: Standalone `lib/services/CacheService.js` — per-entry TTL, lazy expiration, prefix invalidation
+
+### TypeScript
+- Added `cache?`, `cacheTTL?` to `CloudControllerBaseOptions`
+- Added `enableCache()`, `disableCache()`, `clearCache()`, `getAllResources()` to `CloudControllerBase`
+- Added `getAllOrganizations()`, `getAllSpaces()`, `getAllApps()`, `getAllInstances()` to respective classes
+- Exported `CacheService` class type
+
+### Tests
+- 21 new tests (8 CacheService + 8 pagination + 5 cache integration)
+- Total: **93 passing**, 0 failing
+
+### Documentation
+- Updated `README.md`, `docs/Usage.md`, `docs/Usage-cf-service.md` with pagination & cache sections
+- Updated `examples/cf-service-usage-example.js`, `typescript-basic.ts`, `typescript-advanced.ts`
+- Updated `RELEASE_NOTES.md` with v1.0.1 section
+
+### Files Added
+- `lib/services/CacheService.js`
+- `test/lib/PaginationCacheTests.js`
+
+### Files Modified
+- `lib/model/cloudcontroller/CloudControllerBase.js`
+- `lib/model/cloudcontroller/Organizations.js`
+- `lib/model/cloudcontroller/Spaces.js`
+- `lib/model/cloudcontroller/AppsCore.js`
+- `lib/model/cloudcontroller/ServiceInstances.js`
+- `types/index.d.ts`
+- `package.json`
+- `index.js`
+
 ## Version 1.0.0 2026-03-04
 
 **MAJOR RELEASE - Cloud Foundry API v3 Migration & Package Rename**

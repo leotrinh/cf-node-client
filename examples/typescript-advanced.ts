@@ -28,8 +28,8 @@ import {
   ApiResponse
 } from "cf-node-client";
 
-const CF_API_URL = "https://api.run.pivotal.io";
-const UAA_URL = "https://login.run.pivotal.io";
+const CF_API_URL = "https://api.<your-cf-domain>";
+const UAA_URL = "https://login.<your-cf-domain>";
 
 // ---------------------------------------------------------------------------
 // Token Management with Auto-Refresh
@@ -169,25 +169,48 @@ async function mapRoute(
 }
 
 // ---------------------------------------------------------------------------
-// Pagination Helper
+// Pagination — Built-in Auto-Pagination (replaces manual helper)
 // ---------------------------------------------------------------------------
-async function getAllPages<T>(
-  fetchFn: (filter?: FilterOptions) => Promise<ApiResponse<T>>,
-  filter?: FilterOptions
-): Promise<T[]> {
-  const allResources: T[] = [];
-  let page = 1;
-  let hasMore = true;
+//
+// In previous versions you had to implement a manual pagination loop:
+//
+//   async function getAllPages<T>(fetchFn, filter?): Promise<T[]> { ... }
+//
+// This is now built into the library. Every subclass exposes a
+// convenience method that auto-paginates through all pages:
+//
+//   const allOrgs   = await orgs.getAllOrganizations();
+//   const allSpaces = await spaces.getAllSpaces();
+//   const allApps   = await apps.getAllApps({ q: "space_guid:xxx" });
+//   const allSIs    = await si.getAllInstances();
+//
+// Or use the base class method directly for custom endpoints:
+//
+//   const all = await orgs.getAllResources(
+//     (filter) => orgs.getOrganizations(filter)
+//   );
+//
 
-  while (hasMore) {
-    const currentFilter: FilterOptions = { ...filter, page };
-    const response = await fetchFn(currentFilter);
-    allResources.push(...response.resources);
-    hasMore = response.next_url !== null && response.next_url !== undefined;
-    page++;
-  }
+// ---------------------------------------------------------------------------
+// Caching — Built-in Memory Cache (opt-in)
+// ---------------------------------------------------------------------------
+async function paginationAndCacheDemo(token: OAuthToken): Promise<void> {
+  // Enable cache at construction time (60 s TTL)
+  const orgs = new Organizations(CF_API_URL, { cache: true, cacheTTL: 60000 });
+  orgs.setToken(token);
 
-  return allResources;
+  // Auto-paginate through ALL orgs — result is cached for 60 s
+  const allOrgs = await orgs.getAllOrganizations();
+  console.log(`Total orgs: ${allOrgs.length}`);
+
+  // Second call within TTL → returns from cache (0 HTTP calls)
+  const cached = await orgs.getAllOrganizations();
+  console.log(`Cached orgs: ${cached.length}`);
+
+  // Clear, toggle, re-enable
+  orgs.clearCache();               // clear entries, keep cache on
+  orgs.disableCache();             // turn off + clear
+  orgs.enableCache(30000);         // re-enable with 30 s TTL
 }
 
 // ---------------------------------------------------------------------------
@@ -227,6 +250,42 @@ async function demonstrateVersionSwitching(token: OAuthToken): Promise<void> {
 }
 
 // ---------------------------------------------------------------------------
+// Convenience Methods — Find by Name
+// ---------------------------------------------------------------------------
+async function findResourcesByName(token: OAuthToken): Promise<void> {
+  const orgs = new Organizations(CF_API_URL);
+  const spaces = new Spaces(CF_API_URL);
+  const apps = new Apps(CF_API_URL);
+  const si = new ServiceInstances(CF_API_URL);
+
+  orgs.setToken(token);
+  spaces.setToken(token);
+  apps.setToken(token);
+  si.setToken(token);
+
+  // Chain: Org → Space → App → Service Instance (find by name)
+  const org = await orgs.getOrganizationByName("my-org");
+  if (!org) throw new Error("Org not found");
+  const orgGuid = org.metadata?.guid || org.guid;
+
+  const space = await spaces.getSpaceByName("dev", orgGuid);
+  if (!space) throw new Error("Space not found");
+  const spaceGuid = space.metadata?.guid || space.guid;
+
+  const app = await apps.getAppByName("my-app", spaceGuid);
+  if (app) {
+    console.log(`Found app: ${app.entity?.name || app.name}`);
+    const appGuid = app.metadata?.guid || app.guid;
+    await apps.start(appGuid);
+  }
+
+  const dbInstance = await si.getInstanceByName("my-database", spaceGuid);
+  if (dbInstance) {
+    console.log(`Found DB: ${dbInstance.entity?.name || dbInstance.name}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Error Handling Pattern
 // ---------------------------------------------------------------------------
 async function safeApiCall<T>(
@@ -262,13 +321,14 @@ async function main(): Promise<void> {
     const info = await cc.getInfo();
     const loggingEndpoint: string = info.logging_endpoint;
 
-    // Demonstrate pagination
+    // Demonstrate built-in auto-pagination + cache
     const apps = new Apps(CF_API_URL);
     apps.setToken(token);
-    const allApps = await getAllPages(
-      (filter) => apps.getApps(filter)
-    );
+    const allApps = await apps.getAllApps();
     console.log(`Total apps across all pages: ${allApps.length}`);
+
+    // Pagination + cache demo
+    await paginationAndCacheDemo(token);
 
     // Safe API call with error handling
     await safeApiCall("list-spaces", async () => {
@@ -276,6 +336,9 @@ async function main(): Promise<void> {
       spaces.setToken(token);
       return spaces.getSpaces();
     });
+
+    // Find resources by name (convenience methods)
+    await findResourcesByName(token);
 
     // Demonstrate v2/v3 switching
     await demonstrateVersionSwitching(token);

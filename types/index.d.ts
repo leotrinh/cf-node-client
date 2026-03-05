@@ -48,6 +48,10 @@ export interface ApiResponse<T = any> {
 /** Options for CloudControllerBase constructor */
 export interface CloudControllerBaseOptions {
   apiVersion?: "v2" | "v3";
+  /** Enable in-memory cache for getAllResources calls */
+  cache?: boolean;
+  /** Cache TTL in milliseconds (default: 30000) */
+  cacheTTL?: number;
 }
 
 /**
@@ -82,6 +86,24 @@ export class CloudControllerBase {
   getFieldName(resourceName: string, fieldName: string): string;
   /** Check if resource needs special handling for current API version */
   needsSpecialHandling(resourceName: string): boolean;
+
+  // ── Cache ────────────────────────────────────────────────────────────
+  /** Enable the in-memory cache */
+  enableCache(ttlMs?: number): void;
+  /** Disable the cache and clear all entries */
+  disableCache(): void;
+  /** Clear all cached entries (cache stays enabled) */
+  clearCache(): void;
+
+  // ── Pagination ───────────────────────────────────────────────────────
+  /**
+   * Auto-paginate through all pages of a list endpoint.
+   * Returns a flat array of every resource.
+   */
+  getAllResources<T = any>(
+    fetchFn: (filter?: FilterOptions) => Promise<ApiResponse<T>>,
+    filter?: FilterOptions
+  ): Promise<T[]>;
 }
 
 // ============================================================================
@@ -120,6 +142,10 @@ export class Apps extends CloudControllerBase {
   getApps(filter?: FilterOptions): Promise<ApiResponse>;
   /** Get application by GUID */
   getApp(appGuid: string): Promise<any>;
+  /** Find an application by name using server-side filtering. Optionally filter by space GUID. Returns first match or null. */
+  getAppByName(name: string, spaceGuid?: string): Promise<any | null>;
+  /** Get ALL apps across all pages (auto-pagination). Returns flat array. */
+  getAllApps(filter?: FilterOptions): Promise<any[]>;
   /** Create a new application */
   add(appOptions: any): Promise<any>;
   /** Update an application */
@@ -158,6 +184,14 @@ export class Apps extends CloudControllerBase {
   getPackages(appGuid: string): Promise<any>;
   /** Get processes for an application (v3) */
   getProcesses(appGuid: string): Promise<any>;
+  /** Copy app bits from source app (v2 only) */
+  copyBits(appGuid: string, sourceAppGuid: string): Promise<any>;
+  /** Copy a package from one app to another (v3 only) */
+  copyPackage(sourcePackageGuid: string, targetAppGuid: string): Promise<any>;
+  /** Download app bits (v2: app GUID, v3: package GUID) */
+  downloadBits(guid: string): Promise<Buffer>;
+  /** Download a droplet (v3 only) */
+  downloadDroplet(dropletGuid: string): Promise<Buffer>;
 }
 
 // ============================================================================
@@ -172,6 +206,10 @@ export class Spaces extends CloudControllerBase {
   getSpaces(filter?: FilterOptions): Promise<ApiResponse>;
   /** Get a specific space */
   getSpace(guid: string): Promise<any>;
+  /** Find a space by name using server-side filtering. Optionally filter by org GUID. Returns first match or null. */
+  getSpaceByName(name: string, orgGuid?: string): Promise<any | null>;
+  /** Get ALL spaces across all pages (auto-pagination). Returns flat array. */
+  getAllSpaces(filter?: FilterOptions): Promise<any[]>;
   /** Get space summary */
   getSummary(guid: string): Promise<any>;
   /** Create a new space */
@@ -204,6 +242,10 @@ export class Organizations extends CloudControllerBase {
   getOrganizations(filter?: FilterOptions): Promise<ApiResponse>;
   /** Get a specific organization */
   getOrganization(guid: string): Promise<any>;
+  /** Find an organization by name using server-side filtering. Returns first match or null. */
+  getOrganizationByName(name: string): Promise<any | null>;
+  /** Get ALL organizations across all pages (auto-pagination). Returns flat array. */
+  getAllOrganizations(filter?: FilterOptions): Promise<any[]>;
   /** Get organization memory usage */
   getMemoryUsage(guid: string): Promise<any>;
   /** Get organization summary */
@@ -324,16 +366,30 @@ export class ServiceInstances extends CloudControllerBase {
   getInstances(filter?: FilterOptions): Promise<ApiResponse>;
   /** Get a specific service instance */
   getInstance(guid: string): Promise<any>;
-  /** Get service instance permissions */
+  /** Find a service instance by name using server-side filtering. Optionally filter by space GUID. Returns first match or null. */
+  getInstanceByName(name: string, spaceGuid?: string): Promise<any | null>;
+  /** Get ALL service instances across all pages (auto-pagination). Returns flat array. */
+  getAllInstances(filter?: FilterOptions): Promise<any[]>;
+  /** Get service instance permissions (v2 only) */
   getInstancePermissions(guid: string): Promise<any>;
-  /** Create a new service instance */
-  add(instanceOptions: any): Promise<any>;
-  /** Update a service instance */
-  update(guid: string, instanceOptions: any): Promise<any>;
-  /** Delete a service instance */
-  remove(guid: string, deleteOptions?: DeleteOptions): Promise<any>;
+  /** Create a service instance (accepts_incomplete enables async provisioning) */
+  add(instanceOptions: any, acceptsIncomplete?: boolean): Promise<any>;
+  /** Update a service instance (accepts_incomplete enables async update) */
+  update(guid: string, instanceOptions: any, acceptsIncomplete?: boolean): Promise<any>;
+  /** Delete a service instance (accepts_incomplete enables async deletion) */
+  remove(guid: string, deleteOptions?: DeleteOptions, acceptsIncomplete?: boolean): Promise<any>;
   /** Get service bindings for a service instance */
   getServiceBindings(guid: string, filter?: FilterOptions): Promise<ApiResponse>;
+  /** Get service instances filtered by space GUID */
+  getInstancesBySpace(spaceGuid: string, filter?: FilterOptions): Promise<ApiResponse>;
+  /** Get a service instance by name within a specific space */
+  getInstanceByNameInSpace(name: string, spaceGuid: string): Promise<any>;
+  /** Start a managed service instance (v3 only, e.g. HANA) */
+  startInstance(guid: string): Promise<any>;
+  /** Stop a managed service instance (v3 only, e.g. HANA) */
+  stopInstance(guid: string): Promise<any>;
+  /** Get last operation status for a service instance */
+  getOperationStatus(guid: string): Promise<any>;
 }
 
 // ============================================================================
@@ -403,20 +459,13 @@ export class Users {
 // EVENTS
 // ============================================================================
 
-/** Manage Cloud Foundry events */
-export class Events {
-  constructor(endpointUrl: string, accessToken?: OAuthToken);
+/** Manage Cloud Foundry audit events (ES6 class extending CloudControllerBase) */
+export class Events extends CloudControllerBase {
+  constructor(endPoint: string, options?: CloudControllerBaseOptions);
 
-  setEndPoint(endPoint: string): void;
-  setToken(token: OAuthToken): void;
-  setApiVersion(version: string): void;
-  getApiVersion(): string;
-  isUsingV3(): boolean;
-  isUsingV2(): boolean;
-
-  /** List all events */
+  /** List all events (v2: /v2/events, v3: /v3/audit_events) */
   getEvents(filter?: FilterOptions): Promise<any>;
-  /** Get a specific event */
+  /** Get a specific event by GUID */
   getEvent(guid: string): Promise<any>;
 }
 
@@ -549,6 +598,16 @@ export class OrganizationsQuota {
  * Note: Logs has its own constructor pattern (no endpointUrl param).
  * Use setEndPoint() and setToken() after construction.
  */
+/** Structured log entry returned by getRecentParsed */
+export interface LogEntry {
+  timestamp: Date | null;
+  timestampRaw: string | null;
+  source: string;
+  sourceId: string;
+  messageType: string;
+  message: string;
+}
+
 export class Logs {
   constructor();
 
@@ -556,8 +615,12 @@ export class Logs {
   setEndPoint(endPoint: string): void;
   /** Set OAuth token */
   setToken(token: OAuthToken): void;
-  /** Get recent logs for an application */
-  getRecent(appGuid: string): Promise<any>;
+  /** Get recent raw logs for an application */
+  getRecent(appGuid: string): Promise<string>;
+  /** Get recent logs with parsed timestamps and structured output */
+  getRecentParsed(appGuid: string): Promise<LogEntry[]>;
+  /** Parse raw CF log output into structured entries */
+  static parseLogs(rawLogs: string): LogEntry[];
 }
 
 // ============================================================================
@@ -588,11 +651,78 @@ export class UsersUAA {
   login(username: string, password: string): Promise<OAuthToken>;
   /** Refresh an OAuth token */
   refreshToken(): Promise<OAuthToken>;
+  /** Login with client_credentials grant type */
+  loginWithClientCredentials(clientId: string, clientSecret: string): Promise<OAuthToken>;
+  /** Login with a one-time passcode (SSO) */
+  loginWithPasscode(passcode: string): Promise<OAuthToken>;
+  /** Login with an authorization code (OAuth2 code flow) */
+  loginWithAuthorizationCode(code: string, clientId: string, clientSecret: string, redirectUri: string): Promise<OAuthToken>;
+  /** Validate and introspect a token server-side */
+  getTokenInfo(token: string, clientId: string, clientSecret: string): Promise<any>;
+  /** Decode a JWT token locally (no signature verification) */
+  decodeToken(token: string): any;
 }
 
 // ============================================================================
 // MODULE EXPORTS
 // ============================================================================
 
+// ============================================================================
+// UTILITIES
+// ============================================================================
+
+/** File descriptor for multipart uploads (replaces restler.file()) */
+export interface FileDescriptor {
+  _filePath: string;
+  _filename: string;
+  _contentType: string;
+  _size: number;
+}
+
+/** HTTP utility class used internally by all models */
+export class HttpUtils {
+  constructor();
+  request(options: any, httpStatusAssert: number, jsonOutput: boolean): Promise<any>;
+  requestV3(method: string, url: string, token: string, data?: any, expectedStatus?: number): Promise<any>;
+  requestV2(method: string, url: string, token: string, data?: any, expectedStatus?: number): Promise<any>;
+  upload(url: string, options: any, httpStatusAssert: number, jsonOutput: boolean): Promise<any>;
+  /** Create a file descriptor for multipart uploads */
+  static file(filePath: string, contentType?: string, size?: number): FileDescriptor;
+}
+
+/** .cfignore file parser and filter utility */
+export class CfIgnoreHelper {
+  constructor();
+  /** Create from a .cfignore file path */
+  static fromFile(cfIgnorePath: string): CfIgnoreHelper;
+  /** Create from a directory (looks for .cfignore inside) */
+  static fromDirectory(dirPath: string): CfIgnoreHelper;
+  /** Parse and add patterns from .cfignore content */
+  addPatterns(content: string): CfIgnoreHelper;
+  /** Check if a relative path should be ignored */
+  isIgnored(relativePath: string, isDirectory?: boolean): boolean;
+  /** Filter a list of paths, removing ignored ones */
+  filter(filePaths: string[]): string[];
+}
+
 /** Package version string */
 export declare const version: string;
+
+/** Simple in-memory cache with per-entry TTL */
+export class CacheService {
+  constructor(defaultTTLMs?: number);
+  /** Retrieve a cached value (returns undefined if expired or missing) */
+  get<T = any>(key: string): T | undefined;
+  /** Store a value with optional per-entry TTL override */
+  set(key: string, value: any, ttlMs?: number): void;
+  /** Check if a non-expired entry exists */
+  has(key: string): boolean;
+  /** Remove a single entry */
+  delete(key: string): boolean;
+  /** Remove all entries */
+  clear(): void;
+  /** Remove entries whose key starts with given prefix */
+  invalidateByPrefix(prefix: string): void;
+  /** Number of currently stored (possibly expired) entries */
+  readonly size: number;
+}

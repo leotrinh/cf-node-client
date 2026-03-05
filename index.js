@@ -1,150 +1,58 @@
-'use strict';
+"use strict";
 
-var exports = module.exports = {};
+/** Library Version */
+module.exports.version = "1.0.1";
 
-/**
- * Library Version
- * @type {String}
- */
-exports.version = '1.0.0';
+// ── Cloud Controller models ────────────────────────────────────────────
+const Apps              = require("./lib/model/cloudcontroller/Apps");
+const BuildPacks        = require("./lib/model/cloudcontroller/BuildPacks");
+const CloudController   = require("./lib/model/cloudcontroller/CloudController");
+const Domains           = require("./lib/model/cloudcontroller/Domains");
+const Events            = require("./lib/model/cloudcontroller/Events");
+const Jobs              = require("./lib/model/cloudcontroller/Jobs");
+const Organizations     = require("./lib/model/cloudcontroller/Organizations");
+const OrganizationsQuota = require("./lib/model/cloudcontroller/OrganizationsQuota");
+const Routes            = require("./lib/model/cloudcontroller/Routes");
+const Services          = require("./lib/model/cloudcontroller/Services");
+const ServiceBindings   = require("./lib/model/cloudcontroller/ServiceBindings");
+const ServiceInstances  = require("./lib/model/cloudcontroller/ServiceInstances");
+const ServicePlans      = require("./lib/model/cloudcontroller/ServicePlans");
+const Spaces            = require("./lib/model/cloudcontroller/Spaces");
+const SpacesQuota       = require("./lib/model/cloudcontroller/SpacesQuota");
+const Stacks            = require("./lib/model/cloudcontroller/Stacks");
+const UserProvidedServices = require("./lib/model/cloudcontroller/UserProvidedServices");
+const Users             = require("./lib/model/cloudcontroller/Users");
 
-/**
- * Support for Apps
- * @type {typeof Apps}
- */
-var Apps = require('./lib/model/cloudcontroller/Apps');
-exports.Apps = Apps;
+// ── Metrics & UAA ──────────────────────────────────────────────────────
+const Logs              = require("./lib/model/metrics/Logs");
+const UsersUAA          = require("./lib/model/uaa/UsersUAA");
 
-/**
- * Support for Buildpacks
- * @type {typeof BuildPacks}
- */
-var BuildPacks = require('./lib/model/cloudcontroller/BuildPacks');
-exports.BuildPacks = BuildPacks;
+// ── Apps sub-modules (advanced usage) ──────────────────────────────────
+const AppsCore          = require("./lib/model/cloudcontroller/AppsCore");
+const AppsDeployment    = require("./lib/model/cloudcontroller/AppsDeployment");
+const AppsCopy          = require("./lib/model/cloudcontroller/AppsCopy");
 
-/**
- * Support for Cloud Controller
- * @type {typeof CloudController}
- */
-var CloudController = require('./lib/model/cloudcontroller/CloudController');
-exports.CloudController = CloudController;
-
-
-/**
- * Support for Domains
- * @type {typeof Domains}
- */
-var Domains = require('./lib/model/cloudcontroller/Domains');
-exports.Domains = Domains;
-
-/**
- * Support for Events
- * @type {typeof Events}
- */
-var Events = require('./lib/model/cloudcontroller/Events');
-exports.Events = Events;
-
-/**
- * Support for Jobs
- * @type {typeof Jobs}
- */
-var Jobs = require('./lib/model/cloudcontroller/Jobs');
-exports.Jobs = Jobs;
-
-/**
- * Support for Logs
- * @type {typeof Logs}
- */
-var Logs = require('./lib/model/metrics/Logs');
-exports.Logs = Logs;
-
-/**
- * Support for Organizations
- * @type {typeof Organizations}
- */
-var Organizations = require('./lib/model/cloudcontroller/Organizations');
-exports.Organizations = Organizations;
-
-/**
- * Support for Organizations Quota
- * @type {typeof OrganizationsQuota}
- */
-var OrganizationsQuota = require('./lib/model/cloudcontroller/OrganizationsQuota');
-exports.OrganizationsQuota = OrganizationsQuota;
-
-/**
- * Support for Routes
- * @type {typeof Routes}
- */
-var Routes = require('./lib/model/cloudcontroller/Routes');
-exports.Routes = Routes;
-
-/**
- * Support for Services
- * @type {typeof Services}
- */
-var Services = require('./lib/model/cloudcontroller/Services');
-exports.Services = Services;
-
-/**
- * Support for ServiceBindings
- * @type {typeof ServiceBindings}
- */
-var ServiceBindings = require('./lib/model/cloudcontroller/ServiceBindings');
-exports.ServiceBindings = ServiceBindings;
-
-/**
- * Support for ServiceInstances
- * @type {typeof ServiceInstances}
- */
-var ServiceInstances = require('./lib/model/cloudcontroller/ServiceInstances');
-exports.ServiceInstances = ServiceInstances;
-
-/**
- * Support for ServicePlans
- * @type {typeof ServicePlans}
- */
-var ServicePlans = require('./lib/model/cloudcontroller/ServicePlans');
-exports.ServicePlans = ServicePlans;
-
-/**
- * Support for Spaces
- * @type {typeof Spaces}
- */
-var Spaces = require('./lib/model/cloudcontroller/Spaces');
-exports.Spaces = Spaces;
-
-/**
- * Support for Spaces Quota
- * @type {typeof SpacesQuota}
- */
-var SpacesQuota = require('./lib/model/cloudcontroller/SpacesQuota');
-exports.SpacesQuota = SpacesQuota;
-
-/**
- * Support for Stacks
- * @type {typeof Stacks}
- */
-var Stacks = require('./lib/model/cloudcontroller/Stacks');
-exports.Stacks = Stacks;
-
-/**
- * Support for User Provided Services
- * @type {typeof UserProvidedServices}
- */
-var UserProvidedServices = require('./lib/model/cloudcontroller/UserProvidedServices');
-exports.UserProvidedServices = UserProvidedServices;
-
-/**
- * Support for Users
- * @type {typeof Users}
- */
-var Users = require('./lib/model/cloudcontroller/Users');
-exports.Users = Users;
-
-/**
- * Support for Users UAA
- * @type {typeof UsersUAA}
- */
-var UsersUAA = require('./lib/model/uaa/UsersUAA');
-exports.UsersUAA = UsersUAA;
+// ── Public exports ─────────────────────────────────────────────────────
+module.exports.Apps              = Apps;
+module.exports.AppsCore          = AppsCore;
+module.exports.AppsCopy          = AppsCopy;
+module.exports.AppsDeployment    = AppsDeployment;
+module.exports.BuildPacks        = BuildPacks;
+module.exports.CloudController   = CloudController;
+module.exports.Domains           = Domains;
+module.exports.Events            = Events;
+module.exports.Jobs              = Jobs;
+module.exports.Logs              = Logs;
+module.exports.Organizations     = Organizations;
+module.exports.OrganizationsQuota = OrganizationsQuota;
+module.exports.Routes            = Routes;
+module.exports.Services          = Services;
+module.exports.ServiceBindings   = ServiceBindings;
+module.exports.ServiceInstances  = ServiceInstances;
+module.exports.ServicePlans      = ServicePlans;
+module.exports.Spaces            = Spaces;
+module.exports.SpacesQuota       = SpacesQuota;
+module.exports.Stacks            = Stacks;
+module.exports.UserProvidedServices = UserProvidedServices;
+module.exports.Users             = Users;
+module.exports.UsersUAA          = UsersUAA;

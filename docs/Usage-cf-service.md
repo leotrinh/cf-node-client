@@ -44,6 +44,52 @@ try {
 }
 ```
 
+## Using Low-Level Convenience Methods Instead
+
+For lightweight scripts that don't need the full `CloudFoundryService` orchestration layer, use the convenience methods on individual resource clients directly:
+
+```js
+const { Organizations, Spaces, Apps, ServiceInstances } = require('cf-node-client');
+
+const orgsClient = new Organizations(apiCF);
+const spacesClient = new Spaces(apiCF);
+const appsClient = new Apps(apiCF);
+const siClient = new ServiceInstances(apiCF);
+
+orgsClient.setToken(token);
+spacesClient.setToken(token);
+appsClient.setToken(token);
+siClient.setToken(token);
+
+// Find by name (server-side filter — single API call, returns first match or null)
+const org = await orgsClient.getOrganizationByName('my-org');
+const space = await spacesClient.getSpaceByName('dev', orgGuid);
+const app = await appsClient.getAppByName('my-app', spaceGuid);
+const instance = await siClient.getInstanceByName('my-database', spaceGuid);
+
+// Get by GUID (direct lookup)
+const org = await orgsClient.getOrganization('org-guid');
+const space = await spacesClient.getSpace('space-guid');
+const app = await appsClient.getApp('app-guid');
+const instance = await siClient.getInstance('instance-guid');
+
+// Auto-paginate — Get ALL resources across every page
+const allOrgs = await orgsClient.getAllOrganizations();
+const allSpaces = await spacesClient.getAllSpaces();
+const allApps = await appsClient.getAllApps({ q: 'space_guid:xxx' });
+const allInstances = await siClient.getAllInstances();
+
+// Memory cache (opt-in, reduces redundant API calls)
+const cachedOrgs = new Organizations(api, { cache: true, cacheTTL: 60000 });
+cachedOrgs.setToken(token);
+await cachedOrgs.getAllOrganizations(); // API call → cached
+await cachedOrgs.getAllOrganizations(); // cache hit, 0 HTTP calls
+```
+
+> **Note:** `getAllResources(fetchFn)` from `cf.service.js` is now built into the library as `getAllOrganizations()`, `getAllSpaces()`, `getAllApps()`, and `getAllInstances()`. You no longer need to implement your own pagination loop.
+
+> See [Usage.md](Usage.md) for full API reference and [cf-service-usage-example.js](../examples/cf-service-usage-example.js) for a comprehensive example file.
+
 ## API Reference
 See inline JSDoc in [cf.service.js](../ref/cf.service.js) for details on each method.
 
