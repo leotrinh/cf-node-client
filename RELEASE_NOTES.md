@@ -1,3 +1,53 @@
+# cf-node-client v1.0.5 — Fix 11 Incorrect v3 API Endpoints
+
+**Package**: cf-node-client v1.0.5  
+**Release Date**: March 5, 2026  
+**Status**: Production Ready  
+**Severity**: **Important — v3 Endpoint Corrections**
+
+## What's Fixed in v1.0.5
+
+Full audit of all 30 library files found 11 incorrect v3 API endpoints across 3 files. All corrected to match the official [CF API v3 specification](https://v3-apidocs.cloudfoundry.org/).
+
+### AppsDeployment.js — 4 Fixes
+
+| Method | Before (broken) | After (correct) |
+|--------|-----------------|-----------------|
+| `getStats()` | `/v3/apps/:guid/stats` | `/v3/apps/:guid/processes/web/stats` |
+| `associateRoute()` | `PUT /v3/apps/:guid/routes/:routeGuid` | `POST /v3/routes/:routeGuid/destinations` with body |
+| `getServiceBindings()` | `/v3/apps/:guid/service_credential_bindings` | `/v3/service_credential_bindings?app_guids=:guid` |
+| `_uploadV3()` | Single-step upload | 2-step: create package → upload bits |
+
+### Organizations.js — 3 Fixes
+
+| Method | Before (broken) | After (correct) |
+|--------|-----------------|-----------------|
+| `_getUsersV3()` | `/v3/organizations/:guid/relationships/users` | `/v3/roles?organization_guids=:guid&types=organization_user` |
+| `_getManagersV3()` | `/v3/organizations/:guid/relationships/managers` | `/v3/roles?organization_guids=:guid&types=organization_manager` |
+| `_getAuditorsV3()` | `/v3/organizations/:guid/relationships/auditors` | `/v3/roles?organization_guids=:guid&types=organization_auditor` |
+
+### Spaces.js — 4 Fixes
+
+| Method | Before (broken) | After (correct) |
+|--------|-----------------|-----------------|
+| `_getUsersV3()` | `/v3/spaces/:guid/relationships/members` | `/v3/roles?space_guids=:guid` |
+| `_getManagersV3()` | `/v3/spaces/:guid/relationships/managers` | `/v3/roles?space_guids=:guid&types=space_manager` |
+| `_getDevelopersV3()` | `/v3/spaces/:guid/relationships/developers` | `/v3/roles?space_guids=:guid&types=space_developer` |
+| `_getAuditorsV3()` | `/v3/spaces/:guid/relationships/auditors` | `/v3/roles?space_guids=:guid&types=space_auditor` |
+
+### Additional Enhancement
+
+- **`Spaces.getSpaceApps(guid, filter)`**: Added backward-compatibility alias for `Spaces.getApps()` so existing consumer code continues to work.
+
+### Audit Scope
+
+27 additional files scanned and confirmed clean — no issues found.
+
+### Tests
+- All **93 tests passing**, 0 failing
+
+---
+
 # cf-node-client v1.0.4 — Hotfix: v3 getInfo() Broken Authentication Flow
 
 **Package**: cf-node-client v1.0.4  

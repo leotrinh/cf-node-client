@@ -330,7 +330,11 @@ Contributions are welcome! We want to make contributing as easy and transparent 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/my-feature`)
 3. Write or improve **tests** — this is the most impactful way to help
-4. Ensure all tests pass (`npm test`)
+4. Run the precheck before committing:
+   ```bash
+   npm run precheck
+   ```
+   This runs TypeScript compilation (`tsc`) and the full test suite (lint + unit tests). **Your PR will not be accepted if precheck fails.**
 5. Commit your changes (`git commit -m 'feat: add some feature'`)
 6. Push to the branch (`git push origin feature/my-feature`)
 7. Open a **Pull Request**

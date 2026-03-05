@@ -50,7 +50,13 @@
     
         <h2><span class="attribs"><span class="type-signature"></span></span>UserProvidedServices<span class="signature">(endPoint<span class="signature-attributes">opt</span>, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Manage User Provided Services on Cloud Foundry.Supports both CF API v2 and v3 with automatic version routing.<a href="https://docs.cloudfoundry.org/devguide/services/user-provided.html">https://docs.cloudfoundry.org/devguide/services/user-provided.html</a>NOTE: V3 methods that need query-string filters use this.REST.request() withmanual headers + qs, while simple v3 calls use this.REST.requestV3().This is because requestV3() does not support the qs parameter.</div>
+            <div class="class-description">Manage User Provided Services on Cloud Foundry.
+Supports both CF API v2 and v3 with automatic version routing.
+<a href="https://docs.cloudfoundry.org/devguide/services/user-provided.html">https://docs.cloudfoundry.org/devguide/services/user-provided.html</a>
+
+NOTE: V3 methods that need query-string filters use this.REST.request() with
+manual headers + qs, while simple v3 calls use this.REST.requestV3().
+This is because requestV3() does not support the qs parameter.</div>
         
     
 </header>
@@ -283,7 +289,9 @@
 
 
 <div class="description">
-    Create a user-provided servicev2: <a href="http://apidocs.cloudfoundry.org/217/user_provided_service_instances/creating_a_user_provided_service_instance.html">http://apidocs.cloudfoundry.org/217/user_provided_service_instances/creating_a_user_provided_service_instance.html</a>v3: <a href="https://v3-apidocs.cloudfoundry.org/#create-a-service-instance">https://v3-apidocs.cloudfoundry.org/#create-a-service-instance</a>
+    Create a user-provided service
+v2: <a href="http://apidocs.cloudfoundry.org/217/user_provided_service_instances/creating_a_user_provided_service_instance.html">http://apidocs.cloudfoundry.org/217/user_provided_service_instances/creating_a_user_provided_service_instance.html</a>
+v3: <a href="https://v3-apidocs.cloudfoundry.org/#create-a-service-instance">https://v3-apidocs.cloudfoundry.org/#create-a-service-instance</a>
 </div>
 
 
@@ -442,7 +450,9 @@
 
 
 <div class="description">
-    Get a specific user-provided servicev2: <a href="http://apidocs.cloudfoundry.org/217/user_provided_service_instances/retrieve_a_particular_user_provided_service_instance.html">http://apidocs.cloudfoundry.org/217/user_provided_service_instances/retrieve_a_particular_user_provided_service_instance.html</a>v3: <a href="https://v3-apidocs.cloudfoundry.org/#get-a-service-instance">https://v3-apidocs.cloudfoundry.org/#get-a-service-instance</a>
+    Get a specific user-provided service
+v2: <a href="http://apidocs.cloudfoundry.org/217/user_provided_service_instances/retrieve_a_particular_user_provided_service_instance.html">http://apidocs.cloudfoundry.org/217/user_provided_service_instances/retrieve_a_particular_user_provided_service_instance.html</a>
+v3: <a href="https://v3-apidocs.cloudfoundry.org/#get-a-service-instance">https://v3-apidocs.cloudfoundry.org/#get-a-service-instance</a>
 </div>
 
 
@@ -601,7 +611,9 @@
 
 
 <div class="description">
-    Get service bindings for a user-provided servicev2: <a href="http://apidocs.cloudfoundry.org/221/user_provided_service_instances/list_all_service_bindings_for_the_user_provided_service_instance.html">http://apidocs.cloudfoundry.org/221/user_provided_service_instances/list_all_service_bindings_for_the_user_provided_service_instance.html</a>v3: Uses /v3/service_credential_bindings with service_instance_guids filter
+    Get service bindings for a user-provided service
+v2: <a href="http://apidocs.cloudfoundry.org/221/user_provided_service_instances/list_all_service_bindings_for_the_user_provided_service_instance.html">http://apidocs.cloudfoundry.org/221/user_provided_service_instances/list_all_service_bindings_for_the_user_provided_service_instance.html</a>
+v3: Uses /v3/service_credential_bindings with service_instance_guids filter
 </div>
 
 
@@ -803,7 +815,9 @@
 
 
 <div class="description">
-    Get user-provided servicesv2: <a href="http://apidocs.cloudfoundry.org/217/user_provided_service_instances/list_all_user_provided_service_instances.html">http://apidocs.cloudfoundry.org/217/user_provided_service_instances/list_all_user_provided_service_instances.html</a>v3: Uses /v3/service_instances with type=user-provided filter
+    Get user-provided services
+v2: <a href="http://apidocs.cloudfoundry.org/217/user_provided_service_instances/list_all_user_provided_service_instances.html">http://apidocs.cloudfoundry.org/217/user_provided_service_instances/list_all_user_provided_service_instances.html</a>
+v3: Uses /v3/service_instances with type=user-provided filter
 </div>
 
 
@@ -913,7 +927,9 @@
 
 
 <div class="description">
-    Remove a user-provided servicev2: <a href="http://apidocs.cloudfoundry.org/217/user_provided_service_instances/delete_a_particular_user_provided_service_instance.html">http://apidocs.cloudfoundry.org/217/user_provided_service_instances/delete_a_particular_user_provided_service_instance.html</a>v3: <a href="https://v3-apidocs.cloudfoundry.org/#delete-a-service-instance">https://v3-apidocs.cloudfoundry.org/#delete-a-service-instance</a>
+    Remove a user-provided service
+v2: <a href="http://apidocs.cloudfoundry.org/217/user_provided_service_instances/delete_a_particular_user_provided_service_instance.html">http://apidocs.cloudfoundry.org/217/user_provided_service_instances/delete_a_particular_user_provided_service_instance.html</a>
+v3: <a href="https://v3-apidocs.cloudfoundry.org/#delete-a-service-instance">https://v3-apidocs.cloudfoundry.org/#delete-a-service-instance</a>
 </div>
 
 
@@ -1080,7 +1096,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 05 2026 16:22:04 GMT+0700 (Indochina Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 05 2026 17:22:07 GMT+0700 (Indochina Time)
 </footer>
 
 <script> prettyPrint(); </script>
