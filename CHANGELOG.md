@@ -26,7 +26,7 @@ Implements all remaining audit findings for v3 API correctness and robustness. A
 
 ---
 
-## Version 1.0.6 2026-03-05
+## Version 1.0.7 2026-03-05
 
 **PATCH RELEASE — Fix 9 v3 API Issues (5 CRITICAL + 4 HIGH)**
 
