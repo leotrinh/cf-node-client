@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: model/cloudcontroller/SpacesQuota.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: model/cloudcontroller/SpacesQuota.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+const CloudControllerBase = require("./CloudControllerBase");
+
+/**
+ * SpacesQuota — Space Quota management for Cloud Foundry.
+ * v2 uses '/v2/space_quota_definitions', v3 uses '/v3/space_quotas'.
+ *
+ * @class
+ */
+class SpacesQuota extends CloudControllerBase {
+
+    constructor(endPoint, options = {}) {
+        super(endPoint, options);
+    }
+
+    /**
+     * Get SpaceQuotas list
+     * @param {Object} [filter]
+     * @return {Promise}
+     */
+    getSpaceQuotas(filter) {
+        const token = this.getAuthorizationHeader();
+        if (this.isUsingV3()) {
+            const options = {
+                method: "GET",
+                url: `${this.API_URL}/v3/space_quotas`,
+                headers: { Authorization: token, "Content-Type": "application/json" },
+                qs: filter || {},
+                json: true
+            };
+            return this.REST.request(options, this.HttpStatus.OK, true);
+        }
+        const options = {
+            method: "GET",
+            url: `${this.API_URL}/v2/space_quota_definitions`,
+            qs: filter,
+            headers: { Authorization: token }
+        };
+        return this.REST.request(options, this.HttpStatus.OK, true);
+    }
+
+    /** Alias for backward compatibility with tests */
+    getQuotaDefinitions(filter) {
+        return this.getSpaceQuotas(filter);
+    }
+
+    /**
+     * Get a single SpaceQuota
+     * @param {String} guid
+     * @return {Promise}
+     */
+    getSpaceQuota(guid) {
+        const token = this.getAuthorizationHeader();
+        if (this.isUsingV3()) {
+            return this.REST.requestV3("GET", `${this.API_URL}/v3/space_quotas/${guid}`, token);
+        }
+        const options = {
+            method: "GET",
+            url: `${this.API_URL}/v2/space_quota_definitions/${guid}`,
+            headers: { Authorization: token }
+        };
+        return this.REST.request(options, this.HttpStatus.OK, true);
+    }
+
+    /**
+     * Create a SpaceQuota
+     * @param {Object} quotaOptions
+     * @return {Promise}
+     */
+    add(quotaOptions) {
+        const token = this.getAuthorizationHeader();
+        if (this.isUsingV3()) {
+            const v3Body = this._translateToV3(quotaOptions, true);
+            return this.REST.requestV3("POST", `${this.API_URL}/v3/space_quotas`, token, v3Body, this.HttpStatus.CREATED);
+        }
+        const options = {
+            method: "POST",
+            url: `${this.API_URL}/v2/space_quota_definitions`,
+            headers: { Authorization: token },
+            form: quotaOptions
+        };
+        return this.REST.request(options, this.HttpStatus.CREATED, true);
+    }
+
+    /**
+     * Update a SpaceQuota
+     * @param {String} guid
+     * @param {Object} quotaOptions
+     * @return {Promise}
+     */
+    update(guid, quotaOptions) {
+        const token = this.getAuthorizationHeader();
+        if (this.isUsingV3()) {
+            const v3Body = this._translateToV3(quotaOptions, false);
+            return this.REST.requestV3("PATCH", `${this.API_URL}/v3/space_quotas/${guid}`, token, v3Body, this.HttpStatus.OK);
+        }
+        const options = {
+            method: "PUT",
+            url: `${this.API_URL}/v2/space_quota_definitions/${guid}`,
+            headers: { Authorization: token },
+            form: quotaOptions
+        };
+        return this.REST.request(options, this.HttpStatus.OK, true);
+    }
+
+    /**
+     * Delete a SpaceQuota
+     * @param {String} guid
+     * @return {Promise}
+     */
+    remove(guid) {
+        const token = this.getAuthorizationHeader();
+        if (this.isUsingV3()) {
+            return this.REST.requestV3("DELETE", `${this.API_URL}/v3/space_quotas/${guid}`, token, null, this.HttpStatus.NO_CONTENT);
+        }
+        const options = {
+            method: "DELETE",
+            url: `${this.API_URL}/v2/space_quota_definitions/${guid}`,
+            headers: { Authorization: token }
+        };
+        return this.REST.request(options, this.HttpStatus.NO_CONTENT, false);
+    }
+
+    /**
+     * @private
+     */
+    _translateToV3(opts, includeRelationships) {
+        const v3 = { name: opts.name };
+        if (includeRelationships &amp;&amp; opts.organization_guid) {
+            v3.relationships = { organization: { data: { guid: opts.organization_guid } } };
+        }
+        const limits = {};
+        if (opts.memory_limit) limits.memory_limit_in_gb = opts.memory_limit / 1024;
+        if (opts.instance_memory_limit) limits.process_memory_limit_in_mb = opts.instance_memory_limit;
+        if (opts.app_instance_limit) limits.app_instance_limit = opts.app_instance_limit;
+        if (Object.keys(limits).length) v3.limits = limits;
+        return v3;
+    }
+}
+
+module.exports = SpacesQuota;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 05 2026 13:29:12 GMT+0700 (Indochina Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
