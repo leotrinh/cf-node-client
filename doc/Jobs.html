@@ -50,9 +50,17 @@
     
         <h2><span class="attribs"><span class="type-signature"></span></span>Jobs<span class="signature">(endPoint<span class="signature-attributes">opt</span>, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Jobs — background job / task management for Cloud Foundry.
-NOTE: v2 uses '/v2/jobs' while v3 uses '/v3/tasks' (endpoint renamed).
-Supports both CF API v2 and v3 with automatic version routing.</div>
+            <div class="class-description">Jobs — background job and task management for Cloud Foundry.
+
+**Terminology:**
+- **v2 Jobs** (`/v2/jobs`): background operations tracked by the CC.
+- **v3 Tasks** (`/v3/tasks`): one-off processes run within an app context.
+- **v3 Jobs** (`/v3/jobs`): async operation polling for long-running CC operations
+  (e.g. org/space delete, service instance provisioning). These are returned in
+  `Location` headers with 202 Accepted responses.
+
+The getJobs/getJob/add/cancel methods manage **v2 Jobs** and **v3 Tasks**.
+The getV3Job/pollJob methods manage **v3 async operation Jobs**.</div>
         
     
 </header>
@@ -221,7 +229,7 @@ Supports both CF API v2 and v3 with automatic version routing.</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line12">line 12</a>
+        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -285,7 +293,7 @@ Supports both CF API v2 and v3 with automatic version routing.</div>
 
 
 <div class="description">
-    Create a Task (Job)
+    Create a Task (v3 only).
 NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 </div>
 
@@ -402,7 +410,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line74">line 74</a>
+        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line87">line 87</a>
     </li></ul></dd>
     
 
@@ -497,7 +505,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
 
 <div class="description">
-    Cancel a Job (Task)
+    Cancel a Task (v3) or delete a Job (v2).
 </div>
 
 
@@ -549,7 +557,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
             
 
-            <td class="description last">Task unique identifier</td>
+            <td class="description last">Task/Job unique identifier</td>
         </tr>
 
     
@@ -590,7 +598,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line94">line 94</a>
+        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line107">line 107</a>
     </li></ul></dd>
     
 
@@ -619,7 +627,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
         
 <div class="param-desc">
-    Resolves when task is cancelled
+    Resolves when task is cancelled / job is deleted
 </div>
 
 
@@ -656,7 +664,8 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
 
 <div class="description">
-    Get a single Job/Task by GUID
+    Get a single Job (v2) or Task (v3) by GUID.
+NOTE: For v3 async operation Jobs (from 202 Location headers), use getV3Job().
 </div>
 
 
@@ -708,7 +717,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
             
 
-            <td class="description last">Job unique identifier</td>
+            <td class="description last">Job/Task unique identifier</td>
         </tr>
 
     
@@ -749,7 +758,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line53">line 53</a>
+        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line66">line 66</a>
     </li></ul></dd>
     
 
@@ -778,7 +787,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
         
 <div class="param-desc">
-    Resolves with JSON job object
+    Resolves with JSON job/task object
 </div>
 
 
@@ -815,7 +824,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
 
 <div class="description">
-    Get Jobs list (tasks in v3)
+    Get Jobs list (v2) or Tasks list (v3).
 </div>
 
 
@@ -920,7 +929,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line27">line 27</a>
+        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line39">line 39</a>
     </li></ul></dd>
     
 
@@ -973,6 +982,479 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id="getV3Job"><span class="type-signature"></span>getV3Job<span class="signature">(jobGuid)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get a v3 async operation Job by GUID.
+v3 Jobs track background CC operations (org delete, service provisioning, etc.).
+They are separate from v3 Tasks (which run inside app containers).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>jobGuid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Job GUID (from Location header of 202 responses)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line133">line 133</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Resolves with job object { guid, state, operation, errors, ... }
+  state: "PROCESSING" | "POLLING" | "COMPLETE" | "FAILED"
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="pollJob"><span class="type-signature"></span>pollJob<span class="signature">(jobGuid, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Poll a v3 async operation Job until it completes or fails.
+Repeatedly queries GET /v3/jobs/:guid until state is COMPLETE or FAILED.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>jobGuid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Job GUID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Polling options
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>interval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    2000
+                
+                </td>
+            
+
+            <td class="description last">Poll interval in ms (default 2s)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timeout</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    300000
+                
+                </td>
+            
+
+            <td class="description last">Max wait time in ms (default 5min)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line148">line 148</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Resolves with completed job object, rejects on FAILED or timeout
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
     
 
     
@@ -994,7 +1476,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 05 2026 17:22:07 GMT+0700 (Indochina Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 05 2026 19:01:34 GMT+0700 (Indochina Time)
 </footer>
 
 <script> prettyPrint(); </script>
