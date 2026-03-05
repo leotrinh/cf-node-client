@@ -1,7 +1,7 @@
 "use strict";
 
-/** Library Version */
-module.exports.version = "1.0.7";
+/** Library Version — read dynamically from package.json */
+module.exports.version = require("./package.json").version;
 
 // ── Cloud Controller models ────────────────────────────────────────────
 const Apps              = require("./lib/model/cloudcontroller/Apps");
