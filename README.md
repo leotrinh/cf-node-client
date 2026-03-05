@@ -107,9 +107,16 @@ npm install cf-node-client
 ```javascript
 const { CloudController, UsersUAA, Apps } = require("cf-node-client");
 
-const uaa = new UsersUAA("https://login.<your-cf-domain>");
+// Step 1: Get UAA endpoint from Cloud Controller
+const cc = new CloudController("https://api.<your-cf-domain>");
+const authEndpoint = await cc.getAuthorizationEndpoint();
+
+// Step 2: Authenticate
+const uaa = new UsersUAA();
+uaa.setEndPoint(authEndpoint);
 const token = await uaa.login("user", "pass");
 
+// Step 3: Use the token
 const apps = new Apps("https://api.<your-cf-domain>");
 apps.setToken(token);
 const result = await apps.getApps();
@@ -128,7 +135,11 @@ import {
   OAuthToken
 } from "cf-node-client";
 
-const uaa = new UsersUAA("https://login.<your-cf-domain>");
+const cc = new CloudController("https://api.<your-cf-domain>");
+const authEndpoint: string = await cc.getAuthorizationEndpoint();
+
+const uaa = new UsersUAA();
+uaa.setEndPoint(authEndpoint);
 const token: OAuthToken = await uaa.login("user", "pass");
 
 const apps = new Apps("https://api.<your-cf-domain>");
