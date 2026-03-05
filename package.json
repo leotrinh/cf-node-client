@@ -40,27 +40,31 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "archiver": "0.20.0",
+    "archiver": "^7.0.0",
     "bluebird": "^3.7.2",
-    "chai": "3.4.1",
-    "chai-as-promised": "5.1.0",
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
     "eslint": "^8.57.1",
-    "grunt": "0.4.5",
-    "grunt-cli": "0.1.13",
-    "grunt-connect": "0.2.0",
-    "grunt-jsdoc": "1.1.0",
-    "grunt-open": "0.2.3",
-    "istanbul": "0.4.1",
-    "mocha": "2.3.4",
-    "nconf": "0.8.2",
+    "mocha": "^10.8.0",
+    "nconf": "^0.13.0",
     "optimist": "0.6.1",
     "random-words": "0.0.1",
     "typescript": "^5.0.0"
+  },
+  "overrides": {
+    "minimist": "^1.2.8",
+    "serialize-javascript": "^7.0.3"
   },
   "engines": {
     "node": ">=14.0.0"
   },
   "keywords": [
+    "sap",
+    "sap btp",
+    "cloudfoundry client",
+    "sap btp cf",
+    "sap btp cloudfoundry",
+    "sap cf",
     "cloud foundry",
     "cloudfoundry",
     "cloud-foundry",
