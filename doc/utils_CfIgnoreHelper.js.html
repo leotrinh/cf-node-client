@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: utils/CfIgnoreHelper.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: utils/CfIgnoreHelper.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+const fs = require("fs");
+const path = require("path");
+
+/**
+ * CfIgnoreHelper — parses `.cfignore` files and filters file lists.
+ * `.cfignore` uses the same syntax as `.gitignore`.
+ *
+ * This is a lightweight implementation that handles common patterns:
+ * - Exact file/directory names
+ * - Wildcard patterns (* and **)
+ * - Negation patterns (!)
+ * - Comments (#)
+ * - Directory-only patterns (trailing /)
+ *
+ * @class
+ */
+class CfIgnoreHelper {
+
+    /**
+     * Create a CfIgnoreHelper from a .cfignore file path.
+     *
+     * @param {String} cfIgnorePath - Path to the .cfignore file
+     * @return {CfIgnoreHelper} Instance with parsed patterns
+     */
+    static fromFile(cfIgnorePath) {
+        const helper = new CfIgnoreHelper();
+        if (fs.existsSync(cfIgnorePath)) {
+            const content = fs.readFileSync(cfIgnorePath, "utf8");
+            helper.addPatterns(content);
+        }
+        return helper;
+    }
+
+    /**
+     * Create a CfIgnoreHelper from a directory (looks for .cfignore in it).
+     *
+     * @param {String} dirPath - Directory to look for .cfignore in
+     * @return {CfIgnoreHelper} Instance with parsed patterns
+     */
+    static fromDirectory(dirPath) {
+        return CfIgnoreHelper.fromFile(path.join(dirPath, ".cfignore"));
+    }
+
+    constructor() {
+        /** @type {Array&lt;{pattern: RegExp, negate: Boolean, dirOnly: Boolean}>} */
+        this._rules = [];
+    }
+
+    /**
+     * Parse and add patterns from a .cfignore content string.
+     *
+     * @param {String} content - .cfignore file content
+     * @return {CfIgnoreHelper} this (for chaining)
+     */
+    addPatterns(content) {
+        if (!content || typeof content !== "string") return this;
+
+        const lines = content.split(/\r?\n/);
+        for (const rawLine of lines) {
+            const line = rawLine.trim();
+
+            // Skip empty lines and comments
+            if (!line || line.startsWith("#")) continue;
+
+            let pattern = line;
+            let negate = false;
+            let dirOnly = false;
+
+            // Negation
+            if (pattern.startsWith("!")) {
+                negate = true;
+                pattern = pattern.slice(1);
+            }
+
+            // Directory-only pattern
+            if (pattern.endsWith("/")) {
+                dirOnly = true;
+                pattern = pattern.slice(0, -1);
+            }
+
+            // Strip leading slash (anchors to root but we match relative paths)
+            if (pattern.startsWith("/")) {
+                pattern = pattern.slice(1);
+            }
+
+            const regex = CfIgnoreHelper._patternToRegex(pattern);
+            this._rules.push({ pattern: regex, negate, dirOnly });
+        }
+
+        return this;
+    }
+
+    /**
+     * Check if a relative file path should be ignored.
+     *
+     * @param {String} relativePath - File path relative to the project root
+     * @param {Boolean} [isDirectory=false] - Whether the path is a directory
+     * @return {Boolean} True if the path should be ignored
+     */
+    isIgnored(relativePath, isDirectory = false) {
+        // Normalize to forward slashes
+        const normalized = relativePath.replace(/\\/g, "/").replace(/^\/+/, "");
+        let ignored = false;
+
+        for (const rule of this._rules) {
+            if (rule.dirOnly &amp;&amp; !isDirectory) continue;
+
+            if (rule.pattern.test(normalized)) {
+                ignored = !rule.negate;
+            }
+        }
+
+        return ignored;
+    }
+
+    /**
+     * Filter a list of file paths, removing ignored ones.
+     *
+     * @param {Array&lt;String>} filePaths - Array of relative file paths
+     * @return {Array&lt;String>} Paths that are NOT ignored
+     */
+    filter(filePaths) {
+        return filePaths.filter(fp => !this.isIgnored(fp));
+    }
+
+    /**
+     * Convert a gitignore-style glob pattern to a RegExp.
+     *
+     * @param {String} pattern - Glob pattern
+     * @return {RegExp} Equivalent regular expression
+     * @private
+     * @static
+     */
+    static _patternToRegex(pattern) {
+        let regexStr = "";
+        let i = 0;
+
+        // If pattern doesn't contain /, it matches against the filename component
+        const matchAnywhere = !pattern.includes("/");
+
+        while (i &lt; pattern.length) {
+            const c = pattern[i];
+
+            if (c === "*") {
+                if (pattern[i + 1] === "*") {
+                    // ** matches everything including /
+                    if (pattern[i + 2] === "/") {
+                        regexStr += "(?:.+/)?";
+                        i += 3;
+                    } else {
+                        regexStr += ".*";
+                        i += 2;
+                    }
+                } else {
+                    // * matches everything except /
+                    regexStr += "[^/]*";
+                    i++;
+                }
+            } else if (c === "?") {
+                regexStr += "[^/]";
+                i++;
+            } else if (c === "[") {
+                // Character class — pass through to regex
+                const closeIdx = pattern.indexOf("]", i + 1);
+                if (closeIdx !== -1) {
+                    regexStr += pattern.slice(i, closeIdx + 1);
+                    i = closeIdx + 1;
+                } else {
+                    regexStr += "\\[";
+                    i++;
+                }
+            } else {
+                // Escape regex special chars
+                regexStr += c.replace(/[.+^${}()|\\]/g, "\\$&amp;");
+                i++;
+            }
+        }
+
+        if (matchAnywhere) {
+            // Match against any path component or the full path
+            return new RegExp(`(?:^|/)${regexStr}(?:/|$)`);
+        }
+
+        return new RegExp(`^${regexStr}(?:/.*)?$`);
+    }
+}
+
+module.exports = CfIgnoreHelper;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Mar 05 2026 13:29:12 GMT+0700 (Indochina Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
