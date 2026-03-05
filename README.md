@@ -10,7 +10,7 @@ A **Node.js client library** for the [Cloud Foundry](https://www.cloudfoundry.or
 
 ## Ship by Claude Kit
 
-Ship faster with AI Dev Team — [DISCOUNT 25% - PAY ONE TIME, LIFETIME UPGRADE](https://claudekit.cc/?ref=VAK416FU)
+Ship faster with AI Dev Team — [DISCOUNT 25% - PAY ONE TIME, LIFETIME LIFETIME UPDATE](https://claudekit.cc/?ref=VAK416FU)
 
 ![Claude Kit](https://cdn.tinhtd.info/public/go1/ads_ck.png)
 
@@ -355,6 +355,21 @@ Individual issue docs: [docs/issues/](docs/issues/)
 
 | # | Origin | Issue | Doc |
 |---|--------|-------|-----|
+| #199 | prosociallearnEU | HANA Cloud DB start/stop control — Fixed v1.0.8 | [Details](docs/issues/prosocial-199-hana-cloud-start-stop.md) |
+| #196 | prosociallearnEU | Copy bits between apps — Fixed v1.0.8 (verified existing) | [Details](docs/issues/prosocial-196-copy-bits-between-apps.md) |
+| #183 | prosociallearnEU | Log timestamp missing — Fixed v1.0.8 | [Details](docs/issues/prosocial-183-log-timestamp-missing.md) |
+| #173 | prosociallearnEU | Respect `.cfignore` on upload — Fixed v1.0.8 (CfIgnoreHelper utility) | [Details](docs/issues/prosocial-173-cfignore-support.md) |
+| #158 | prosociallearnEU | Download droplet from app — Fixed v1.0.8 (verified existing) | [Details](docs/issues/prosocial-158-download-droplet.md) |
+| #157 | prosociallearnEU | Download bits from app — Fixed v1.0.8 (verified existing) | [Details](docs/issues/prosocial-157-download-bits.md) |
+| #156 | prosociallearnEU | URL validation in constructors — Fixed v1.0.8 (verified existing) | [Details](docs/issues/prosocial-156-url-validation.md) |
+| #44 | IBM-Cloud | APIKey auth (instead of user/password) — Fixed v1.0.8 | [Details](docs/issues/ibm-044-apikey-auth.md) |
+| #47 | IBM-Cloud | Same-name services in different spaces — Fixed v1.0.8 (verified existing) | [Details](docs/issues/ibm-047-missing-service-instances.md) |
+| #15 | IBM-Cloud | `getTokenInfo(accessToken)` method — Fixed v1.0.8 (verified existing) | [Details](docs/issues/ibm-015-get-token-info.md) |
+| #198 | prosociallearnEU | `Apps.upload()` broken on Node 12+ (restler) — Fixed v1.0.6 | [Details](docs/issues/prosocial-198-apps-upload-restler-bug.md) |
+| #50 | IBM-Cloud | Node security alerts (multiple deps) — Fixed v1.0.2 | [Details](docs/issues/ibm-050-node-security-alerts.md) |
+| #52 | IBM-Cloud | protobufjs vulnerability — Fixed (v7.0.0) | [Details](docs/issues/ibm-052-protobufjs-vulnerability.md) |
+| #192 | prosociallearnEU | Async service creation (`accepts_incomplete`) — Implemented | [Details](docs/issues/prosocial-192-async-service-creation.md) |
+| #45 | IBM-Cloud | Events/Logs TypeError at runtime — Fixed | [Details](docs/issues/ibm-045-events-logs-type-error.md) |
 | #191 | prosociallearnEU | Set environment variables (`cf set-env` equivalent) | [Details](docs/issues/prosocial-191-set-env-variables.md) |
 | #190 | prosociallearnEU | Works with any CF environment + space handling | [Details](docs/issues/prosocial-190-any-cf-env-support.md) |
 | #188 | prosociallearnEU | Travis CI build broken → migrated to GitHub Actions | [Details](docs/issues/prosocial-188-travis-build-broken.md) |
@@ -365,22 +380,7 @@ Individual issue docs: [docs/issues/](docs/issues/)
 
 | # | Origin | Issue | Priority | Doc |
 |---|--------|-------|----------|-----|
-| #198 | prosociallearnEU | `Apps.upload()` broken on Node 12+ (restler) | Critical | [Details](docs/issues/prosocial-198-apps-upload-restler-bug.md) |
-| #50 | IBM-Cloud | Node security alerts (multiple deps) | Critical | [Details](docs/issues/ibm-050-node-security-alerts.md) |
-| #52 | IBM-Cloud | protobufjs vulnerability | High | [Details](docs/issues/ibm-052-protobufjs-vulnerability.md) |
-| #192 | prosociallearnEU | Async service creation (`accepts_incomplete`) | High | [Details](docs/issues/prosocial-192-async-service-creation.md) |
-| #45 | IBM-Cloud | Events/Logs TypeError at runtime | High | [Details](docs/issues/ibm-045-events-logs-type-error.md) |
-| #199 | prosociallearnEU | HANA Cloud DB start/stop control | Medium | [Details](docs/issues/prosocial-199-hana-cloud-start-stop.md) |
-| #156 | prosociallearnEU | URL validation in constructors | Medium | [Details](docs/issues/prosocial-156-url-validation.md) |
-| #44 | IBM-Cloud | APIKey auth (instead of user/password) | Medium | [Details](docs/issues/ibm-044-apikey-auth.md) |
-| #47 | IBM-Cloud | Same-name services in different spaces | Medium | [Details](docs/issues/ibm-047-missing-service-instances.md) |
-| #15 | IBM-Cloud | `getTokenInfo(accessToken)` method | Medium | [Details](docs/issues/ibm-015-get-token-info.md) |
-| #183 | prosociallearnEU | Log timestamp missing | Medium | [Details](docs/issues/prosocial-183-log-timestamp-missing.md) |
-| #196 | prosociallearnEU | Copy bits between apps | Low | [Details](docs/issues/prosocial-196-copy-bits-between-apps.md) |
-| #173 | prosociallearnEU | Respect `.cfignore` on upload | Low | [Details](docs/issues/prosocial-173-cfignore-support.md) |
-| #161 | prosociallearnEU | Improve JSDocs / TypeScript types | Low | [Details](docs/issues/prosocial-161-improve-jsdocs.md) |
-| #158 | prosociallearnEU | Download droplet from app | Low | [Details](docs/issues/prosocial-158-download-droplet.md) |
-| #157 | prosociallearnEU | Download bits from app | Low | [Details](docs/issues/prosocial-157-download-bits.md) |
+| #161 | prosociallearnEU | Improve JSDocs / TypeScript types (ongoing) | Low | [Details](docs/issues/prosocial-161-improve-jsdocs.md) |
 
 ---
 

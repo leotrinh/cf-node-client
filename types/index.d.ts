@@ -655,6 +655,8 @@ export class UsersUAA {
   refreshToken(): Promise<OAuthToken>;
   /** Login with client_credentials grant type */
   loginWithClientCredentials(clientId: string, clientSecret: string): Promise<OAuthToken>;
+  /** Login with an API key (Bearer token) - for SAP BTP and similar platforms */
+  loginWithApiKey(apiKey: string): Promise<OAuthToken>;
   /** Login with a one-time passcode (SSO) */
   loginWithPasscode(passcode: string): Promise<OAuthToken>;
   /** Login with an authorization code (OAuth2 code flow) */

@@ -259,4 +259,39 @@ describe("Cloud Foundry Users UAA", function () {
 
     }
 
+    // M3: API Key authentication test
+    it("Login with API key (Bearer token) should return token object", function () {
+        this.timeout(5000);
+
+        var testApiKey = "test-api-key-abc123xyz";
+        
+        return CloudFoundryUsersUAA.loginWithApiKey(testApiKey).then(function (result) {
+            expect(result).to.be.an('object');
+            expect(result.token_type).to.equal('bearer');
+            expect(result.access_token).to.equal(testApiKey);
+            expect(result.expires_in).to.be.a('number');
+            expect(result.expires_in).to.be.above(0);
+        });
+    });
+
+    it("Login with empty API key should reject", function () {
+        this.timeout(5000);
+
+        return CloudFoundryUsersUAA.loginWithApiKey("").then(function () {
+            throw new Error("Should have rejected empty API key");
+        }).catch(function (error) {
+            expect(error.message).to.include("API key is required");
+        });
+    });
+
+    it("Login with null API key should reject", function () {
+        this.timeout(5000);
+
+        return CloudFoundryUsersUAA.loginWithApiKey(null).then(function () {
+            throw new Error("Should have rejected null API key");
+        }).catch(function (error) {
+            expect(error.message).to.include("API key is required");
+        });
+    });
+
 });
