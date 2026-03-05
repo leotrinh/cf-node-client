@@ -24,14 +24,14 @@ describe(`cf-node-client v${expectedVersion} - API v3 Migration`, function () {
             expect(pkg.name).to.equal('cf-node-client');
         });
 
-        it('should have version 1.0.7', function () {
+        it('should have version from package.json', function () {
             const pkg = require('../../package.json');
-            expect(pkg.version).to.equal('1.0.7');
+            expect(pkg.version).to.equal(expectedVersion);
         });
 
-        it('should have index.js export version 1.0.7', function () {
+        it('should have index.js export version from package.json', function () {
             const lib = require('../../index.js');
-            expect(lib.version).to.equal('1.0.7');
+            expect(lib.version).to.equal(expectedVersion);
         });
 
         it('should export all 16 Cloud Foundry models', function () {
