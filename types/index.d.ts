@@ -32,6 +32,13 @@ export interface DeleteOptions {
   recursive?: boolean;
 }
 
+/** Full app environment returned by getAppEnv (GET /v3/apps/:guid/env) */
+export interface AppEnv {
+  running_env_json: Record<string, any>;
+  application_env_json: Record<string, any>;
+  system_env_json: Record<string, any>;
+}
+
 /** Common paginated API response format (v2) */
 export interface ApiResponse<T = any> {
   total_results: number;
@@ -176,10 +183,12 @@ export class Apps extends CloudControllerBase {
   getServiceBindings(appGuid: string, filter?: FilterOptions): Promise<any>;
   /** Remove a service binding from an application */
   removeServiceBindings(appGuid: string, serviceBindingGuid: string): Promise<any>;
-  /** Get environment variables for an application */
+  /** Get environment variables for an application (user-provided only) */
   getEnvironmentVariables(appGuid: string): Promise<any>;
   /** Set environment variables for an application */
   setEnvironmentVariables(appGuid: string, variables: any): Promise<any>;
+  /** Get full app environment (system-injected vars: VCAP_SERVICES, VCAP_APPLICATION, etc.) */
+  getAppEnv(appGuid: string): Promise<AppEnv>;
   /** Get droplets for an application (v3) */
   getDroplets(appGuid: string): Promise<any>;
   /** Get packages for an application (v3) */
