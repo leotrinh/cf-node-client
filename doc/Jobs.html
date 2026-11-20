@@ -39,7 +39,7 @@
 
     <h1 class="page-title">Class: Jobs</h1>
 
-    
+
 
 
 
@@ -47,9 +47,9 @@
 <section>
 
 <header>
-    
+
         <h2><span class="attribs"><span class="type-signature"></span></span>Jobs<span class="signature">(endPoint<span class="signature-attributes">opt</span>, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
-        
+
             <div class="class-description">Jobs — background job and task management for Cloud Foundry.
 
 **Terminology:**
@@ -61,24 +61,24 @@
 
 The getJobs/getJob/add/cancel methods manage **v2 Jobs** and **v3 Tasks**.
 The getV3Job/pollJob methods manage **v3 async operation Jobs**.</div>
-        
-    
+
+
 </header>
 
 <article>
     <div class="container-overview">
-    
-        
 
-    
+
+
+
     <h2>Constructor</h2>
-    
 
-    
+
+
     <h4 class="name" id="Jobs"><span class="type-signature"></span>new Jobs<span class="signature">(endPoint<span class="signature-attributes">opt</span>, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
 
-    
+
+
 
 
 
@@ -91,107 +91,107 @@ The getV3Job/pollJob methods manage **v3 async operation Jobs**.</div>
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
-        
 
-        
+        <th>Attributes</th>
+
+
+
         <th>Default</th>
-        
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>endPoint</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
+
                 <td class="attributes">
-                
+
                     &lt;optional><br>
-                
 
-                
 
-                
+
+
+
                 </td>
-            
 
-            
+
+
                 <td class="default">
-                
+
                 </td>
-            
+
 
             <td class="description last">Cloud Controller API endpoint URL</td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>options</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">Object</span>
 
 
-            
+
             </td>
 
-            
+
                 <td class="attributes">
-                
+
                     &lt;optional><br>
-                
 
-                
 
-                
+
+
+
                 </td>
-            
 
-            
+
+
                 <td class="default">
-                
+
                     {}
-                
+
                 </td>
-            
+
 
             <td class="description last">Options (same as CloudControllerBase)</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -202,42 +202,42 @@ The getV3Job/pollJob methods manage **v3 async operation Jobs**.</div>
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line20">line 20</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -259,36 +259,36 @@ The getV3Job/pollJob methods manage **v3 async operation Jobs**.</div>
 
 
 
-    
+
     </div>
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
         <h3 class="subsection-title">Methods</h3>
 
-        
-            
 
-    
 
-    
+
+
+
+
     <h4 class="name" id="add"><span class="type-signature"></span>add<span class="signature">(appGuid, taskOptions)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -306,73 +306,73 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>appGuid</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">Application unique identifier</td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>taskOptions</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">Object</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">Task creation options</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -383,42 +383,42 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line87">line 87</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -435,7 +435,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
 <h5>Throws:</h5>
 
-        
+
 
 <dl>
     <dt>
@@ -450,7 +450,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
                 Type
             </dt>
             <dd>
-                
+
 <span class="param-type">Error</span>
 
 
@@ -461,12 +461,12 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 </dl>
 
 
-    
+
 
 
 <h5>Returns:</h5>
 
-        
+
 <div class="param-desc">
     Resolves with JSON task object
 </div>
@@ -478,29 +478,29 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="cancel"><span class="type-signature"></span>cancel<span class="signature">(guid)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -517,50 +517,50 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>guid</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">Task/Job unique identifier</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -571,42 +571,42 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line107">line 107</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -625,7 +625,7 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
 
 <h5>Returns:</h5>
 
-        
+
 <div class="param-desc">
     Resolves when task is cancelled / job is deleted
 </div>
@@ -637,29 +637,29 @@ NOTE: Tasks are a v3-only concept. v2 does not support task creation.
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="getJob"><span class="type-signature"></span>getJob<span class="signature">(guid)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -677,50 +677,50 @@ NOTE: For v3 async operation Jobs (from 202 Location headers), use getV3Job().
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>guid</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">Job/Task unique identifier</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -731,42 +731,42 @@ NOTE: For v3 async operation Jobs (from 202 Location headers), use getV3Job().
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line66">line 66</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -785,7 +785,7 @@ NOTE: For v3 async operation Jobs (from 202 Location headers), use getV3Job().
 
 <h5>Returns:</h5>
 
-        
+
 <div class="param-desc">
     Resolves with JSON job/task object
 </div>
@@ -797,29 +797,29 @@ NOTE: For v3 async operation Jobs (from 202 Location headers), use getV3Job().
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="getJobs"><span class="type-signature"></span>getJobs<span class="signature">(filter<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -836,62 +836,62 @@ NOTE: For v3 async operation Jobs (from 202 Location headers), use getV3Job().
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
-        
 
-        
+        <th>Attributes</th>
+
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>filter</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">Object</span>
 
 
-            
+
             </td>
 
-            
+
                 <td class="attributes">
-                
+
                     &lt;optional><br>
-                
 
-                
 
-                
+
+
+
                 </td>
-            
 
-            
+
+
 
             <td class="description last">Query-string filter options</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -902,42 +902,42 @@ NOTE: For v3 async operation Jobs (from 202 Location headers), use getV3Job().
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line39">line 39</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -956,7 +956,7 @@ NOTE: For v3 async operation Jobs (from 202 Location headers), use getV3Job().
 
 <h5>Returns:</h5>
 
-        
+
 <div class="param-desc">
     Resolves with JSON jobs/tasks list
 </div>
@@ -968,29 +968,29 @@ NOTE: For v3 async operation Jobs (from 202 Location headers), use getV3Job().
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="getV3Job"><span class="type-signature"></span>getV3Job<span class="signature">(jobGuid)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -1009,50 +1009,50 @@ They are separate from v3 Tasks (which run inside app containers).
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>jobGuid</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">Job GUID (from Location header of 202 responses)</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -1063,42 +1063,42 @@ They are separate from v3 Tasks (which run inside app containers).
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line133">line 133</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -1117,7 +1117,7 @@ They are separate from v3 Tasks (which run inside app containers).
 
 <h5>Returns:</h5>
 
-        
+
 <div class="param-desc">
     Resolves with job object { guid, state, operation, errors, ... }
   state: "PROCESSING" | "POLLING" | "COMPLETE" | "FAILED"
@@ -1130,29 +1130,29 @@ They are separate from v3 Tasks (which run inside app containers).
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="pollJob"><span class="type-signature"></span>pollJob<span class="signature">(jobGuid, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -1170,201 +1170,201 @@ Repeatedly queries GET /v3/jobs/:guid until state is COMPLETE or FAILED.
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
-        
 
-        
+        <th>Attributes</th>
+
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>jobGuid</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
+
                 <td class="attributes">
-                
 
-                
 
-                
+
+
+
                 </td>
-            
 
-            
+
+
 
             <td class="description last">Job GUID</td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>options</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">Object</span>
 
 
-            
+
             </td>
 
-            
+
                 <td class="attributes">
-                
+
                     &lt;optional><br>
-                
 
-                
 
-                
+
+
+
                 </td>
-            
 
-            
+
+
 
             <td class="description last">Polling options
                 <h6>Properties</h6>
-                
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
-        
 
-        
+        <th>Attributes</th>
+
+
+
         <th>Default</th>
-        
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>interval</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">Number</span>
 
 
-            
+
             </td>
 
-            
+
                 <td class="attributes">
-                
+
                     &lt;optional><br>
-                
 
-                
 
-                
+
+
+
                 </td>
-            
 
-            
+
+
                 <td class="default">
-                
+
                     2000
-                
+
                 </td>
-            
+
 
             <td class="description last">Poll interval in ms (default 2s)</td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>timeout</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">Number</span>
 
 
-            
+
             </td>
 
-            
+
                 <td class="attributes">
-                
+
                     &lt;optional><br>
-                
 
-                
 
-                
+
+
+
                 </td>
-            
 
-            
+
+
                 <td class="default">
-                
+
                     300000
-                
+
                 </td>
-            
+
 
             <td class="description last">Max wait time in ms (default 5min)</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
             </td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -1375,42 +1375,42 @@ Repeatedly queries GET /v3/jobs/:guid until state is COMPLETE or FAILED.
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_cloudcontroller_Jobs.js.html">model/cloudcontroller/Jobs.js</a>, <a href="model_cloudcontroller_Jobs.js.html#line148">line 148</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -1429,7 +1429,7 @@ Repeatedly queries GET /v3/jobs/:guid until state is COMPLETE or FAILED.
 
 <h5>Returns:</h5>
 
-        
+
 <div class="param-desc">
     Resolves with completed job object, rejects on FAILED or timeout
 </div>
@@ -1441,25 +1441,25 @@ Repeatedly queries GET /v3/jobs/:guid until state is COMPLETE or FAILED.
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-    
 
-    
 
-    
+
+
+
+
+
 </article>
 
 </section>
@@ -1470,13 +1470,13 @@ Repeatedly queries GET /v3/jobs/:guid until state is COMPLETE or FAILED.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li><li><a href="V3Api.html">V3Api</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri May 29 2026 14:49:30 GMT+0700 (Indochina Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri Nov 20 2026 14:52:02 GMT+0700 (Indochina Time)
 </footer>
 
 <script> prettyPrint(); </script>

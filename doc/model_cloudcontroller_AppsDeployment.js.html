@@ -39,11 +39,11 @@
 
     <h1 class="page-title">Source: model/cloudcontroller/AppsDeployment.js</h1>
 
-    
 
 
 
-    
+
+
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>"use strict";
@@ -86,7 +86,7 @@ class AppsDeployment extends CloudControllerBase {
 
     /** @private */
     _uploadV2(appGuid, filePath, fileSizeInBytes, asyncFlag) {
-        const url = `${this.API_URL}/v2/apps/${appGuid}/bits`;
+        const url = `${this.API_URL}/v2/apps/${encodeURIComponent(String(appGuid))}/bits`;
         const options = {
             multipart: true,
             accessToken: this.UAA_TOKEN.access_token,
@@ -141,8 +141,8 @@ class AppsDeployment extends CloudControllerBase {
         const token = this.getAuthorizationHeader();
         // v3: stats are per-process; use the "web" process shortcut
         const url = this.isUsingV3()
-            ? `${this.API_URL}/v3/apps/${appGuid}/processes/web/stats`
-            : `${this.API_URL}/v2/apps/${appGuid}/stats`;
+            ? `${this.API_URL}/v3/apps/${encodeURIComponent(String(appGuid))}/processes/web/stats`
+            : `${this.API_URL}/v2/apps/${encodeURIComponent(String(appGuid))}/stats`;
         const options = { method: "GET", url, headers: { Authorization: token } };
         return this.REST.request(options, this.HttpStatus.OK, true);
     }
@@ -155,8 +155,8 @@ class AppsDeployment extends CloudControllerBase {
     getInstances(appGuid) {
         const token = this.getAuthorizationHeader();
         const url = this.isUsingV3()
-            ? `${this.API_URL}/v3/apps/${appGuid}/processes`
-            : `${this.API_URL}/v2/apps/${appGuid}/instances`;
+            ? `${this.API_URL}/v3/apps/${encodeURIComponent(String(appGuid))}/processes`
+            : `${this.API_URL}/v2/apps/${encodeURIComponent(String(appGuid))}/instances`;
         const options = { method: "GET", url, headers: { Authorization: token } };
         return this.REST.request(options, this.HttpStatus.OK, true);
     }
@@ -169,8 +169,8 @@ class AppsDeployment extends CloudControllerBase {
     getAppRoutes(appGuid) {
         const token = this.getAuthorizationHeader();
         const url = this.isUsingV3()
-            ? `${this.API_URL}/v3/apps/${appGuid}/routes`
-            : `${this.API_URL}/v2/apps/${appGuid}/routes`;
+            ? `${this.API_URL}/v3/apps/${encodeURIComponent(String(appGuid))}/routes`
+            : `${this.API_URL}/v2/apps/${encodeURIComponent(String(appGuid))}/routes`;
         const options = { method: "GET", url, headers: { Authorization: token } };
         return this.REST.request(options, this.HttpStatus.OK, true);
     }
@@ -187,7 +187,7 @@ class AppsDeployment extends CloudControllerBase {
             // v3: map app to route via destinations endpoint
             const options = {
                 method: "POST",
-                url: `${this.API_URL}/v3/routes/${routeGuid}/destinations`,
+                url: `${this.API_URL}/v3/routes/${encodeURIComponent(String(routeGuid))}/destinations`,
                 headers: { Authorization: token, "Content-Type": "application/json" },
                 body: JSON.stringify({ destinations: [{ app: { guid: appGuid } }] })
             };
@@ -195,7 +195,7 @@ class AppsDeployment extends CloudControllerBase {
         }
         const options = {
             method: "PUT",
-            url: `${this.API_URL}/v2/apps/${appGuid}/routes/${routeGuid}`,
+            url: `${this.API_URL}/v2/apps/${encodeURIComponent(String(appGuid))}/routes/${encodeURIComponent(String(routeGuid))}`,
             headers: { Authorization: token }
         };
         return this.REST.request(options, this.HttpStatus.CREATED, true);
@@ -220,7 +220,7 @@ class AppsDeployment extends CloudControllerBase {
             };
             return this.REST.request(options, this.HttpStatus.OK, true);
         }
-        const url = `${this.API_URL}/v2/apps/${appGuid}/service_bindings`;
+        const url = `${this.API_URL}/v2/apps/${encodeURIComponent(String(appGuid))}/service_bindings`;
         const options = { method: "GET", url, headers: { Authorization: token }, qs: filter || {} };
         return this.REST.request(options, this.HttpStatus.OK, true);
     }
@@ -238,7 +238,7 @@ class AppsDeployment extends CloudControllerBase {
         if (this.isUsingV3()) {
             const options = {
                 method: "DELETE",
-                url: `${this.API_URL}/v3/service_credential_bindings/${serviceBindingGuid}`,
+                url: `${this.API_URL}/v3/service_credential_bindings/${encodeURIComponent(String(serviceBindingGuid))}`,
                 headers: { "Content-Type": "application/json", Authorization: token }
             };
             // Managed bindings return 202 (async job); key/UPS bindings return 204
@@ -246,7 +246,7 @@ class AppsDeployment extends CloudControllerBase {
         }
         const options = {
             method: "DELETE",
-            url: `${this.API_URL}/v2/apps/${appGuid}/service_bindings/${serviceBindingGuid}`,
+            url: `${this.API_URL}/v2/apps/${encodeURIComponent(String(appGuid))}/service_bindings/${encodeURIComponent(String(serviceBindingGuid))}`,
             headers: { "Content-Type": "application/x-www-form-urlencoded", Authorization: token }
         };
         return this.REST.request(options, this.HttpStatus.NO_CONTENT, false);
@@ -260,8 +260,8 @@ class AppsDeployment extends CloudControllerBase {
     getEnvironmentVariables(appGuid) {
         const token = this.getAuthorizationHeader();
         const url = this.isUsingV3()
-            ? `${this.API_URL}/v3/apps/${appGuid}/environment_variables`
-            : `${this.API_URL}/v2/apps/${appGuid}/env`;
+            ? `${this.API_URL}/v3/apps/${encodeURIComponent(String(appGuid))}/environment_variables`
+            : `${this.API_URL}/v2/apps/${encodeURIComponent(String(appGuid))}/env`;
         const options = { method: "GET", url, headers: { Authorization: token } };
         return this.REST.request(options, this.HttpStatus.OK, true);
     }
@@ -278,7 +278,7 @@ class AppsDeployment extends CloudControllerBase {
         if (this.isUsingV3()) {
             const options = {
                 method: "PATCH",
-                url: `${this.API_URL}/v3/apps/${appGuid}/environment_variables`,
+                url: `${this.API_URL}/v3/apps/${encodeURIComponent(String(appGuid))}/environment_variables`,
                 headers: { "Content-Type": "application/json", Authorization: token },
                 body: JSON.stringify({ var: variables })
             };
@@ -304,8 +304,8 @@ class AppsDeployment extends CloudControllerBase {
     getAppEnv(appGuid) {
         const token = this.getAuthorizationHeader();
         const url = this.isUsingV3()
-            ? `${this.API_URL}/v3/apps/${appGuid}/env`
-            : `${this.API_URL}/v2/apps/${appGuid}/env`;
+            ? `${this.API_URL}/v3/apps/${encodeURIComponent(String(appGuid))}/env`
+            : `${this.API_URL}/v2/apps/${encodeURIComponent(String(appGuid))}/env`;
         const options = { method: "GET", url, headers: { Authorization: token } };
         return this.REST.request(options, this.HttpStatus.OK, true);
     }
@@ -322,7 +322,7 @@ class AppsDeployment extends CloudControllerBase {
         const token = this.getAuthorizationHeader();
         const options = {
             method: "POST",
-            url: `${this.API_URL}/v2/apps/${appGuid}/restage`,
+            url: `${this.API_URL}/v2/apps/${encodeURIComponent(String(appGuid))}/restage`,
             headers: { Authorization: token }
         };
         return this.REST.request(options, this.HttpStatus.CREATED, true);
@@ -338,7 +338,7 @@ class AppsDeployment extends CloudControllerBase {
         const token = this.getAuthorizationHeader();
         const options = {
             method: "GET",
-            url: `${this.API_URL}/v3/apps/${appGuid}/droplets`,
+            url: `${this.API_URL}/v3/apps/${encodeURIComponent(String(appGuid))}/droplets`,
             headers: { Authorization: token }
         };
         return this.REST.request(options, this.HttpStatus.OK, true);
@@ -354,7 +354,7 @@ class AppsDeployment extends CloudControllerBase {
         const token = this.getAuthorizationHeader();
         const options = {
             method: "GET",
-            url: `${this.API_URL}/v3/apps/${appGuid}/packages`,
+            url: `${this.API_URL}/v3/apps/${encodeURIComponent(String(appGuid))}/packages`,
             headers: { Authorization: token }
         };
         return this.REST.request(options, this.HttpStatus.OK, true);
@@ -370,7 +370,7 @@ class AppsDeployment extends CloudControllerBase {
         const token = this.getAuthorizationHeader();
         const options = {
             method: "GET",
-            url: `${this.API_URL}/v3/apps/${appGuid}/processes`,
+            url: `${this.API_URL}/v3/apps/${encodeURIComponent(String(appGuid))}/processes`,
             headers: { Authorization: token }
         };
         return this.REST.request(options, this.HttpStatus.OK, true);
@@ -388,13 +388,13 @@ module.exports = AppsDeployment;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li><li><a href="V3Api.html">V3Api</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri May 29 2026 14:49:30 GMT+0700 (Indochina Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri Nov 20 2026 14:52:02 GMT+0700 (Indochina Time)
 </footer>
 
 <script> prettyPrint(); </script>
