@@ -1,0 +1,1505 @@
+{
+  "source": "https://v3-apidocs.cloudfoundry.org/version/3.237.0/",
+  "operations": [
+    {
+      "title": "Clear buildpack cache",
+      "anchor": "clear-buildpack-cache",
+      "method": "POST",
+      "path": "/v3/admin/actions/clear_buildpack_cache"
+    },
+    {
+      "title": "Create an app",
+      "anchor": "create-an-app",
+      "method": "POST",
+      "path": "/v3/apps"
+    },
+    {
+      "title": "Get an app",
+      "anchor": "get-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid"
+    },
+    {
+      "title": "List apps",
+      "anchor": "list-apps",
+      "method": "GET",
+      "path": "/v3/apps"
+    },
+    {
+      "title": "Update an app",
+      "anchor": "update-an-app",
+      "method": "PATCH",
+      "path": "/v3/apps/:guid"
+    },
+    {
+      "title": "Delete an app",
+      "anchor": "delete-an-app",
+      "method": "DELETE",
+      "path": "/v3/apps/:guid"
+    },
+    {
+      "title": "Get current droplet",
+      "anchor": "get-current-droplet",
+      "method": "GET",
+      "path": "/v3/apps/:guid/droplets/current"
+    },
+    {
+      "title": "Get current droplet association for an app",
+      "anchor": "get-current-droplet-association-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/relationships/current_droplet"
+    },
+    {
+      "title": "Get environment for an app",
+      "anchor": "get-environment-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/env"
+    },
+    {
+      "title": "Get environment variables for an app",
+      "anchor": "get-environment-variables-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/environment_variables"
+    },
+    {
+      "title": "Get permissions for an app",
+      "anchor": "get-permissions-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/permissions"
+    },
+    {
+      "title": "Set current droplet",
+      "anchor": "set-current-droplet",
+      "method": "PATCH",
+      "path": "/v3/apps/:guid/relationships/current_droplet"
+    },
+    {
+      "title": "Get SSH enabled for an app",
+      "anchor": "get-ssh-enabled-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/ssh_enabled"
+    },
+    {
+      "title": "Start an app",
+      "anchor": "start-an-app",
+      "method": "POST",
+      "path": "/v3/apps/:guid/actions/start"
+    },
+    {
+      "title": "Stop an app",
+      "anchor": "stop-an-app",
+      "method": "POST",
+      "path": "/v3/apps/:guid/actions/stop"
+    },
+    {
+      "title": "Restart an app",
+      "anchor": "restart-an-app",
+      "method": "POST",
+      "path": "/v3/apps/:guid/actions/restart"
+    },
+    {
+      "title": "Clear buildpack cache for application",
+      "anchor": "clear-buildpack-cache-for-application",
+      "method": "POST",
+      "path": "/v3/apps/:guid/actions/clear_buildpack_cache"
+    },
+    {
+      "title": "Update environment variables for an app",
+      "anchor": "update-environment-variables-for-an-app",
+      "method": "PATCH",
+      "path": "/v3/apps/:guid/environment_variables"
+    },
+    {
+      "title": "Get an app feature",
+      "anchor": "get-an-app-feature",
+      "method": "GET",
+      "path": "/v3/apps/:guid/features/:name"
+    },
+    {
+      "title": "List app features",
+      "anchor": "list-app-features",
+      "method": "GET",
+      "path": "/v3/apps/:guid/features"
+    },
+    {
+      "title": "Update an app feature",
+      "anchor": "update-an-app-feature",
+      "method": "PATCH",
+      "path": "/v3/apps/:guid/features/:name"
+    },
+    {
+      "title": "Get an app usage event",
+      "anchor": "get-an-app-usage-event",
+      "method": "GET",
+      "path": "/v3/app_usage_events/:guid"
+    },
+    {
+      "title": "List app usage events",
+      "anchor": "list-app-usage-events",
+      "method": "GET",
+      "path": "/v3/app_usage_events"
+    },
+    {
+      "title": "Purge and seed app usage events",
+      "anchor": "purge-and-seed-app-usage-events",
+      "method": "POST",
+      "path": "/v3/app_usage_events/actions/destructively_purge_all_and_reseed"
+    },
+    {
+      "title": "Get an audit event",
+      "anchor": "get-an-audit-event",
+      "method": "GET",
+      "path": "/v3/audit_events/:guid"
+    },
+    {
+      "title": "List audit events",
+      "anchor": "list-audit-events",
+      "method": "GET",
+      "path": "/v3/audit_events"
+    },
+    {
+      "title": "Create a build",
+      "anchor": "create-a-build",
+      "method": "POST",
+      "path": "/v3/builds"
+    },
+    {
+      "title": "Get a build",
+      "anchor": "get-a-build",
+      "method": "GET",
+      "path": "/v3/builds/:guid"
+    },
+    {
+      "title": "List builds",
+      "anchor": "list-builds",
+      "method": "GET",
+      "path": "/v3/builds"
+    },
+    {
+      "title": "List builds for an app",
+      "anchor": "list-builds-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/builds"
+    },
+    {
+      "title": "Update a build",
+      "anchor": "update-a-build",
+      "method": "PATCH",
+      "path": "/v3/builds/:guid"
+    },
+    {
+      "title": "Create a buildpack",
+      "anchor": "create-a-buildpack",
+      "method": "POST",
+      "path": "/v3/buildpacks"
+    },
+    {
+      "title": "Get a buildpack",
+      "anchor": "get-a-buildpack",
+      "method": "GET",
+      "path": "/v3/buildpacks/:guid"
+    },
+    {
+      "title": "List buildpacks",
+      "anchor": "list-buildpacks",
+      "method": "GET",
+      "path": "/v3/buildpacks"
+    },
+    {
+      "title": "Update a buildpack",
+      "anchor": "update-a-buildpack",
+      "method": "PATCH",
+      "path": "/v3/buildpacks/:guid"
+    },
+    {
+      "title": "Delete a buildpack",
+      "anchor": "delete-a-buildpack",
+      "method": "DELETE",
+      "path": "/v3/buildpacks/:guid"
+    },
+    {
+      "title": "Upload buildpack bits",
+      "anchor": "upload-buildpack-bits",
+      "method": "POST",
+      "path": "/v3/buildpacks/:guid/upload"
+    },
+    {
+      "title": "Create a deployment",
+      "anchor": "create-a-deployment",
+      "method": "POST",
+      "path": "/v3/deployments"
+    },
+    {
+      "title": "Get a deployment",
+      "anchor": "get-a-deployment",
+      "method": "GET",
+      "path": "/v3/deployments/:guid"
+    },
+    {
+      "title": "List deployments",
+      "anchor": "list-deployments",
+      "method": "GET",
+      "path": "/v3/deployments"
+    },
+    {
+      "title": "Update a deployment",
+      "anchor": "update-a-deployment",
+      "method": "PATCH",
+      "path": "/v3/deployments/:guid"
+    },
+    {
+      "title": "Cancel a deployment",
+      "anchor": "cancel-a-deployment",
+      "method": "POST",
+      "path": "/v3/deployments/:guid/actions/cancel"
+    },
+    {
+      "title": "Continue a deployment",
+      "anchor": "continue-a-deployment",
+      "method": "POST",
+      "path": "/v3/deployments/:guid/actions/continue"
+    },
+    {
+      "title": "Create a domain",
+      "anchor": "create-a-domain",
+      "method": "POST",
+      "path": "/v3/domains"
+    },
+    {
+      "title": "Get a domain",
+      "anchor": "get-a-domain",
+      "method": "GET",
+      "path": "/v3/domains/:guid"
+    },
+    {
+      "title": "List domains",
+      "anchor": "list-domains",
+      "method": "GET",
+      "path": "/v3/domains"
+    },
+    {
+      "title": "List domains for an organization",
+      "anchor": "list-domains-for-an-organization",
+      "method": "GET",
+      "path": "/v3/organizations/:guid/domains"
+    },
+    {
+      "title": "Update a domain",
+      "anchor": "update-a-domain",
+      "method": "PATCH",
+      "path": "/v3/domains/:guid"
+    },
+    {
+      "title": "Delete a domain",
+      "anchor": "delete-a-domain",
+      "method": "DELETE",
+      "path": "/v3/domains/:guid"
+    },
+    {
+      "title": "Share a domain",
+      "anchor": "share-a-domain",
+      "method": "POST",
+      "path": "/v3/domains/:guid/relationships/shared_organizations"
+    },
+    {
+      "title": "Unshare a domain",
+      "anchor": "unshare-a-domain",
+      "method": "DELETE",
+      "path": "/v3/domains/:guid/relationships/shared_organizations/:org_guid"
+    },
+    {
+      "title": "Create a droplet",
+      "anchor": "create-a-droplet",
+      "method": "POST",
+      "path": "/v3/droplets"
+    },
+    {
+      "title": "Get a droplet",
+      "anchor": "get-a-droplet",
+      "method": "GET",
+      "path": "/v3/droplets/:guid"
+    },
+    {
+      "title": "List droplets",
+      "anchor": "list-droplets",
+      "method": "GET",
+      "path": "/v3/droplets"
+    },
+    {
+      "title": "List droplets for a package",
+      "anchor": "list-droplets-for-a-package",
+      "method": "GET",
+      "path": "/v3/packages/:guid/droplets"
+    },
+    {
+      "title": "List droplets for an app",
+      "anchor": "list-droplets-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/droplets"
+    },
+    {
+      "title": "Update a droplet",
+      "anchor": "update-a-droplet",
+      "method": "PATCH",
+      "path": "/v3/droplets/:guid"
+    },
+    {
+      "title": "Delete a droplet",
+      "anchor": "delete-a-droplet",
+      "method": "DELETE",
+      "path": "/v3/droplets/:guid"
+    },
+    {
+      "title": "Copy a droplet",
+      "anchor": "copy-a-droplet",
+      "method": "POST",
+      "path": "/v3/droplets"
+    },
+    {
+      "title": "Download droplet bits",
+      "anchor": "download-droplet-bits",
+      "method": "GET",
+      "path": "/v3/droplets/:guid/download"
+    },
+    {
+      "title": "Upload droplet bits",
+      "anchor": "upload-droplet-bits",
+      "method": "POST",
+      "path": "/v3/droplets/:guid/upload"
+    },
+    {
+      "title": "Get an environment variable group",
+      "anchor": "get-an-environment-variable-group",
+      "method": "GET",
+      "path": "/v3/environment_variable_groups/:name"
+    },
+    {
+      "title": "Update environment variable group",
+      "anchor": "update-environment-variable-group",
+      "method": "PATCH",
+      "path": "/v3/environment_variable_groups/:name"
+    },
+    {
+      "title": "Get a feature flag",
+      "anchor": "get-a-feature-flag",
+      "method": "GET",
+      "path": "/v3/feature_flags/:name"
+    },
+    {
+      "title": "List feature flags",
+      "anchor": "list-feature-flags",
+      "method": "GET",
+      "path": "/v3/feature_flags"
+    },
+    {
+      "title": "Update a feature flag",
+      "anchor": "update-a-feature-flag",
+      "method": "PATCH",
+      "path": "/v3/feature_flags/:name"
+    },
+    {
+      "title": "Get platform info",
+      "anchor": "get-platform-info",
+      "method": "GET",
+      "path": "/v3/info"
+    },
+    {
+      "title": "Get platform usage summary",
+      "anchor": "get-platform-usage-summary",
+      "method": "GET",
+      "path": "/v3/info/usage_summary"
+    },
+    {
+      "title": "Create an isolation segment",
+      "anchor": "create-an-isolation-segment",
+      "method": "POST",
+      "path": "/v3/isolation_segments"
+    },
+    {
+      "title": "Get an isolation segment",
+      "anchor": "get-an-isolation-segment",
+      "method": "GET",
+      "path": "/v3/isolation_segments/:guid"
+    },
+    {
+      "title": "List isolation segments",
+      "anchor": "list-isolation-segments",
+      "method": "GET",
+      "path": "/v3/isolation_segments"
+    },
+    {
+      "title": "List organizations relationship",
+      "anchor": "list-organizations-relationship",
+      "method": "GET",
+      "path": "/v3/isolation_segments/:guid/relationships/organizations"
+    },
+    {
+      "title": "List spaces relationship",
+      "anchor": "list-spaces-relationship",
+      "method": "GET",
+      "path": "/v3/isolation_segments/:guid/relationships/spaces"
+    },
+    {
+      "title": "Update an isolation segment",
+      "anchor": "update-an-isolation-segment",
+      "method": "PATCH",
+      "path": "/v3/isolation_segments/:guid"
+    },
+    {
+      "title": "Delete an isolation segment",
+      "anchor": "delete-an-isolation-segment",
+      "method": "DELETE",
+      "path": "/v3/isolation_segments/:guid"
+    },
+    {
+      "title": "Entitle organizations for an isolation segment",
+      "anchor": "entitle-organizations-for-an-isolation-segment",
+      "method": "POST",
+      "path": "/v3/isolation_segments/:guid/relationships/organizations"
+    },
+    {
+      "title": "Revoke entitlement to isolation segment for an organization",
+      "anchor": "revoke-entitlement-to-isolation-segment-for-an-organization",
+      "method": "DELETE",
+      "path": "/v3/isolation_segments/:guid/relationships/organizations/:org_guid"
+    },
+    {
+      "title": "Get a job",
+      "anchor": "get-a-job",
+      "method": "GET",
+      "path": "/v3/jobs/:guid"
+    },
+    {
+      "title": "Apply a manifest to a space",
+      "anchor": "apply-a-manifest-to-a-space",
+      "method": "POST",
+      "path": "/v3/spaces/:guid/actions/apply_manifest"
+    },
+    {
+      "title": "Generate a manifest for an app",
+      "anchor": "generate-a-manifest-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/manifest"
+    },
+    {
+      "title": "Create a manifest diff for a space (experimental)",
+      "anchor": "create-a-manifest-diff-for-a-space-experimental",
+      "method": "POST",
+      "path": "/v3/spaces/:guid/manifest_diff"
+    },
+    {
+      "title": "Create an organization",
+      "anchor": "create-an-organization",
+      "method": "POST",
+      "path": "/v3/organizations"
+    },
+    {
+      "title": "Get an organization",
+      "anchor": "get-an-organization",
+      "method": "GET",
+      "path": "/v3/organizations/:guid"
+    },
+    {
+      "title": "List organizations",
+      "anchor": "list-organizations",
+      "method": "GET",
+      "path": "/v3/organizations"
+    },
+    {
+      "title": "List organizations for isolation segment",
+      "anchor": "list-organizations-for-isolation-segment",
+      "method": "GET",
+      "path": "/v3/isolation_segments/:guid/organizations"
+    },
+    {
+      "title": "Update an organization",
+      "anchor": "update-an-organization",
+      "method": "PATCH",
+      "path": "/v3/organizations/:guid"
+    },
+    {
+      "title": "Delete an organization",
+      "anchor": "delete-an-organization",
+      "method": "DELETE",
+      "path": "/v3/organizations/:guid"
+    },
+    {
+      "title": "Assign default isolation segment",
+      "anchor": "assign-default-isolation-segment",
+      "method": "PATCH",
+      "path": "/v3/organizations/:guid/relationships/default_isolation_segment"
+    },
+    {
+      "title": "Get default isolation segment",
+      "anchor": "get-default-isolation-segment",
+      "method": "GET",
+      "path": "/v3/organizations/:guid/relationships/default_isolation_segment"
+    },
+    {
+      "title": "Get default domain",
+      "anchor": "get-default-domain",
+      "method": "GET",
+      "path": "/v3/organizations/:guid/domains/default"
+    },
+    {
+      "title": "Get usage summary",
+      "anchor": "get-usage-summary",
+      "method": "GET",
+      "path": "/v3/organizations/:guid/usage_summary"
+    },
+    {
+      "title": "List users for an organization",
+      "anchor": "list-users-for-an-organization",
+      "method": "GET",
+      "path": "/v3/organizations/:guid/users"
+    },
+    {
+      "title": "Create an organization quota",
+      "anchor": "create-an-organization-quota",
+      "method": "POST",
+      "path": "/v3/organization_quotas"
+    },
+    {
+      "title": "Get an organization quota",
+      "anchor": "get-an-organization-quota",
+      "method": "GET",
+      "path": "/v3/organization_quotas/:guid"
+    },
+    {
+      "title": "List organization quotas",
+      "anchor": "list-organization-quotas",
+      "method": "GET",
+      "path": "/v3/organization_quotas"
+    },
+    {
+      "title": "Apply an organization quota to an organization",
+      "anchor": "apply-an-organization-quota-to-an-organization",
+      "method": "POST",
+      "path": "/v3/organization_quotas/:quota_guid/relationships/organizations"
+    },
+    {
+      "title": "Delete an organization quota",
+      "anchor": "delete-an-organization-quota",
+      "method": "DELETE",
+      "path": "/v3/organization_quotas/:guid"
+    },
+    {
+      "title": "Update an organization quota",
+      "anchor": "update-an-organization-quota",
+      "method": "PATCH",
+      "path": "/v3/organization_quotas/:guid"
+    },
+    {
+      "title": "Create a package",
+      "anchor": "create-a-package",
+      "method": "POST",
+      "path": "/v3/packages"
+    },
+    {
+      "title": "Get a package",
+      "anchor": "get-a-package",
+      "method": "GET",
+      "path": "/v3/packages/:guid"
+    },
+    {
+      "title": "List packages",
+      "anchor": "list-packages",
+      "method": "GET",
+      "path": "/v3/packages"
+    },
+    {
+      "title": "List packages for an app",
+      "anchor": "list-packages-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/packages"
+    },
+    {
+      "title": "Update a package",
+      "anchor": "update-a-package",
+      "method": "PATCH",
+      "path": "/v3/packages/:guid"
+    },
+    {
+      "title": "Delete a package",
+      "anchor": "delete-a-package",
+      "method": "DELETE",
+      "path": "/v3/packages/:guid"
+    },
+    {
+      "title": "Copy a package",
+      "anchor": "copy-a-package",
+      "method": "POST",
+      "path": "/v3/packages"
+    },
+    {
+      "title": "Download package bits",
+      "anchor": "download-package-bits",
+      "method": "GET",
+      "path": "/v3/packages/:guid/download"
+    },
+    {
+      "title": "Upload package bits",
+      "anchor": "upload-package-bits",
+      "method": "POST",
+      "path": "/v3/packages/:guid/upload"
+    },
+    {
+      "title": "Get a process",
+      "anchor": "get-a-process",
+      "method": "GET",
+      "path": "/v3/processes/:guid"
+    },
+    {
+      "title": "Get stats for a process",
+      "anchor": "get-stats-for-a-process",
+      "method": "GET",
+      "path": "/v3/processes/:guid/stats"
+    },
+    {
+      "title": "Get process instances for a process (experimental)",
+      "anchor": "get-process-instances-for-a-process-experimental",
+      "method": "GET",
+      "path": "/v3/processes/:guid/process_instances"
+    },
+    {
+      "title": "List processes",
+      "anchor": "list-processes",
+      "method": "GET",
+      "path": "/v3/processes"
+    },
+    {
+      "title": "List processes for app",
+      "anchor": "list-processes-for-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/processes"
+    },
+    {
+      "title": "Update a process",
+      "anchor": "update-a-process",
+      "method": "PATCH",
+      "path": "/v3/processes/:guid"
+    },
+    {
+      "title": "Scale a process",
+      "anchor": "scale-a-process",
+      "method": "POST",
+      "path": "/v3/processes/:guid/actions/scale"
+    },
+    {
+      "title": "Terminate a process instance",
+      "anchor": "terminate-a-process-instance",
+      "method": "DELETE",
+      "path": "/v3/processes/:guid/instances/:index"
+    },
+    {
+      "title": "Create a resource match",
+      "anchor": "create-a-resource-match",
+      "method": "POST",
+      "path": "/v3/resource_matches"
+    },
+    {
+      "title": "Get a revision",
+      "anchor": "get-a-revision",
+      "method": "GET",
+      "path": "/v3/revisions/:guid"
+    },
+    {
+      "title": "Get environment variables for a revision",
+      "anchor": "get-environment-variables-for-a-revision",
+      "method": "GET",
+      "path": "/v3/revisions/:guid/environment_variables"
+    },
+    {
+      "title": "List revisions for an app",
+      "anchor": "list-revisions-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/revisions"
+    },
+    {
+      "title": "List deployed revisions for an app",
+      "anchor": "list-deployed-revisions-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/revisions/deployed"
+    },
+    {
+      "title": "Update a revision",
+      "anchor": "update-a-revision",
+      "method": "PATCH",
+      "path": "/v3/revisions/:guid"
+    },
+    {
+      "title": "Create a role",
+      "anchor": "create-a-role",
+      "method": "POST",
+      "path": "/v3/roles"
+    },
+    {
+      "title": "Get a role",
+      "anchor": "get-a-role",
+      "method": "GET",
+      "path": "/v3/roles/:guid"
+    },
+    {
+      "title": "List roles",
+      "anchor": "list-roles",
+      "method": "GET",
+      "path": "/v3/roles"
+    },
+    {
+      "title": "Delete a role",
+      "anchor": "delete-a-role",
+      "method": "DELETE",
+      "path": "/v3/roles/:guid"
+    },
+    {
+      "title": "Create a route policy",
+      "anchor": "create-a-route-policy",
+      "method": "POST",
+      "path": "/v3/route_policies"
+    },
+    {
+      "title": "Get a route policy",
+      "anchor": "get-a-route-policy",
+      "method": "GET",
+      "path": "/v3/route_policies/:guid"
+    },
+    {
+      "title": "List route policies",
+      "anchor": "list-route-policies",
+      "method": "GET",
+      "path": "/v3/route_policies"
+    },
+    {
+      "title": "Update a route policy",
+      "anchor": "update-a-route-policy",
+      "method": "PATCH",
+      "path": "/v3/route_policies/:guid"
+    },
+    {
+      "title": "Delete a route policy",
+      "anchor": "delete-a-route-policy",
+      "method": "DELETE",
+      "path": "/v3/route_policies/:guid"
+    },
+    {
+      "title": "Create a route",
+      "anchor": "create-a-route",
+      "method": "POST",
+      "path": "/v3/routes"
+    },
+    {
+      "title": "Get a route",
+      "anchor": "get-a-route",
+      "method": "GET",
+      "path": "/v3/routes/:guid"
+    },
+    {
+      "title": "List routes",
+      "anchor": "list-routes",
+      "method": "GET",
+      "path": "/v3/routes"
+    },
+    {
+      "title": "List routes for an app",
+      "anchor": "list-routes-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/routes"
+    },
+    {
+      "title": "Update a route",
+      "anchor": "update-a-route",
+      "method": "PATCH",
+      "path": "/v3/routes/:guid"
+    },
+    {
+      "title": "Delete a route",
+      "anchor": "delete-a-route",
+      "method": "DELETE",
+      "path": "/v3/routes/:guid"
+    },
+    {
+      "title": "Check reserved routes for a domain",
+      "anchor": "check-reserved-routes-for-a-domain",
+      "method": "GET",
+      "path": "/v3/domains/:guid/route_reservations"
+    },
+    {
+      "title": "Lists shared spaces relationship (experimental)",
+      "anchor": "lists-shared-spaces-relationship-experimental",
+      "method": "GET",
+      "path": "/v3/routes/:guid/relationships/shared_spaces"
+    },
+    {
+      "title": "Share a route with other spaces (experimental)",
+      "anchor": "share-a-route-with-other-spaces-experimental",
+      "method": "POST",
+      "path": "/v3/routes/:guid/relationships/shared_spaces"
+    },
+    {
+      "title": "Unshare a route that was shared with another space (experimental)",
+      "anchor": "unshare-a-route-that-was-shared-with-another-space-experimental",
+      "method": "DELETE",
+      "path": "/v3/routes/:guid/relationships/shared_spaces/:space_guid"
+    },
+    {
+      "title": "Transfer ownership (experimental)",
+      "anchor": "transfer-ownership-experimental",
+      "method": "PATCH",
+      "path": "/v3/routes/:route-guid/relationships/space"
+    },
+    {
+      "title": "List destinations for a route",
+      "anchor": "list-destinations-for-a-route",
+      "method": "GET",
+      "path": "/v3/routes/:guid/destinations"
+    },
+    {
+      "title": "Insert destinations for a route",
+      "anchor": "insert-destinations-for-a-route",
+      "method": "POST",
+      "path": "/v3/routes/:guid/destinations"
+    },
+    {
+      "title": "Replace all destinations for a route",
+      "anchor": "replace-all-destinations-for-a-route",
+      "method": "PATCH",
+      "path": "/v3/routes/:guid/destinations"
+    },
+    {
+      "title": "Update a destination protocol for a route",
+      "anchor": "update-a-destination-protocol-for-a-route",
+      "method": "PATCH",
+      "path": "/v3/routes/:guid/destinations/:destination_guid"
+    },
+    {
+      "title": "Remove destination for a route",
+      "anchor": "remove-destination-for-a-route",
+      "method": "DELETE",
+      "path": "/v3/routes/:guid/destinations/:destination_guid"
+    },
+    {
+      "title": "Delete unmapped routes for a space",
+      "anchor": "delete-unmapped-routes-for-a-space",
+      "method": "DELETE",
+      "path": "/v3/spaces/:guid/routes"
+    },
+    {
+      "title": "Create a security group",
+      "anchor": "create-a-security-group",
+      "method": "POST",
+      "path": "/v3/security_groups"
+    },
+    {
+      "title": "Get a security group",
+      "anchor": "get-a-security-group",
+      "method": "GET",
+      "path": "/v3/security_groups/:guid"
+    },
+    {
+      "title": "List security groups",
+      "anchor": "list-security-groups",
+      "method": "GET",
+      "path": "/v3/security_groups"
+    },
+    {
+      "title": "Update a security group",
+      "anchor": "update-a-security-group",
+      "method": "PATCH",
+      "path": "/v3/security_groups/:guid"
+    },
+    {
+      "title": "Delete a security group",
+      "anchor": "delete-a-security-group",
+      "method": "DELETE",
+      "path": "/v3/security_groups/:guid"
+    },
+    {
+      "title": "Bind a running security group to spaces",
+      "anchor": "bind-a-running-security-group-to-spaces",
+      "method": "POST",
+      "path": "/v3/security_groups/:guid/relationships/running_spaces"
+    },
+    {
+      "title": "Bind a staging security group to spaces",
+      "anchor": "bind-a-staging-security-group-to-spaces",
+      "method": "POST",
+      "path": "/v3/security_groups/:guid/relationships/staging_spaces"
+    },
+    {
+      "title": "Unbind a running security group from a space",
+      "anchor": "unbind-a-running-security-group-from-a-space",
+      "method": "DELETE",
+      "path": "/v3/security_groups/:guid/relationships/running_spaces/:space_guid"
+    },
+    {
+      "title": "Unbind a staging security group from a space",
+      "anchor": "unbind-a-staging-security-group-from-a-space",
+      "method": "DELETE",
+      "path": "/v3/security_groups/:guid/relationships/staging_spaces/:space_guid"
+    },
+    {
+      "title": "List running security groups for a space",
+      "anchor": "list-running-security-groups-for-a-space",
+      "method": "GET",
+      "path": "/v3/spaces/:guid/running_security_groups"
+    },
+    {
+      "title": "List staging security groups for a space",
+      "anchor": "list-staging-security-groups-for-a-space",
+      "method": "GET",
+      "path": "/v3/spaces/:guid/staging_security_groups"
+    },
+    {
+      "title": "Create a service broker",
+      "anchor": "create-a-service-broker",
+      "method": "POST",
+      "path": "/v3/service_brokers"
+    },
+    {
+      "title": "Get a service broker",
+      "anchor": "get-a-service-broker",
+      "method": "GET",
+      "path": "/v3/service_brokers/:guid"
+    },
+    {
+      "title": "List service brokers",
+      "anchor": "list-service-brokers",
+      "method": "GET",
+      "path": "/v3/service_brokers"
+    },
+    {
+      "title": "Update a service broker",
+      "anchor": "update-a-service-broker",
+      "method": "PATCH",
+      "path": "/v3/service_brokers/:guid"
+    },
+    {
+      "title": "Delete a service broker",
+      "anchor": "delete-a-service-broker",
+      "method": "DELETE",
+      "path": "/v3/service_brokers/:guid"
+    },
+    {
+      "title": "Get a service offering",
+      "anchor": "get-a-service-offering",
+      "method": "GET",
+      "path": "/v3/service_offerings/:guid"
+    },
+    {
+      "title": "List service offerings",
+      "anchor": "list-service-offerings",
+      "method": "GET",
+      "path": "/v3/service_offerings"
+    },
+    {
+      "title": "Update a service offering",
+      "anchor": "update-a-service-offering",
+      "method": "PATCH",
+      "path": "/v3/service_offerings/:guid"
+    },
+    {
+      "title": "Delete a service offering",
+      "anchor": "delete-a-service-offering",
+      "method": "DELETE",
+      "path": "/v3/service_offerings/:guid"
+    },
+    {
+      "title": "Get a service plan",
+      "anchor": "get-a-service-plan",
+      "method": "GET",
+      "path": "/v3/service_plans/:guid"
+    },
+    {
+      "title": "List service plans",
+      "anchor": "list-service-plans",
+      "method": "GET",
+      "path": "/v3/service_plans"
+    },
+    {
+      "title": "Update a service plan",
+      "anchor": "update-a-service-plan",
+      "method": "PATCH",
+      "path": "/v3/service_plans/:guid"
+    },
+    {
+      "title": "Delete a service plan",
+      "anchor": "delete-a-service-plan",
+      "method": "DELETE",
+      "path": "/v3/service_plans/:guid"
+    },
+    {
+      "title": "Get a service plan visibility",
+      "anchor": "get-a-service-plan-visibility",
+      "method": "GET",
+      "path": "/v3/service_plans/:guid/visibility"
+    },
+    {
+      "title": "Update a service plan visibility",
+      "anchor": "update-a-service-plan-visibility",
+      "method": "PATCH",
+      "path": "/v3/service_plans/:guid/visibility"
+    },
+    {
+      "title": "Apply a service plan visibility",
+      "anchor": "apply-a-service-plan-visibility",
+      "method": "POST",
+      "path": "/v3/service_plans/:guid/visibility"
+    },
+    {
+      "title": "Remove organization from a service plan visibility",
+      "anchor": "remove-organization-from-a-service-plan-visibility",
+      "method": "DELETE",
+      "path": "/v3/service_plans/:guid/visibility/:organization_guid"
+    },
+    {
+      "title": "Create a service instance",
+      "anchor": "create-a-service-instance",
+      "method": "POST",
+      "path": "/v3/service_instances"
+    },
+    {
+      "title": "Get a service instance",
+      "anchor": "get-a-service-instance",
+      "method": "GET",
+      "path": "/v3/service_instances/:guid"
+    },
+    {
+      "title": "List service instances",
+      "anchor": "list-service-instances",
+      "method": "GET",
+      "path": "/v3/service_instances"
+    },
+    {
+      "title": "Delete a service instance",
+      "anchor": "delete-a-service-instance",
+      "method": "DELETE",
+      "path": "/v3/service_instances/:guid"
+    },
+    {
+      "title": "Update a service instance",
+      "anchor": "update-a-service-instance",
+      "method": "PATCH",
+      "path": "/v3/service_instances/:guid"
+    },
+    {
+      "title": "Get credentials for a user-provided service instance",
+      "anchor": "get-credentials-for-a-user-provided-service-instance",
+      "method": "GET",
+      "path": "/v3/service_instances/:guid/credentials"
+    },
+    {
+      "title": "Get usage summary in shared spaces",
+      "anchor": "get-usage-summary-in-shared-spaces",
+      "method": "GET",
+      "path": "/v3/service_instances/:guid/relationships/shared_spaces/usage_summary"
+    },
+    {
+      "title": "List shared spaces relationship",
+      "anchor": "list-shared-spaces-relationship",
+      "method": "GET",
+      "path": "/v3/service_instances/:guid/relationships/shared_spaces"
+    },
+    {
+      "title": "Get parameters for a managed service instance",
+      "anchor": "get-parameters-for-a-managed-service-instance",
+      "method": "GET",
+      "path": "/v3/service_instances/:guid/parameters"
+    },
+    {
+      "title": "Get permissions for a service instance",
+      "anchor": "get-permissions-for-a-service-instance",
+      "method": "GET",
+      "path": "/v3/service_instances/:guid/permissions"
+    },
+    {
+      "title": "Share a service instance to other spaces",
+      "anchor": "share-a-service-instance-to-other-spaces",
+      "method": "POST",
+      "path": "/v3/service_instances/:guid/relationships/shared_spaces"
+    },
+    {
+      "title": "Unshare a service instance from another space",
+      "anchor": "unshare-a-service-instance-from-another-space",
+      "method": "DELETE",
+      "path": "/v3/service_instances/:guid/relationships/shared_spaces/:space_guid"
+    },
+    {
+      "title": "Create a service credential binding",
+      "anchor": "create-a-service-credential-binding",
+      "method": "POST",
+      "path": "/v3/service_credential_bindings"
+    },
+    {
+      "title": "Get a service credential binding",
+      "anchor": "get-a-service-credential-binding",
+      "method": "GET",
+      "path": "/v3/service_credential_bindings/:guid"
+    },
+    {
+      "title": "List service credential bindings",
+      "anchor": "list-service-credential-bindings",
+      "method": "GET",
+      "path": "/v3/service_credential_bindings"
+    },
+    {
+      "title": "Update a service credential binding",
+      "anchor": "update-a-service-credential-binding",
+      "method": "PATCH",
+      "path": "/v3/service_credential_bindings/:guid"
+    },
+    {
+      "title": "Delete a service credential binding",
+      "anchor": "delete-a-service-credential-binding",
+      "method": "DELETE",
+      "path": "/v3/service_credential_bindings/:guid"
+    },
+    {
+      "title": "Get a service credential binding details",
+      "anchor": "get-a-service-credential-binding-details",
+      "method": "GET",
+      "path": "/v3/service_credential_bindings/:guid/details"
+    },
+    {
+      "title": "Get parameters for a service credential binding",
+      "anchor": "get-parameters-for-a-service-credential-binding",
+      "method": "GET",
+      "path": "/v3/service_credential_bindings/:guid/parameters"
+    },
+    {
+      "title": "Get a service route binding",
+      "anchor": "get-a-service-route-binding",
+      "method": "GET",
+      "path": "/v3/service_route_bindings/:guid"
+    },
+    {
+      "title": "List service route bindings",
+      "anchor": "list-service-route-bindings",
+      "method": "GET",
+      "path": "/v3/service_route_bindings"
+    },
+    {
+      "title": "Create a service route binding",
+      "anchor": "create-a-service-route-binding",
+      "method": "POST",
+      "path": "/v3/service_route_bindings"
+    },
+    {
+      "title": "Update a service route binding",
+      "anchor": "update-a-service-route-binding",
+      "method": "PATCH",
+      "path": "/v3/service_route_bindings/:guid"
+    },
+    {
+      "title": "Delete a service route binding",
+      "anchor": "delete-a-service-route-binding",
+      "method": "DELETE",
+      "path": "/v3/service_route_bindings/:guid"
+    },
+    {
+      "title": "Get parameters for a route binding",
+      "anchor": "get-parameters-for-a-route-binding",
+      "method": "GET",
+      "path": "/v3/service_route_bindings/:guid/parameters"
+    },
+    {
+      "title": "Get a service usage event",
+      "anchor": "get-a-service-usage-event",
+      "method": "GET",
+      "path": "/v3/service_usage_events/:guid"
+    },
+    {
+      "title": "List service usage events",
+      "anchor": "list-service-usage-events",
+      "method": "GET",
+      "path": "/v3/service_usage_events"
+    },
+    {
+      "title": "Purge and seed service usage events",
+      "anchor": "purge-and-seed-service-usage-events",
+      "method": "POST",
+      "path": "/v3/service_usage_events/actions/destructively_purge_all_and_reseed"
+    },
+    {
+      "title": "Create a sidecar associated with an app",
+      "anchor": "create-a-sidecar-associated-with-an-app",
+      "method": "POST",
+      "path": "/v3/apps/:guid/sidecars"
+    },
+    {
+      "title": "Get a sidecar",
+      "anchor": "get-a-sidecar",
+      "method": "GET",
+      "path": "/v3/sidecars/:guid"
+    },
+    {
+      "title": "Update a sidecar",
+      "anchor": "update-a-sidecar",
+      "method": "PATCH",
+      "path": "/v3/sidecars/:guid"
+    },
+    {
+      "title": "List sidecars for app",
+      "anchor": "list-sidecars-for-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/sidecars"
+    },
+    {
+      "title": "List sidecars for process",
+      "anchor": "list-sidecars-for-process",
+      "method": "GET",
+      "path": "/v3/processes/:guid/sidecars"
+    },
+    {
+      "title": "Delete a sidecar",
+      "anchor": "delete-a-sidecar",
+      "method": "DELETE",
+      "path": "/v3/sidecars/:guid"
+    },
+    {
+      "title": "Create a space",
+      "anchor": "create-a-space",
+      "method": "POST",
+      "path": "/v3/spaces"
+    },
+    {
+      "title": "Get a space",
+      "anchor": "get-a-space",
+      "method": "GET",
+      "path": "/v3/spaces/:guid"
+    },
+    {
+      "title": "List spaces",
+      "anchor": "list-spaces",
+      "method": "GET",
+      "path": "/v3/spaces"
+    },
+    {
+      "title": "Update a space",
+      "anchor": "update-a-space",
+      "method": "PATCH",
+      "path": "/v3/spaces/:guid"
+    },
+    {
+      "title": "Delete a space",
+      "anchor": "delete-a-space",
+      "method": "DELETE",
+      "path": "/v3/spaces/:guid"
+    },
+    {
+      "title": "Get assigned isolation segment",
+      "anchor": "get-assigned-isolation-segment",
+      "method": "GET",
+      "path": "/v3/spaces/:guid/relationships/isolation_segment"
+    },
+    {
+      "title": "Get space usage summary",
+      "anchor": "get-space-usage-summary",
+      "method": "GET",
+      "path": "/v3/spaces/:guid/usage_summary"
+    },
+    {
+      "title": "Manage isolation segment",
+      "anchor": "manage-isolation-segment",
+      "method": "PATCH",
+      "path": "/v3/spaces/:guid/relationships/isolation_segment"
+    },
+    {
+      "title": "List users for a space",
+      "anchor": "list-users-for-a-space",
+      "method": "GET",
+      "path": "/v3/spaces/:guid/users"
+    },
+    {
+      "title": "Get a space feature",
+      "anchor": "get-a-space-feature",
+      "method": "GET",
+      "path": "/v3/spaces/:guid/features/:name"
+    },
+    {
+      "title": "List space features",
+      "anchor": "list-space-features",
+      "method": "GET",
+      "path": "/v3/spaces/:guid/features"
+    },
+    {
+      "title": "Update space features",
+      "anchor": "update-space-features",
+      "method": "PATCH",
+      "path": "/v3/spaces/:guid/features/:name"
+    },
+    {
+      "title": "Create a space quota",
+      "anchor": "create-a-space-quota",
+      "method": "POST",
+      "path": "/v3/space_quotas"
+    },
+    {
+      "title": "Get a space quota",
+      "anchor": "get-a-space-quota",
+      "method": "GET",
+      "path": "/v3/space_quotas/:guid"
+    },
+    {
+      "title": "List space quotas",
+      "anchor": "list-space-quotas",
+      "method": "GET",
+      "path": "/v3/space_quotas"
+    },
+    {
+      "title": "Update a space quota",
+      "anchor": "update-a-space-quota",
+      "method": "PATCH",
+      "path": "/v3/space_quotas/:guid"
+    },
+    {
+      "title": "Delete a space quota",
+      "anchor": "delete-a-space-quota",
+      "method": "DELETE",
+      "path": "/v3/space_quotas/:guid"
+    },
+    {
+      "title": "Apply a space quota to a space",
+      "anchor": "apply-a-space-quota-to-a-space",
+      "method": "POST",
+      "path": "/v3/space_quotas/:quota_guid/relationships/spaces"
+    },
+    {
+      "title": "Remove a space quota from a space",
+      "anchor": "remove-a-space-quota-from-a-space",
+      "method": "DELETE",
+      "path": "/v3/space_quotas/:quota_guid/relationships/spaces/:space_guid"
+    },
+    {
+      "title": "Create a stack",
+      "anchor": "create-a-stack",
+      "method": "POST",
+      "path": "/v3/stacks"
+    },
+    {
+      "title": "Get a stack",
+      "anchor": "get-a-stack",
+      "method": "GET",
+      "path": "/v3/stacks/:guid"
+    },
+    {
+      "title": "List stacks",
+      "anchor": "list-stacks",
+      "method": "GET",
+      "path": "/v3/stacks"
+    },
+    {
+      "title": "List apps on a stack",
+      "anchor": "list-apps-on-a-stack",
+      "method": "GET",
+      "path": "/v3/stacks/:guid/apps"
+    },
+    {
+      "title": "Update a stack",
+      "anchor": "update-a-stack",
+      "method": "PATCH",
+      "path": "/v3/stacks/:guid"
+    },
+    {
+      "title": "Delete a stack",
+      "anchor": "delete-a-stack",
+      "method": "DELETE",
+      "path": "/v3/stacks/:guid"
+    },
+    {
+      "title": "Create a task",
+      "anchor": "create-a-task",
+      "method": "POST",
+      "path": "/v3/apps/:guid/tasks"
+    },
+    {
+      "title": "Get a task",
+      "anchor": "get-a-task",
+      "method": "GET",
+      "path": "/v3/tasks/:guid"
+    },
+    {
+      "title": "List tasks",
+      "anchor": "list-tasks",
+      "method": "GET",
+      "path": "/v3/tasks"
+    },
+    {
+      "title": "List tasks for an app",
+      "anchor": "list-tasks-for-an-app",
+      "method": "GET",
+      "path": "/v3/apps/:guid/tasks"
+    },
+    {
+      "title": "Update a task",
+      "anchor": "update-a-task",
+      "method": "PATCH",
+      "path": "/v3/tasks/:guid"
+    },
+    {
+      "title": "Cancel a task",
+      "anchor": "cancel-a-task",
+      "method": "POST",
+      "path": "/v3/tasks/:guid/actions/cancel"
+    },
+    {
+      "title": "Create a user",
+      "anchor": "create-a-user",
+      "method": "POST",
+      "path": "/v3/users"
+    },
+    {
+      "title": "Get a user",
+      "anchor": "get-a-user",
+      "method": "GET",
+      "path": "/v3/users/:guid"
+    },
+    {
+      "title": "List users",
+      "anchor": "list-users",
+      "method": "GET",
+      "path": "/v3/users"
+    },
+    {
+      "title": "Update a user",
+      "anchor": "update-a-user",
+      "method": "PATCH",
+      "path": "/v3/users/:guid"
+    },
+    {
+      "title": "Delete a user",
+      "anchor": "delete-a-user",
+      "method": "DELETE",
+      "path": "/v3/users/:guid"
+    },
+    {
+      "title": "Resource Summaries",
+      "anchor": "resource-summaries",
+      "method": "GET",
+      "path": "/v3/apps"
+    },
+    {
+      "title": "Security Groups in V3",
+      "anchor": "security-groups-in-v3",
+      "method": "PATCH",
+      "path": "/v3/security_groups/:guid"
+    },
+    {
+      "title": "Service Offerings in V3",
+      "anchor": "service-offerings-in-v3",
+      "method": "GET",
+      "path": "/v3/service_offerings"
+    },
+    {
+      "title": "Service Plans in V3",
+      "anchor": "service-plans-in-v3",
+      "method": "GET",
+      "path": "/v3/service_plans"
+    },
+    {
+      "title": "Users and Roles in V3",
+      "anchor": "users-and-roles-in-v3",
+      "method": "GET",
+      "path": "/v3/users"
+    }
+  ]
+}
