@@ -6,6 +6,8 @@
 - **H1/M1:** Removed unused runtime dependencies `protobufjs` and `ws`; updated `form-data` to a patched version.
 - **M2:** Encoded caller-supplied identifier segments in high-level v2/v3/UAA URLs and query templates. Pass raw, not pre-encoded GUIDs.
 - **M3/I3:** Cache clears when token or endpoint changes; removed unsolicited endpoint logging.
+- **L3:** UAA `getUsers()` accepts safely URL-encoded object parameters and retains its legacy raw-string form; `getUsersByUsername()` quotes literal untrusted usernames.
+- **I1/I2:** Warned that `decodeToken()` does not verify signatures; `loginWithApiKey()` no longer fabricates expiry, scope or JTI fields. Callers relying on those fields must migrate.
 - Remaining audit findings and consumer impact are tracked in `plans/security-audit-fixes/plan.md`; no claim is made that lower-priority supply-chain/availability findings are resolved.
 
 ---

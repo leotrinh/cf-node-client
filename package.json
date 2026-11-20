@@ -13,7 +13,7 @@
     "tsc:check": "tsc --noEmit",
     "precheck": "npm run build && npm run test",
     "test": "npm run lint && npm run test:unit",
-    "test:unit": "mocha test/lib/ApiMigrationTests.js test/lib/ConvenienceMethodTests.js test/lib/PaginationCacheTests.js test/lib/V3AuditFixTests.js test/lib/V3AuditFixMediumLowTests.js test/lib/V3MediumFixTests.js test/lib/V3OperationRegistryTests.js test/lib/V3OperationHttpTests.js test/lib/SecurityFixTests.js test/utils/ZipGeneratorTests.js test/utils/HttpUtilsTests.js --timeout 5000",
+    "test:unit": "mocha test/lib/ApiMigrationTests.js test/lib/ConvenienceMethodTests.js test/lib/PaginationCacheTests.js test/lib/V3AuditFixTests.js test/lib/V3AuditFixMediumLowTests.js test/lib/V3MediumFixTests.js test/lib/V3OperationRegistryTests.js test/lib/V3OperationHttpTests.js test/lib/SecurityFixTests.js test/lib/UaaSecurityTests.js test/utils/ZipGeneratorTests.js test/utils/HttpUtilsTests.js --timeout 5000",
     "test:integration": "mocha test/lib/model --config=LOCAL_INSTANCE_1 --timeout 30000",
     "build": "tsc",
     "pub:dry": "npm publish --dry-run",

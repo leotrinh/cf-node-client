@@ -6,5 +6,6 @@ Implemented C1 TLS verification by default (`skipSslValidation`/`ca` per instanc
 
 Verification: npm run lint PASS; npm test 178 passing, 1 pre-existing pending; npm run tsc:check PASS; npm audit --omit=dev 0 vulnerabilities; npm audit including dev 22 remaining (14 high, 8 moderate); npm run pub:dry PASS on version 1.1.0, 40 files, no publish. No live CF integration run.
 
-Deferred: M4 CI pinning/provenance; L1 default timeout/streaming, L2 v2 filter grammar, L3 UAA raw filter, L4 error contract, L5 dev dependency remediation, I1/I2 documentation/response claims. These are not represented as fixed.
+Follow-up: L3 object-query overload and safe getUsersByUsername wrapper implemented while keeping raw-string compatibility; I1 documented unverified decodeToken claims, I2 removed fabricated API-key expiry/scope/JTI. Tests: 183 passing / 1 pre-existing pending; lint, tsc:check and pub:dry passed. Public doc/ HTML regenerated (55 pages). No live UAA/SCIM integration run.
+Deferred: M4 CI pinning/provenance; L1 default timeout/streaming, L2 v2 filter grammar, L4 error contract, L5 dev dependency remediation. These are not represented as fixed.
 STATUS: ALL DONE (scoped security release; deferred findings documented)

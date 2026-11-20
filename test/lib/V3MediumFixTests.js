@@ -26,10 +26,9 @@ describe("v1.0.8 MEDIUM Priority Fixes - Unit Tests", function () {
                 expect(result).to.be.an('object');
                 expect(result.token_type).to.equal('bearer');
                 expect(result.access_token).to.equal(apiKey);
-                expect(result.expires_in).to.be.a('number');
-                expect(result.expires_in).to.be.above(0);
-                expect(result.scope).to.be.a('string');
-                expect(result.jti).to.be.a('string');
+                expect(result).not.to.have.property('expires_in');
+                expect(result).not.to.have.property('scope');
+                expect(result).not.to.have.property('jti');
                 done();
             }).catch(done);
         });

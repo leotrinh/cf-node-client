@@ -107,3 +107,17 @@ Verification status is tracked in `SECURITY-PROGRESS.md`. The pre-existing gener
 - `npm audit` including dev toolchain: 22 remaining (14 high, 8 moderate; L5 backlog).
 - `npm run pub:dry`: pass, tarball `cf-node-client-1.1.0.tgz`, 40 package files; dry run did not publish.
 - M2 also encodes `ApiVersionManager.buildUrl(resourceId)`; no strict UUID validation (preserves nonstandard CF IDs). Regression test covers path traversal and query delimiter injection. No live Cloud Foundry instance tested.
+
+### Follow-up L3, I1–I2 — approved by owner (2026-11-20)
+
+- **L3 implemented:** `UsersUAA.getUsers({ filter, startIndex, count, ... })` routes object parameters through `HttpUtils._buildUrl()`/`URLSearchParams`; legacy `getUsers('?filter=...')` is unchanged for compatibility. For *untrusted usernames*, `getUsersByUsername(username, { startIndex, count })` JSON-quotes the SCIM string literal before URL encoding. Arbitrary caller-created filter expressions remain the caller's responsibility; do not interpolate untrusted data into them.
+- **I1 implemented as documentation warning:** `decodeToken()` still decodes without cryptographic verification. JSDoc, types, README and migration guide now prohibit authorization decisions based on returned claims. This is not a JWT verification implementation.
+- **I2 implemented:** `loginWithApiKey()` now returns only `token_type` and `access_token`; removed fabricated `expires_in`, `scope`, `jti`. **Caller impact:** users who read those previously fake fields must switch to trusted issuer verification/introspection. Tests updated to assert absence of unverified fields.
+- Regression tests: `test/lib/UaaSecurityTests.js` covers object/legacy query, SCIM quote and delimiter injection, fabricated token fields and forged JWT behavior.
+
+### Follow-up verification
+
+- `npm run lint`: pass; `npm test`: 183 passing, 1 pre-existing pending; `npm run tsc:check`: pass.
+- `npm run pub:dry`: pass for v1.1.0; no publication.
+- `npm run docs`: regenerated 55 public HTML pages including UsersUAA wrapper and decodeToken warning; committed with source docs.
+- No live UAA/SCIM server integration test; wrapper and token behavior tested locally with request stubs.

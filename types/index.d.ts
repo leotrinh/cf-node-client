@@ -690,15 +690,17 @@ export class UsersUAA {
   updatePassword(uaaGuid: string, uaaOptions: any): Promise<any>;
   /** Delete a UAA user */
   remove(uaaGuid: string): Promise<any>;
-  /** Search/list UAA users */
-  getUsers(searchOptions?: string): Promise<any>;
+  /** Legacy raw query string (not escaped), or object parameters encoded as a query string. */
+  getUsers(searchOptions?: string | { filter?: string; startIndex?: number; count?: number; [key: string]: string | number | boolean | undefined }): Promise<any>;
+  /** Exact userName match; escapes SCIM string syntax and URL query delimiters. */
+  getUsersByUsername(username: string, options?: { startIndex?: number; count?: number }): Promise<any>;
   /** Login with username and password, returns OAuth token */
   login(username: string, password: string): Promise<OAuthToken>;
   /** Refresh an OAuth token */
   refreshToken(): Promise<OAuthToken>;
   /** Login with client_credentials grant type */
   loginWithClientCredentials(clientId: string, clientSecret: string): Promise<OAuthToken>;
-  /** Login with an API key (Bearer token) - for SAP BTP and similar platforms */
+  /** Wrap an API key as Bearer token; expiry, scope and JTI are unknown, not verified. */
   loginWithApiKey(apiKey: string): Promise<OAuthToken>;
   /** Login with a one-time passcode (SSO) */
   loginWithPasscode(passcode: string): Promise<OAuthToken>;
@@ -706,7 +708,7 @@ export class UsersUAA {
   loginWithAuthorizationCode(code: string, clientId: string, clientSecret: string, redirectUri: string): Promise<OAuthToken>;
   /** Validate and introspect a token server-side */
   getTokenInfo(token: string, clientId: string, clientSecret: string): Promise<any>;
-  /** Decode a JWT token locally (no signature verification) */
+  /** Decode locally only. Returned claims are untrusted; never authorize using them without signature verification or UAA introspection. */
   decodeToken(token: string): any;
 }
 
