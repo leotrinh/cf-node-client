@@ -113,6 +113,34 @@ export class CloudControllerBase {
   ): Promise<T[]>;
 }
 
+/** One documented Cloud Controller v3.237.0 operation. */
+export interface V3Operation {
+  anchor: string;
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+  path: string;
+  status: number | number[];
+  exampleContentType: string | null;
+  requiredParameters: string[];
+}
+
+/** Versioned low-level client for all documented v3.237.0 operations. */
+export class V3Api extends CloudControllerBase {
+  static readonly operations: V3Operation[];
+  invoke(
+    anchor: string,
+    options?: {
+      params?: Record<string, string | number>;
+      query?: Record<string, string | number | boolean | Array<string | number>>;
+      body?: object | string | Buffer;
+      expectedStatus?: number | number[];
+      headers?: Record<string, string>;
+      binary?: boolean;
+      /** Include the status and Location header (e.g. asynchronous job URL). */
+      responseMetadata?: boolean;
+    }
+  ): Promise<any>;
+}
+
 // ============================================================================
 // CLOUD CONTROLLER
 // ============================================================================

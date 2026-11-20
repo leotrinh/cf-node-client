@@ -1,0 +1,2107 @@
+[
+  {
+    "anchor": "clear-buildpack-cache",
+    "method": "POST",
+    "path": "/v3/admin/actions/clear_buildpack_cache",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-an-app",
+    "method": "POST",
+    "path": "/v3/apps",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name",
+      "relationships.space"
+    ]
+  },
+  {
+    "anchor": "get-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-apps",
+    "method": "GET",
+    "path": "/v3/apps",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-an-app",
+    "method": "PATCH",
+    "path": "/v3/apps/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-an-app",
+    "method": "DELETE",
+    "path": "/v3/apps/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-current-droplet",
+    "method": "GET",
+    "path": "/v3/apps/:guid/droplets/current",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-current-droplet-association-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/relationships/current_droplet",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-environment-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/env",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-environment-variables-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/environment_variables",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-permissions-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/permissions",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "set-current-droplet",
+    "method": "PATCH",
+    "path": "/v3/apps/:guid/relationships/current_droplet",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-ssh-enabled-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/ssh_enabled",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "start-an-app",
+    "method": "POST",
+    "path": "/v3/apps/:guid/actions/start",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "stop-an-app",
+    "method": "POST",
+    "path": "/v3/apps/:guid/actions/stop",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "restart-an-app",
+    "method": "POST",
+    "path": "/v3/apps/:guid/actions/restart",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "clear-buildpack-cache-for-application",
+    "method": "POST",
+    "path": "/v3/apps/:guid/actions/clear_buildpack_cache",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-environment-variables-for-an-app",
+    "method": "PATCH",
+    "path": "/v3/apps/:guid/environment_variables",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-an-app-feature",
+    "method": "GET",
+    "path": "/v3/apps/:guid/features/:name",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-app-features",
+    "method": "GET",
+    "path": "/v3/apps/:guid/features",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-an-app-feature",
+    "method": "PATCH",
+    "path": "/v3/apps/:guid/features/:name",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "enabled"
+    ]
+  },
+  {
+    "anchor": "get-an-app-usage-event",
+    "method": "GET",
+    "path": "/v3/app_usage_events/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-app-usage-events",
+    "method": "GET",
+    "path": "/v3/app_usage_events",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "purge-and-seed-app-usage-events",
+    "method": "POST",
+    "path": "/v3/app_usage_events/actions/destructively_purge_all_and_reseed",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-an-audit-event",
+    "method": "GET",
+    "path": "/v3/audit_events/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-audit-events",
+    "method": "GET",
+    "path": "/v3/audit_events",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-build",
+    "method": "POST",
+    "path": "/v3/builds",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "package"
+    ]
+  },
+  {
+    "anchor": "get-a-build",
+    "method": "GET",
+    "path": "/v3/builds/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-builds",
+    "method": "GET",
+    "path": "/v3/builds",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-builds-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/builds",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-build",
+    "method": "PATCH",
+    "path": "/v3/builds/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-buildpack",
+    "method": "POST",
+    "path": "/v3/buildpacks",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name"
+    ]
+  },
+  {
+    "anchor": "get-a-buildpack",
+    "method": "GET",
+    "path": "/v3/buildpacks/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-buildpacks",
+    "method": "GET",
+    "path": "/v3/buildpacks",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-buildpack",
+    "method": "PATCH",
+    "path": "/v3/buildpacks/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-buildpack",
+    "method": "DELETE",
+    "path": "/v3/buildpacks/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "upload-buildpack-bits",
+    "method": "POST",
+    "path": "/v3/buildpacks/:guid/upload",
+    "status": 202,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "bits"
+    ]
+  },
+  {
+    "anchor": "create-a-deployment",
+    "method": "POST",
+    "path": "/v3/deployments",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "relationships.app"
+    ]
+  },
+  {
+    "anchor": "get-a-deployment",
+    "method": "GET",
+    "path": "/v3/deployments/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-deployments",
+    "method": "GET",
+    "path": "/v3/deployments",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-deployment",
+    "method": "PATCH",
+    "path": "/v3/deployments/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "cancel-a-deployment",
+    "method": "POST",
+    "path": "/v3/deployments/:guid/actions/cancel",
+    "status": 200,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "continue-a-deployment",
+    "method": "POST",
+    "path": "/v3/deployments/:guid/actions/continue",
+    "status": 200,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-domain",
+    "method": "POST",
+    "path": "/v3/domains",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name"
+    ]
+  },
+  {
+    "anchor": "get-a-domain",
+    "method": "GET",
+    "path": "/v3/domains/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-domains",
+    "method": "GET",
+    "path": "/v3/domains",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-domains-for-an-organization",
+    "method": "GET",
+    "path": "/v3/organizations/:guid/domains",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-domain",
+    "method": "PATCH",
+    "path": "/v3/domains/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-domain",
+    "method": "DELETE",
+    "path": "/v3/domains/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "share-a-domain",
+    "method": "POST",
+    "path": "/v3/domains/:guid/relationships/shared_organizations",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "data"
+    ]
+  },
+  {
+    "anchor": "unshare-a-domain",
+    "method": "DELETE",
+    "path": "/v3/domains/:guid/relationships/shared_organizations/:org_guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-droplet",
+    "method": "POST",
+    "path": "/v3/droplets",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "app"
+    ]
+  },
+  {
+    "anchor": "get-a-droplet",
+    "method": "GET",
+    "path": "/v3/droplets/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-droplets",
+    "method": "GET",
+    "path": "/v3/droplets",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-droplets-for-a-package",
+    "method": "GET",
+    "path": "/v3/packages/:guid/droplets",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-droplets-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/droplets",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-droplet",
+    "method": "PATCH",
+    "path": "/v3/droplets/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-droplet",
+    "method": "DELETE",
+    "path": "/v3/droplets/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "copy-a-droplet",
+    "method": "POST",
+    "path": "/v3/droplets",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "relationships.app"
+    ]
+  },
+  {
+    "anchor": "download-droplet-bits",
+    "method": "GET",
+    "path": "/v3/droplets/:guid/download",
+    "status": 302,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "upload-droplet-bits",
+    "method": "POST",
+    "path": "/v3/droplets/:guid/upload",
+    "status": 202,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "bits"
+    ]
+  },
+  {
+    "anchor": "get-an-environment-variable-group",
+    "method": "GET",
+    "path": "/v3/environment_variable_groups/:name",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-environment-variable-group",
+    "method": "PATCH",
+    "path": "/v3/environment_variable_groups/:name",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-feature-flag",
+    "method": "GET",
+    "path": "/v3/feature_flags/:name",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-feature-flags",
+    "method": "GET",
+    "path": "/v3/feature_flags",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-feature-flag",
+    "method": "PATCH",
+    "path": "/v3/feature_flags/:name",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-platform-info",
+    "method": "GET",
+    "path": "/v3/info",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-platform-usage-summary",
+    "method": "GET",
+    "path": "/v3/info/usage_summary",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-an-isolation-segment",
+    "method": "POST",
+    "path": "/v3/isolation_segments",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name",
+      "metadata.labels",
+      "metadata.annotations"
+    ]
+  },
+  {
+    "anchor": "get-an-isolation-segment",
+    "method": "GET",
+    "path": "/v3/isolation_segments/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-isolation-segments",
+    "method": "GET",
+    "path": "/v3/isolation_segments",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-organizations-relationship",
+    "method": "GET",
+    "path": "/v3/isolation_segments/:guid/relationships/organizations",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-spaces-relationship",
+    "method": "GET",
+    "path": "/v3/isolation_segments/:guid/relationships/spaces",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-an-isolation-segment",
+    "method": "PATCH",
+    "path": "/v3/isolation_segments/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-an-isolation-segment",
+    "method": "DELETE",
+    "path": "/v3/isolation_segments/:guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "entitle-organizations-for-an-isolation-segment",
+    "method": "POST",
+    "path": "/v3/isolation_segments/:guid/relationships/organizations",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "data"
+    ]
+  },
+  {
+    "anchor": "revoke-entitlement-to-isolation-segment-for-an-organization",
+    "method": "DELETE",
+    "path": "/v3/isolation_segments/:guid/relationships/organizations/:org_guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-job",
+    "method": "GET",
+    "path": "/v3/jobs/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "apply-a-manifest-to-a-space",
+    "method": "POST",
+    "path": "/v3/spaces/:guid/actions/apply_manifest",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "generate-a-manifest-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/manifest",
+    "status": 200,
+    "exampleContentType": "application/x-yaml",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-manifest-diff-for-a-space-experimental",
+    "method": "POST",
+    "path": "/v3/spaces/:guid/manifest_diff",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-an-organization",
+    "method": "POST",
+    "path": "/v3/organizations",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name"
+    ]
+  },
+  {
+    "anchor": "get-an-organization",
+    "method": "GET",
+    "path": "/v3/organizations/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-organizations",
+    "method": "GET",
+    "path": "/v3/organizations",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-organizations-for-isolation-segment",
+    "method": "GET",
+    "path": "/v3/isolation_segments/:guid/organizations",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-an-organization",
+    "method": "PATCH",
+    "path": "/v3/organizations/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-an-organization",
+    "method": "DELETE",
+    "path": "/v3/organizations/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "assign-default-isolation-segment",
+    "method": "PATCH",
+    "path": "/v3/organizations/:guid/relationships/default_isolation_segment",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "data"
+    ]
+  },
+  {
+    "anchor": "get-default-isolation-segment",
+    "method": "GET",
+    "path": "/v3/organizations/:guid/relationships/default_isolation_segment",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-default-domain",
+    "method": "GET",
+    "path": "/v3/organizations/:guid/domains/default",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-usage-summary",
+    "method": "GET",
+    "path": "/v3/organizations/:guid/usage_summary",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-users-for-an-organization",
+    "method": "GET",
+    "path": "/v3/organizations/:guid/users",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-an-organization-quota",
+    "method": "POST",
+    "path": "/v3/organization_quotas",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name"
+    ]
+  },
+  {
+    "anchor": "get-an-organization-quota",
+    "method": "GET",
+    "path": "/v3/organization_quotas/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-organization-quotas",
+    "method": "GET",
+    "path": "/v3/organization_quotas",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "apply-an-organization-quota-to-an-organization",
+    "method": "POST",
+    "path": "/v3/organization_quotas/:quota_guid/relationships/organizations",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "data"
+    ]
+  },
+  {
+    "anchor": "delete-an-organization-quota",
+    "method": "DELETE",
+    "path": "/v3/organization_quotas/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-an-organization-quota",
+    "method": "PATCH",
+    "path": "/v3/organization_quotas/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-package",
+    "method": "POST",
+    "path": "/v3/packages",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "type",
+      "relationships.app"
+    ]
+  },
+  {
+    "anchor": "get-a-package",
+    "method": "GET",
+    "path": "/v3/packages/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-packages",
+    "method": "GET",
+    "path": "/v3/packages",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-packages-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/packages",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-package",
+    "method": "PATCH",
+    "path": "/v3/packages/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-package",
+    "method": "DELETE",
+    "path": "/v3/packages/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "copy-a-package",
+    "method": "POST",
+    "path": "/v3/packages",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "relationships.app"
+    ]
+  },
+  {
+    "anchor": "download-package-bits",
+    "method": "GET",
+    "path": "/v3/packages/:guid/download",
+    "status": 302,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "upload-package-bits",
+    "method": "POST",
+    "path": "/v3/packages/:guid/upload",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-process",
+    "method": "GET",
+    "path": "/v3/processes/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-stats-for-a-process",
+    "method": "GET",
+    "path": "/v3/processes/:guid/stats",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-process-instances-for-a-process-experimental",
+    "method": "GET",
+    "path": "/v3/processes/:guid/process_instances",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-processes",
+    "method": "GET",
+    "path": "/v3/processes",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-processes-for-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/processes",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-process",
+    "method": "PATCH",
+    "path": "/v3/processes/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "scale-a-process",
+    "method": "POST",
+    "path": "/v3/processes/:guid/actions/scale",
+    "status": 202,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "terminate-a-process-instance",
+    "method": "DELETE",
+    "path": "/v3/processes/:guid/instances/:index",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-resource-match",
+    "method": "POST",
+    "path": "/v3/resource_matches",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "resources"
+    ]
+  },
+  {
+    "anchor": "get-a-revision",
+    "method": "GET",
+    "path": "/v3/revisions/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-environment-variables-for-a-revision",
+    "method": "GET",
+    "path": "/v3/revisions/:guid/environment_variables",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-revisions-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/revisions",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-deployed-revisions-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/revisions/deployed",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-revision",
+    "method": "PATCH",
+    "path": "/v3/revisions/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-role",
+    "method": "POST",
+    "path": "/v3/roles",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "type",
+      "relationships.user",
+      "relationships.organization",
+      "relationships.space"
+    ]
+  },
+  {
+    "anchor": "get-a-role",
+    "method": "GET",
+    "path": "/v3/roles/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-roles",
+    "method": "GET",
+    "path": "/v3/roles",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-role",
+    "method": "DELETE",
+    "path": "/v3/roles/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "global-api-root",
+    "method": "GET",
+    "path": "/",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "v3-api-root",
+    "method": "GET",
+    "path": "/v3",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-route-policy",
+    "method": "POST",
+    "path": "/v3/route_policies",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "source",
+      "relationships.route"
+    ]
+  },
+  {
+    "anchor": "get-a-route-policy",
+    "method": "GET",
+    "path": "/v3/route_policies/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-route-policies",
+    "method": "GET",
+    "path": "/v3/route_policies",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-route-policy",
+    "method": "PATCH",
+    "path": "/v3/route_policies/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-route-policy",
+    "method": "DELETE",
+    "path": "/v3/route_policies/:guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-route",
+    "method": "POST",
+    "path": "/v3/routes",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "relationships.space",
+      "relationships.domain"
+    ]
+  },
+  {
+    "anchor": "get-a-route",
+    "method": "GET",
+    "path": "/v3/routes/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-routes",
+    "method": "GET",
+    "path": "/v3/routes",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-routes-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/routes",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-route",
+    "method": "PATCH",
+    "path": "/v3/routes/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-route",
+    "method": "DELETE",
+    "path": "/v3/routes/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "check-reserved-routes-for-a-domain",
+    "method": "GET",
+    "path": "/v3/domains/:guid/route_reservations",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "lists-shared-spaces-relationship-experimental",
+    "method": "GET",
+    "path": "/v3/routes/:guid/relationships/shared_spaces",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "share-a-route-with-other-spaces-experimental",
+    "method": "POST",
+    "path": "/v3/routes/:guid/relationships/shared_spaces",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "data"
+    ]
+  },
+  {
+    "anchor": "unshare-a-route-that-was-shared-with-another-space-experimental",
+    "method": "DELETE",
+    "path": "/v3/routes/:guid/relationships/shared_spaces/:space_guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "transfer-ownership-experimental",
+    "method": "PATCH",
+    "path": "/v3/routes/:route-guid/relationships/space",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-destinations-for-a-route",
+    "method": "GET",
+    "path": "/v3/routes/:guid/destinations",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "insert-destinations-for-a-route",
+    "method": "POST",
+    "path": "/v3/routes/:guid/destinations",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "destinations"
+    ]
+  },
+  {
+    "anchor": "replace-all-destinations-for-a-route",
+    "method": "PATCH",
+    "path": "/v3/routes/:guid/destinations",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "destinations"
+    ]
+  },
+  {
+    "anchor": "update-a-destination-protocol-for-a-route",
+    "method": "PATCH",
+    "path": "/v3/routes/:guid/destinations/:destination_guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "remove-destination-for-a-route",
+    "method": "DELETE",
+    "path": "/v3/routes/:guid/destinations/:destination_guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-unmapped-routes-for-a-space",
+    "method": "DELETE",
+    "path": "/v3/spaces/:guid/routes",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-security-group",
+    "method": "POST",
+    "path": "/v3/security_groups",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name"
+    ]
+  },
+  {
+    "anchor": "get-a-security-group",
+    "method": "GET",
+    "path": "/v3/security_groups/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-security-groups",
+    "method": "GET",
+    "path": "/v3/security_groups",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-security-group",
+    "method": "PATCH",
+    "path": "/v3/security_groups/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-security-group",
+    "method": "DELETE",
+    "path": "/v3/security_groups/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "bind-a-running-security-group-to-spaces",
+    "method": "POST",
+    "path": "/v3/security_groups/:guid/relationships/running_spaces",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "data"
+    ]
+  },
+  {
+    "anchor": "bind-a-staging-security-group-to-spaces",
+    "method": "POST",
+    "path": "/v3/security_groups/:guid/relationships/staging_spaces",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "data"
+    ]
+  },
+  {
+    "anchor": "unbind-a-running-security-group-from-a-space",
+    "method": "DELETE",
+    "path": "/v3/security_groups/:guid/relationships/running_spaces/:space_guid",
+    "status": 204,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "unbind-a-staging-security-group-from-a-space",
+    "method": "DELETE",
+    "path": "/v3/security_groups/:guid/relationships/staging_spaces/:space_guid",
+    "status": 204,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-running-security-groups-for-a-space",
+    "method": "GET",
+    "path": "/v3/spaces/:guid/running_security_groups",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-staging-security-groups-for-a-space",
+    "method": "GET",
+    "path": "/v3/spaces/:guid/staging_security_groups",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-service-broker",
+    "method": "POST",
+    "path": "/v3/service_brokers",
+    "status": 202,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name",
+      "url",
+      "authentication"
+    ]
+  },
+  {
+    "anchor": "get-a-service-broker",
+    "method": "GET",
+    "path": "/v3/service_brokers/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-service-brokers",
+    "method": "GET",
+    "path": "/v3/service_brokers",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-service-broker",
+    "method": "PATCH",
+    "path": "/v3/service_brokers/:guid",
+    "status": [
+      202,
+      200
+    ],
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-service-broker",
+    "method": "DELETE",
+    "path": "/v3/service_brokers/:guid",
+    "status": 202,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-service-offering",
+    "method": "GET",
+    "path": "/v3/service_offerings/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-service-offerings",
+    "method": "GET",
+    "path": "/v3/service_offerings",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-service-offering",
+    "method": "PATCH",
+    "path": "/v3/service_offerings/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-service-offering",
+    "method": "DELETE",
+    "path": "/v3/service_offerings/:guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-service-plan",
+    "method": "GET",
+    "path": "/v3/service_plans/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-service-plans",
+    "method": "GET",
+    "path": "/v3/service_plans",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-service-plan",
+    "method": "PATCH",
+    "path": "/v3/service_plans/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-service-plan",
+    "method": "DELETE",
+    "path": "/v3/service_plans/:guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-service-plan-visibility",
+    "method": "GET",
+    "path": "/v3/service_plans/:guid/visibility",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-service-plan-visibility",
+    "method": "PATCH",
+    "path": "/v3/service_plans/:guid/visibility",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "apply-a-service-plan-visibility",
+    "method": "POST",
+    "path": "/v3/service_plans/:guid/visibility",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "remove-organization-from-a-service-plan-visibility",
+    "method": "DELETE",
+    "path": "/v3/service_plans/:guid/visibility/:organization_guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-service-instance",
+    "method": "POST",
+    "path": "/v3/service_instances",
+    "status": [
+      202,
+      201
+    ],
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-service-instance",
+    "method": "GET",
+    "path": "/v3/service_instances/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-service-instances",
+    "method": "GET",
+    "path": "/v3/service_instances",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-service-instance",
+    "method": "DELETE",
+    "path": "/v3/service_instances/:guid",
+    "status": [
+      204,
+      202
+    ],
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-service-instance",
+    "method": "PATCH",
+    "path": "/v3/service_instances/:guid",
+    "status": [
+      200,
+      202
+    ],
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-credentials-for-a-user-provided-service-instance",
+    "method": "GET",
+    "path": "/v3/service_instances/:guid/credentials",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-usage-summary-in-shared-spaces",
+    "method": "GET",
+    "path": "/v3/service_instances/:guid/relationships/shared_spaces/usage_summary",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-shared-spaces-relationship",
+    "method": "GET",
+    "path": "/v3/service_instances/:guid/relationships/shared_spaces",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-parameters-for-a-managed-service-instance",
+    "method": "GET",
+    "path": "/v3/service_instances/:guid/parameters",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-permissions-for-a-service-instance",
+    "method": "GET",
+    "path": "/v3/service_instances/:guid/permissions",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "share-a-service-instance-to-other-spaces",
+    "method": "POST",
+    "path": "/v3/service_instances/:guid/relationships/shared_spaces",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "data"
+    ]
+  },
+  {
+    "anchor": "unshare-a-service-instance-from-another-space",
+    "method": "DELETE",
+    "path": "/v3/service_instances/:guid/relationships/shared_spaces/:space_guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-service-credential-binding",
+    "method": "POST",
+    "path": "/v3/service_credential_bindings",
+    "status": [
+      202,
+      201
+    ],
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "type",
+      "relationships.service_instance",
+      "name"
+    ]
+  },
+  {
+    "anchor": "get-a-service-credential-binding",
+    "method": "GET",
+    "path": "/v3/service_credential_bindings/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-service-credential-bindings",
+    "method": "GET",
+    "path": "/v3/service_credential_bindings",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-service-credential-binding",
+    "method": "PATCH",
+    "path": "/v3/service_credential_bindings/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-service-credential-binding",
+    "method": "DELETE",
+    "path": "/v3/service_credential_bindings/:guid",
+    "status": [
+      204,
+      202
+    ],
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-service-credential-binding-details",
+    "method": "GET",
+    "path": "/v3/service_credential_bindings/:guid/details",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-parameters-for-a-service-credential-binding",
+    "method": "GET",
+    "path": "/v3/service_credential_bindings/:guid/parameters",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-service-route-binding",
+    "method": "GET",
+    "path": "/v3/service_route_bindings/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-service-route-bindings",
+    "method": "GET",
+    "path": "/v3/service_route_bindings",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-service-route-binding",
+    "method": "POST",
+    "path": "/v3/service_route_bindings",
+    "status": [
+      202,
+      201
+    ],
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "relationships.route",
+      "relationships.service_instance"
+    ]
+  },
+  {
+    "anchor": "update-a-service-route-binding",
+    "method": "PATCH",
+    "path": "/v3/service_route_bindings/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-service-route-binding",
+    "method": "DELETE",
+    "path": "/v3/service_route_bindings/:guid",
+    "status": [
+      204,
+      202
+    ],
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-parameters-for-a-route-binding",
+    "method": "GET",
+    "path": "/v3/service_route_bindings/:guid/parameters",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-service-usage-event",
+    "method": "GET",
+    "path": "/v3/service_usage_events/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-service-usage-events",
+    "method": "GET",
+    "path": "/v3/service_usage_events",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "purge-and-seed-service-usage-events",
+    "method": "POST",
+    "path": "/v3/service_usage_events/actions/destructively_purge_all_and_reseed",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-sidecar-associated-with-an-app",
+    "method": "POST",
+    "path": "/v3/apps/:guid/sidecars",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name",
+      "command",
+      "process_types"
+    ]
+  },
+  {
+    "anchor": "get-a-sidecar",
+    "method": "GET",
+    "path": "/v3/sidecars/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-sidecar",
+    "method": "PATCH",
+    "path": "/v3/sidecars/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-sidecars-for-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/sidecars",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-sidecars-for-process",
+    "method": "GET",
+    "path": "/v3/processes/:guid/sidecars",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-sidecar",
+    "method": "DELETE",
+    "path": "/v3/sidecars/:guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-space",
+    "method": "POST",
+    "path": "/v3/spaces",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name",
+      "relationships.organization"
+    ]
+  },
+  {
+    "anchor": "get-a-space",
+    "method": "GET",
+    "path": "/v3/spaces/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-spaces",
+    "method": "GET",
+    "path": "/v3/spaces",
+    "status": 200,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-space",
+    "method": "PATCH",
+    "path": "/v3/spaces/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-space",
+    "method": "DELETE",
+    "path": "/v3/spaces/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-assigned-isolation-segment",
+    "method": "GET",
+    "path": "/v3/spaces/:guid/relationships/isolation_segment",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-space-usage-summary",
+    "method": "GET",
+    "path": "/v3/spaces/:guid/usage_summary",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "manage-isolation-segment",
+    "method": "PATCH",
+    "path": "/v3/spaces/:guid/relationships/isolation_segment",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "data"
+    ]
+  },
+  {
+    "anchor": "list-users-for-a-space",
+    "method": "GET",
+    "path": "/v3/spaces/:guid/users",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-space-feature",
+    "method": "GET",
+    "path": "/v3/spaces/:guid/features/:name",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-space-features",
+    "method": "GET",
+    "path": "/v3/spaces/:guid/features",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-space-features",
+    "method": "PATCH",
+    "path": "/v3/spaces/:guid/features/:name",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-space-quota",
+    "method": "POST",
+    "path": "/v3/space_quotas",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name",
+      "relationships.organization"
+    ]
+  },
+  {
+    "anchor": "get-a-space-quota",
+    "method": "GET",
+    "path": "/v3/space_quotas/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-space-quotas",
+    "method": "GET",
+    "path": "/v3/space_quotas",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-space-quota",
+    "method": "PATCH",
+    "path": "/v3/space_quotas/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-space-quota",
+    "method": "DELETE",
+    "path": "/v3/space_quotas/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "apply-a-space-quota-to-a-space",
+    "method": "POST",
+    "path": "/v3/space_quotas/:quota_guid/relationships/spaces",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "data"
+    ]
+  },
+  {
+    "anchor": "remove-a-space-quota-from-a-space",
+    "method": "DELETE",
+    "path": "/v3/space_quotas/:quota_guid/relationships/spaces/:space_guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-stack",
+    "method": "POST",
+    "path": "/v3/stacks",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "name"
+    ]
+  },
+  {
+    "anchor": "get-a-stack",
+    "method": "GET",
+    "path": "/v3/stacks/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-stacks",
+    "method": "GET",
+    "path": "/v3/stacks",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-apps-on-a-stack",
+    "method": "GET",
+    "path": "/v3/stacks/:guid/apps",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-stack",
+    "method": "PATCH",
+    "path": "/v3/stacks/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "delete-a-stack",
+    "method": "DELETE",
+    "path": "/v3/stacks/:guid",
+    "status": 204,
+    "exampleContentType": null,
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-task",
+    "method": "POST",
+    "path": "/v3/apps/:guid/tasks",
+    "status": 202,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "get-a-task",
+    "method": "GET",
+    "path": "/v3/tasks/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-tasks",
+    "method": "GET",
+    "path": "/v3/tasks",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-tasks-for-an-app",
+    "method": "GET",
+    "path": "/v3/apps/:guid/tasks",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-task",
+    "method": "PATCH",
+    "path": "/v3/tasks/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "cancel-a-task",
+    "method": "POST",
+    "path": "/v3/tasks/:guid/actions/cancel",
+    "status": 202,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "create-a-user",
+    "method": "POST",
+    "path": "/v3/users",
+    "status": 201,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "guid",
+      "username",
+      "origin",
+      "metadata.labels",
+      "metadata.annotations"
+    ]
+  },
+  {
+    "anchor": "get-a-user",
+    "method": "GET",
+    "path": "/v3/users/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "list-users",
+    "method": "GET",
+    "path": "/v3/users",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": []
+  },
+  {
+    "anchor": "update-a-user",
+    "method": "PATCH",
+    "path": "/v3/users/:guid",
+    "status": 200,
+    "exampleContentType": "application/json",
+    "requiredParameters": [
+      "metadata.labels",
+      "metadata.annotations"
+    ]
+  },
+  {
+    "anchor": "delete-a-user",
+    "method": "DELETE",
+    "path": "/v3/users/:guid",
+    "status": 202,
+    "exampleContentType": null,
+    "requiredParameters": []
+  }
+]

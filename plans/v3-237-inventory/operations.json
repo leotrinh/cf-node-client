@@ -623,7 +623,7 @@
       "anchor": "get-platform-info",
       "method": "GET",
       "path": "/v3/info",
-      "status": null,
+      "status": 200,
       "exampleContentType": "application/json",
       "requiredParameters": []
     },
@@ -1176,6 +1176,24 @@
       "requiredParameters": []
     },
     {
+      "title": "Global API Root",
+      "anchor": "global-api-root",
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
+    },
+    {
+      "title": "V3 API Root",
+      "anchor": "v3-api-root",
+      "method": "GET",
+      "path": "/v3",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
+    },
+    {
       "title": "Create a route policy",
       "anchor": "create-a-route-policy",
       "method": "POST",
@@ -1294,7 +1312,7 @@
       "anchor": "lists-shared-spaces-relationship-experimental",
       "method": "GET",
       "path": "/v3/routes/:guid/relationships/shared_spaces",
-      "status": null,
+      "status": 200,
       "exampleContentType": "application/json",
       "requiredParameters": []
     },
@@ -1303,7 +1321,7 @@
       "anchor": "share-a-route-with-other-spaces-experimental",
       "method": "POST",
       "path": "/v3/routes/:guid/relationships/shared_spaces",
-      "status": null,
+      "status": 200,
       "exampleContentType": "application/json",
       "requiredParameters": [
         "data"
@@ -1314,7 +1332,7 @@
       "anchor": "unshare-a-route-that-was-shared-with-another-space-experimental",
       "method": "DELETE",
       "path": "/v3/routes/:guid/relationships/shared_spaces/:space_guid",
-      "status": null,
+      "status": 204,
       "exampleContentType": null,
       "requiredParameters": []
     },
@@ -1526,7 +1544,10 @@
       "anchor": "update-a-service-broker",
       "method": "PATCH",
       "path": "/v3/service_brokers/:guid",
-      "status": null,
+      "status": [
+        202,
+        200
+      ],
       "exampleContentType": "application/json",
       "requiredParameters": []
     },
@@ -1652,7 +1673,10 @@
       "anchor": "create-a-service-instance",
       "method": "POST",
       "path": "/v3/service_instances",
-      "status": null,
+      "status": [
+        202,
+        201
+      ],
       "exampleContentType": "application/json",
       "requiredParameters": []
     },
@@ -1661,7 +1685,7 @@
       "anchor": "get-a-service-instance",
       "method": "GET",
       "path": "/v3/service_instances/:guid",
-      "status": null,
+      "status": 200,
       "exampleContentType": "application/json",
       "requiredParameters": []
     },
@@ -1679,7 +1703,10 @@
       "anchor": "delete-a-service-instance",
       "method": "DELETE",
       "path": "/v3/service_instances/:guid",
-      "status": null,
+      "status": [
+        204,
+        202
+      ],
       "exampleContentType": "application/json",
       "requiredParameters": []
     },
@@ -1688,7 +1715,10 @@
       "anchor": "update-a-service-instance",
       "method": "PATCH",
       "path": "/v3/service_instances/:guid",
-      "status": null,
+      "status": [
+        200,
+        202
+      ],
       "exampleContentType": "application/json",
       "requiredParameters": []
     },
@@ -1762,7 +1792,10 @@
       "anchor": "create-a-service-credential-binding",
       "method": "POST",
       "path": "/v3/service_credential_bindings",
-      "status": null,
+      "status": [
+        202,
+        201
+      ],
       "exampleContentType": "application/json",
       "requiredParameters": [
         "type",
@@ -1775,7 +1808,7 @@
       "anchor": "get-a-service-credential-binding",
       "method": "GET",
       "path": "/v3/service_credential_bindings/:guid",
-      "status": null,
+      "status": 200,
       "exampleContentType": "application/json",
       "requiredParameters": []
     },
@@ -1802,7 +1835,10 @@
       "anchor": "delete-a-service-credential-binding",
       "method": "DELETE",
       "path": "/v3/service_credential_bindings/:guid",
-      "status": null,
+      "status": [
+        204,
+        202
+      ],
       "exampleContentType": "application/json",
       "requiredParameters": []
     },
@@ -1811,7 +1847,7 @@
       "anchor": "get-a-service-credential-binding-details",
       "method": "GET",
       "path": "/v3/service_credential_bindings/:guid/details",
-      "status": null,
+      "status": 200,
       "exampleContentType": "application/json",
       "requiredParameters": []
     },
@@ -1847,7 +1883,10 @@
       "anchor": "create-a-service-route-binding",
       "method": "POST",
       "path": "/v3/service_route_bindings",
-      "status": null,
+      "status": [
+        202,
+        201
+      ],
       "exampleContentType": "application/json",
       "requiredParameters": [
         "relationships.route",
@@ -1868,7 +1907,10 @@
       "anchor": "delete-a-service-route-binding",
       "method": "DELETE",
       "path": "/v3/service_route_bindings/:guid",
-      "status": null,
+      "status": [
+        204,
+        202
+      ],
       "exampleContentType": "application/json",
       "requiredParameters": []
     },

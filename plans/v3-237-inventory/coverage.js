@@ -4,9 +4,10 @@ const repo=path.resolve(__dirname,'../..');
 const operations=require('./operations.json').operations;
 const files=fs.readdirSync(path.join(repo,'lib/model/cloudcontroller')).filter(x=>x.endsWith('.js'));
 const sources=files.map(f=>({name:f,text:fs.readFileSync(path.join(repo,'lib/model/cloudcontroller',f),'utf8')}));
-const roots=[...new Set(operations.map(o=>o.path.split('/')[2]))];
+const rootOf=o=>o.path==='/'?'global-root':o.path==='/v3'?'v3-root':o.path.split('/')[2];
+const roots=[...new Set(operations.map(rootOf))];
 const matrix=roots.map(resource=>{
- const ops=operations.filter(o=>o.path.split('/')[2]===resource);
+ const ops=operations.filter(o=>rootOf(o)===resource);
  const mentions=sources.filter(s=>s.text.includes(`/v3/${resource}`)).map(s=>s.name);
  return {resource,documentedOperations:ops.length,sourceFilesMentioningPath:mentions,coverage:'unverified'};
 });

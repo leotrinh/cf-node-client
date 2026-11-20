@@ -1,7 +1,7 @@
 {
   "source": "https://v3-apidocs.cloudfoundry.org/version/3.237.0/",
   "method": "literal path mention, not verified method coverage",
-  "documentedOperations": 245,
+  "documentedOperations": 247,
   "resources": [
     {
       "resource": "admin",
@@ -164,6 +164,18 @@
         "Organizations.js",
         "Spaces.js"
       ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "global-root",
+      "documentedOperations": 1,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "v3-root",
+      "documentedOperations": 1,
+      "sourceFilesMentioningPath": [],
       "coverage": "unverified"
     },
     {
