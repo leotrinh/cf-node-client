@@ -6,6 +6,8 @@
 
 A **Node.js client library** for the [Cloud Foundry](https://www.cloudfoundry.org/) API (v2 & v3), with built-in TypeScript support.
 
+> **v1.1.0 security migration:** TLS certificates are verified by default and remote `http://` endpoints are rejected. For private CAs pass `{ ca: fs.readFileSync("ca.pem") }` to each client; for deliberately self-signed environments use `{ skipSslValidation: true }` only after accepting the MITM risk. Remote plaintext HTTP requires `{ allowInsecureHttp: true }`. See [Migration Guide](MIGRATION_GUIDE.md#security-defaults-in-v110--action-may-be-required).
+
 > **Maintained by** [leotrinh](https://github.com/leotrinh) — forked from [prosociallearnEU/cf-nodejs-client](https://github.com/prosociallearnEU/cf-nodejs-client) by Juan Antonio Breña Moral.
 
 ## Ship by Claude Kit

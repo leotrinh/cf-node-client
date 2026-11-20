@@ -1,3 +1,15 @@
+## Version 1.1.0 — Security hardening
+
+**Migration warning:** TLS verification is now enabled and remote HTTP endpoints are rejected by default, even though this release uses the owner-selected minor version. See `MIGRATION_GUIDE.md` before upgrading self-signed/private-CA Cloud Foundry environments.
+
+- **C1/H2:** Per-instance TLS policy (`skipSslValidation`, `ca`) and explicit `allowInsecureHttp` opt-in; loopback HTTP remains permitted. Applies to CC, UAA and logs clients.
+- **H1/M1:** Removed unused runtime dependencies `protobufjs` and `ws`; updated `form-data` to a patched version.
+- **M2:** Encoded caller-supplied identifier segments in high-level v2/v3/UAA URLs and query templates. Pass raw, not pre-encoded GUIDs.
+- **M3/I3:** Cache clears when token or endpoint changes; removed unsolicited endpoint logging.
+- Remaining audit findings and consumer impact are tracked in `plans/security-audit-fixes/plan.md`; no claim is made that lower-priority supply-chain/availability findings are resolved.
+
+---
+
 ## Version 1.0.8 2026-03-05
 
 **PATCH RELEASE — 6 MEDIUM + 4 LOW Priority Feature Enhancements**

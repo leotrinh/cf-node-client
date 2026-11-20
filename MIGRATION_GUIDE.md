@@ -1,5 +1,24 @@
 # Migration Guide: cf-nodejs-client → cf-node-client v1.0.0
 
+## Security defaults in v1.1.0 — action may be required
+
+**This minor release changes connection defaults.** HTTPS certificates are now verified. If your Cloud Foundry/UAA/Loggregator endpoint uses a private CA, pass its PEM certificate; if you intentionally rely on self-signed certificates, explicitly opt in per client instance:
+
+```js
+const fs = require("fs");
+const { Apps, UsersUAA } = require("cf-node-client");
+const options = { ca: fs.readFileSync("/path/to/cf-ca.pem") }; // preferred
+const apps = new Apps("https://api.example.org", options);
+const uaa = new UsersUAA("https://uaa.example.org", options);
+// Only if you accept MITM risk: { skipSslValidation: true }
+```
+
+Non-loopback `http://` endpoints are rejected by default. For an explicitly trusted legacy environment, pass `{ allowInsecureHttp: true }` to **each client instance** (including `UsersUAA` and `Logs`); loopback HTTP remains allowed. Do **not** use these opt-outs with passwords or bearer tokens on untrusted networks. `setEndPoint()` keeps the constructor policy and clears cached resources when the endpoint changes; `setToken()` also clears cache. Caller-supplied GUID/path segments are URL-encoded, so callers should pass raw GUIDs rather than already percent-encoded strings. Previously installed applications that relied on unverified TLS or remote HTTP must update their connection options before upgrading. No global TLS environment override is used.
+
+Runtime dependencies no longer include unused `protobufjs` and `ws`; `form-data` is updated. These removals affect consumers only if they incorrectly imported those undeclared transitive packages from `cf-node-client`'s installation.
+
+---
+
 ## Important: v1.0.7 — 7 v3 Status Code, Job Polling, Consistency Fixes
 
 If you are using v1.0.0–v1.0.6 in **v3 mode (default)**, the following methods had wrong HTTP status expectations, missing async job polling, or inconsistent headers:

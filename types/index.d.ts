@@ -59,6 +59,12 @@ export interface CloudControllerBaseOptions {
   cache?: boolean;
   /** Cache TTL in milliseconds (default: 30000) */
   cacheTTL?: number;
+  /** Explicitly trust self-signed certificates (off by default). */
+  skipSslValidation?: boolean;
+  /** PEM-encoded custom CA certificate or Buffer. */
+  ca?: string | Buffer;
+  /** Permit non-loopback HTTP endpoints (off by default). */
+  allowInsecureHttp?: boolean;
 }
 
 /**
@@ -648,7 +654,7 @@ export interface LogEntry {
 }
 
 export class Logs {
-  constructor();
+  constructor(endPoint?: string, options?: CloudControllerBaseOptions);
 
   /** Set logging API endpoint */
   setEndPoint(endPoint: string): void;
@@ -672,7 +678,7 @@ export class UsersUAA {
   UAA_API_URL: string;
   UAA_TOKEN: OAuthToken;
 
-  constructor(endPoint: string);
+  constructor(endPoint: string, options?: CloudControllerBaseOptions);
 
   /** Set UAA API endpoint */
   setEndPoint(endPoint: string): void;
