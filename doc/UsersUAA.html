@@ -39,7 +39,7 @@
 
     <h1 class="page-title">Class: UsersUAA</h1>
 
-    
+
 
 
 
@@ -47,30 +47,30 @@
 <section>
 
 <header>
-    
+
         <h2><span class="attribs"><span class="type-signature"></span></span>UsersUAA<span class="signature">(endPoint<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
-        
+
             <div class="class-description">UsersUAA — User management and authentication for Cloud Foundry UAA.
 Supports password, client_credentials, passcode, and authorization_code grant types.
 Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management.</div>
-        
-    
+
+
 </header>
 
 <article>
     <div class="container-overview">
-    
-        
 
-    
+
+
+
     <h2>Constructor</h2>
-    
 
-    
+
+
     <h4 class="name" id="UsersUAA"><span class="type-signature"></span>new UsersUAA<span class="signature">(endPoint<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
 
-    
+
+
 
 
 
@@ -83,62 +83,62 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
-        
 
-        
+        <th>Attributes</th>
+
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>endPoint</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
+
                 <td class="attributes">
-                
+
                     &lt;optional><br>
-                
 
-                
 
-                
+
+
+
                 </td>
-            
 
-            
+
+
 
             <td class="description last">UAA endpoint URL</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -149,42 +149,42 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line12">line 12</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -206,36 +206,36 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 
 
-    
+
     </div>
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
         <h3 class="subsection-title">Methods</h3>
 
-        
-            
 
-    
 
-    
+
+
+
+
     <h4 class="name" id="add"><span class="type-signature"></span>add<span class="signature">(uaaOptions)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -252,50 +252,50 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>uaaOptions</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">Object</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">User creation options</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -306,42 +306,42 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line26">line 26</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -360,7 +360,7 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <h5>Returns:</h5>
 
-        
+
 
 
 <dl>
@@ -368,34 +368,37 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="decodeToken"><span class="type-signature"></span>decodeToken<span class="signature">(token)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
 
-    
+
+
 
 
 
 <div class="description">
     Decode a JWT token locally (no server validation, no signature verification).
+SECURITY: The returned claims are UNTRUSTED. Never use them for authorization,
+identity or expiry decisions. Verify the token using a trusted issuer/key or
+UAA introspection (getTokenInfo) before relying on any claim.
 </div>
 
 
@@ -407,50 +410,50 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>token</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">JWT access token</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -461,42 +464,42 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line242">line 242</a>
+        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line264">line 264</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -513,7 +516,7 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <h5>Throws:</h5>
 
-        
+
 
 <dl>
     <dt>
@@ -528,7 +531,7 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
                 Type
             </dt>
             <dd>
-                
+
 <span class="param-type">Error</span>
 
 
@@ -539,12 +542,12 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 </dl>
 
 
-    
+
 
 
 <h5>Returns:</h5>
 
-        
+
 <div class="param-desc">
     Decoded payload
 </div>
@@ -556,29 +559,29 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Object</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="getTokenInfo"><span class="type-signature"></span>getTokenInfo<span class="signature">(token, clientId, clientSecret)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -595,96 +598,96 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>token</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">Access token to check</td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>clientId</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>clientSecret</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -695,42 +698,42 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line221">line 221</a>
+        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line240">line 240</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -749,7 +752,7 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <h5>Returns:</h5>
 
-        
+
 
 
 <dl>
@@ -757,29 +760,29 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="getUsers"><span class="type-signature"></span>getUsers<span class="signature">(searchOptions<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -796,62 +799,68 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
-        
 
-        
+        <th>Attributes</th>
+
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>searchOptions</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
+|
+
+<span class="param-type">Object</span>
 
 
-            
+
             </td>
 
-            
+
                 <td class="attributes">
-                
+
                     &lt;optional><br>
-                
 
-                
 
-                
+
+
+
                 </td>
-            
 
-            
 
-            <td class="description last">Query string (e.g. '?filter=userName eq "demo4"')</td>
+
+
+            <td class="description last">Legacy query string, or query parameters
+  such as { filter: 'userName eq "demo4"', startIndex: 1, count: 50 }.
+  Prefer getUsersByUsername() for untrusted user names. String form is
+  retained for compatibility, but is not escaped or validated.</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -862,42 +871,42 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line80">line 80</a>
+        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line83">line 83</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -916,7 +925,7 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <h5>Returns:</h5>
 
-        
+
 
 
 <dl>
@@ -924,29 +933,227 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
+    <h4 class="name" id="getUsersByUsername"><span class="type-signature"></span>getUsersByUsername<span class="signature">(username, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+
+
+
+
+
+<div class="description">
+    Look up users by literal SCIM userName without query or filter injection.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+
+
+<table class="params">
+    <thead>
+    <tr>
+
+        <th>Name</th>
+
+
+        <th>Type</th>
+
+
+        <th>Attributes</th>
+
+
+
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+
+        <tr>
+
+                <td class="name"><code>username</code></td>
+
+
+            <td class="type">
+
+
+<span class="param-type">String</span>
+
+
+
+            </td>
+
+
+                <td class="attributes">
+
+
+
+
+
+                </td>
+
+
+
+
+            <td class="description last">Untrusted username to match exactly</td>
+        </tr>
+
+
+
+        <tr>
+
+                <td class="name"><code>options</code></td>
+
+
+            <td class="type">
+
+
+<span class="param-type">Object</span>
+
+
+
+            </td>
+
+
+                <td class="attributes">
+
+                    &lt;optional><br>
+
+
+
+
+
+                </td>
+
+
+
+
+            <td class="description last">Optional pagination parameters</td>
+        </tr>
+
+
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line107">line 107</a>
+    </li></ul></dd>
+
+
+
+
+
+
+
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+
+<span class="param-type">Promise</span>
+
+
+    </dd>
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <h4 class="name" id="login"><span class="type-signature"></span>login<span class="signature">(username, password)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -963,73 +1170,73 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>username</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>password</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -1040,42 +1247,42 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line100">line 100</a>
+        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line121">line 121</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -1094,7 +1301,7 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
 
 <h5>Returns:</h5>
 
-        
+
 <div class="param-desc">
     UAA token response
 </div>
@@ -1106,29 +1313,29 @@ Extends CloudControllerBase for shared HttpUtils / HttpStatus / token management
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="loginWithApiKey"><span class="type-signature"></span>loginWithApiKey<span class="signature">(apiKey)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -1146,50 +1353,50 @@ For SAP BTP and other platforms that support API key authentication.
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>apiKey</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">The API key/token for authentication</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -1200,42 +1407,42 @@ For SAP BTP and other platforms that support API key authentication.
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line157">line 157</a>
+        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line178">line 178</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -1254,7 +1461,7 @@ For SAP BTP and other platforms that support API key authentication.
 
 <h5>Returns:</h5>
 
-        
+
 <div class="param-desc">
     Resolves with the authenticated token
 </div>
@@ -1266,29 +1473,29 @@ For SAP BTP and other platforms that support API key authentication.
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="loginWithAuthorizationCode"><span class="type-signature"></span>loginWithAuthorizationCode<span class="signature">(code, clientId, clientSecret, redirectUri)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -1305,119 +1512,119 @@ For SAP BTP and other platforms that support API key authentication.
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>code</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>clientId</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>clientSecret</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>redirectUri</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -1428,42 +1635,42 @@ For SAP BTP and other platforms that support API key authentication.
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line199">line 199</a>
+        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line218">line 218</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -1482,7 +1689,7 @@ For SAP BTP and other platforms that support API key authentication.
 
 <h5>Returns:</h5>
 
-        
+
 
 
 <dl>
@@ -1490,29 +1697,29 @@ For SAP BTP and other platforms that support API key authentication.
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="loginWithClientCredentials"><span class="type-signature"></span>loginWithClientCredentials<span class="signature">(clientId, clientSecret)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -1529,73 +1736,73 @@ For SAP BTP and other platforms that support API key authentication.
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>clientId</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>clientSecret</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -1606,42 +1813,42 @@ For SAP BTP and other platforms that support API key authentication.
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line137">line 137</a>
+        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line158">line 158</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -1660,7 +1867,7 @@ For SAP BTP and other platforms that support API key authentication.
 
 <h5>Returns:</h5>
 
-        
+
 
 
 <dl>
@@ -1668,29 +1875,29 @@ For SAP BTP and other platforms that support API key authentication.
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="loginWithPasscode"><span class="type-signature"></span>loginWithPasscode<span class="signature">(passcode)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -1707,50 +1914,50 @@ For SAP BTP and other platforms that support API key authentication.
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>passcode</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last"></td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -1761,42 +1968,42 @@ For SAP BTP and other platforms that support API key authentication.
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line177">line 177</a>
+        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line196">line 196</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -1815,7 +2022,7 @@ For SAP BTP and other platforms that support API key authentication.
 
 <h5>Returns:</h5>
 
-        
+
 
 
 <dl>
@@ -1823,29 +2030,29 @@ For SAP BTP and other platforms that support API key authentication.
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="refreshToken"><span class="type-signature"></span>refreshToken<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -1867,42 +2074,42 @@ For SAP BTP and other platforms that support API key authentication.
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line117">line 117</a>
+        <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line138">line 138</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -1921,7 +2128,7 @@ For SAP BTP and other platforms that support API key authentication.
 
 <h5>Returns:</h5>
 
-        
+
 <div class="param-desc">
     UAA token response
 </div>
@@ -1933,29 +2140,29 @@ For SAP BTP and other platforms that support API key authentication.
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="remove"><span class="type-signature"></span>remove<span class="signature">(uaaGuid)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -1972,50 +2179,50 @@ For SAP BTP and other platforms that support API key authentication.
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>uaaGuid</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">User GUID</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -2026,42 +2233,42 @@ For SAP BTP and other platforms that support API key authentication.
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line63">line 63</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -2080,7 +2287,7 @@ For SAP BTP and other platforms that support API key authentication.
 
 <h5>Returns:</h5>
 
-        
+
 
 
 <dl>
@@ -2088,29 +2295,29 @@ For SAP BTP and other platforms that support API key authentication.
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-            
 
-    
 
-    
+
+
+
+
+
     <h4 class="name" id="updatePassword"><span class="type-signature"></span>updatePassword<span class="signature">(uaaGuid, uaaOptions)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-    
 
-    
+
+
 
 
 
@@ -2127,73 +2334,73 @@ For SAP BTP and other platforms that support API key authentication.
 
 
     <h5>Parameters:</h5>
-    
+
 
 <table class="params">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>uaaGuid</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">String</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">User GUID</td>
         </tr>
 
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>uaaOptions</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">Object</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">Password update options</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -2204,42 +2411,42 @@ For SAP BTP and other platforms that support API key authentication.
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="model_uaa_UsersUAA.js.html">model/uaa/UsersUAA.js</a>, <a href="model_uaa_UsersUAA.js.html#line45">line 45</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -2258,7 +2465,7 @@ For SAP BTP and other platforms that support API key authentication.
 
 <h5>Returns:</h5>
 
-        
+
 
 
 <dl>
@@ -2266,25 +2473,25 @@ For SAP BTP and other platforms that support API key authentication.
         Type
     </dt>
     <dd>
-        
+
 <span class="param-type">Promise</span>
 
 
     </dd>
 </dl>
 
-    
 
 
 
 
 
-        
-    
 
-    
 
-    
+
+
+
+
+
 </article>
 
 </section>
@@ -2295,13 +2502,13 @@ For SAP BTP and other platforms that support API key authentication.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li><li><a href="V3Api.html">V3Api</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri May 29 2026 14:49:30 GMT+0700 (Indochina Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri Nov 20 2026 15:46:59 GMT+0700 (Indochina Time)
 </footer>
 
 <script> prettyPrint(); </script>

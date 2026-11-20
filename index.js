@@ -22,6 +22,7 @@ const SpacesQuota       = require("./lib/model/cloudcontroller/SpacesQuota");
 const Stacks            = require("./lib/model/cloudcontroller/Stacks");
 const UserProvidedServices = require("./lib/model/cloudcontroller/UserProvidedServices");
 const Users             = require("./lib/model/cloudcontroller/Users");
+const V3Api             = require("./lib/model/cloudcontroller/V3Api");
 
 // ── Metrics & UAA ──────────────────────────────────────────────────────
 const Logs              = require("./lib/model/metrics/Logs");
@@ -58,6 +59,7 @@ module.exports.SpacesQuota       = SpacesQuota;
 module.exports.Stacks            = Stacks;
 module.exports.UserProvidedServices = UserProvidedServices;
 module.exports.Users             = Users;
+module.exports.V3Api             = V3Api;
 module.exports.UsersUAA          = UsersUAA;
 
 // ── Utilities ──────────────────────────────────────────────────────────

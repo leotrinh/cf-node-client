@@ -39,11 +39,11 @@
 
     <h1 class="page-title">Source: utils/HttpUtils.js</h1>
 
-    
 
 
 
-    
+
+
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>"use strict";
@@ -55,8 +55,6 @@ const FormData = require("form-data");
 const fs = require("fs");
 const path = require("path");
 
-// Reusable HTTPS agent that skips TLS verification (for self-signed CF endpoints)
-const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 const httpAgent = new http.Agent();
 
 /**
@@ -71,7 +69,12 @@ class HttpUtils {
      * @constructor
      * @returns {void}
      */
-    constructor() {}
+    constructor(options = {}) {
+        this.httpsAgent = new https.Agent({
+            rejectUnauthorized: options.skipSslValidation !== true,
+            ...(options.ca ? { ca: options.ca } : {})
+        });
+    }
 
     /**
      * Build a full URL with query-string parameters appended.
@@ -113,11 +116,12 @@ class HttpUtils {
      */
     async request(options, httpStatusAssert, jsonOutput) {
         const method = (options.method || "GET").toUpperCase();
-        const agent = options.url.startsWith("https") ? httpsAgent : httpAgent;
+        const agent = options.url.startsWith("https") ? this.httpsAgent : httpAgent;
 
         const fetchOpts = {
             method,
             headers: { ...(options.headers || {}) },
+            redirect: options.redirect || "follow",
             agent
         };
 
@@ -165,6 +169,11 @@ class HttpUtils {
             return response.buffer();
         }
 
+        if (options.redirect === "manual" &amp;&amp; response.status >= 300 &amp;&amp; response.status &lt; 400 &amp;&amp;
+            _statusOk(response.status, httpStatusAssert)) {
+            return { status: response.status, location: response.headers.get("location") };
+        }
+
         const text = await response.text();
 
         if (!_statusOk(response.status, httpStatusAssert)) {
@@ -188,15 +197,21 @@ class HttpUtils {
             }
         }
 
+        let result = text;
         if (jsonOutput) {
-            try {
-                return JSON.parse(text);
-            } catch (parseErr) {
-                throw new Error(text);
+            if (response.status === 204 &amp;&amp; !text) result = null;
+            else {
+                try {
+                    result = JSON.parse(text);
+                } catch (parseErr) {
+                    throw new Error(text);
+                }
             }
         }
-
-        return text;
+        if (options.includeResponseMetadata) {
+            return { status: response.status, location: response.headers.get("location"), body: result };
+        }
+        return result;
     }
 
     /**
@@ -268,7 +283,7 @@ class HttpUtils {
      */
     async upload(url, options, httpStatusAssert, jsonOutput) {
         const form = new FormData();
-        const agent = url.startsWith("https") ? httpsAgent : httpAgent;
+        const agent = url.startsWith("https") ? this.httpsAgent : httpAgent;
 
         // Build multipart form from the restler-style `data` object
         if (options.data) {
@@ -347,13 +362,13 @@ module.exports = HttpUtils;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li><li><a href="V3Api.html">V3Api</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri May 29 2026 14:49:30 GMT+0700 (Indochina Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri Nov 20 2026 15:46:59 GMT+0700 (Indochina Time)
 </footer>
 
 <script> prettyPrint(); </script>

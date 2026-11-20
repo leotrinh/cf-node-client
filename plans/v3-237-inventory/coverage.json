@@ -1,0 +1,297 @@
+{
+  "source": "https://v3-apidocs.cloudfoundry.org/version/3.237.0/",
+  "method": "literal path mention, not verified method coverage",
+  "documentedOperations": 247,
+  "resources": [
+    {
+      "resource": "admin",
+      "documentedOperations": 1,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "apps",
+      "documentedOperations": 32,
+      "sourceFilesMentioningPath": [
+        "AppsCore.js",
+        "AppsDeployment.js",
+        "Jobs.js",
+        "Spaces.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "app_usage_events",
+      "documentedOperations": 3,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "audit_events",
+      "documentedOperations": 2,
+      "sourceFilesMentioningPath": [
+        "Events.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "builds",
+      "documentedOperations": 4,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "buildpacks",
+      "documentedOperations": 6,
+      "sourceFilesMentioningPath": [
+        "BuildPacks.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "deployments",
+      "documentedOperations": 6,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "domains",
+      "documentedOperations": 8,
+      "sourceFilesMentioningPath": [
+        "Domains.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "organizations",
+      "documentedOperations": 11,
+      "sourceFilesMentioningPath": [
+        "Organizations.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "droplets",
+      "documentedOperations": 8,
+      "sourceFilesMentioningPath": [
+        "AppsCopy.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "packages",
+      "documentedOperations": 9,
+      "sourceFilesMentioningPath": [
+        "AppsCopy.js",
+        "AppsDeployment.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "environment_variable_groups",
+      "documentedOperations": 2,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "feature_flags",
+      "documentedOperations": 3,
+      "sourceFilesMentioningPath": [
+        "CloudController.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "info",
+      "documentedOperations": 2,
+      "sourceFilesMentioningPath": [
+        "CloudController.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "isolation_segments",
+      "documentedOperations": 10,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "jobs",
+      "documentedOperations": 1,
+      "sourceFilesMentioningPath": [
+        "Jobs.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "spaces",
+      "documentedOperations": 17,
+      "sourceFilesMentioningPath": [
+        "Spaces.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "organization_quotas",
+      "documentedOperations": 6,
+      "sourceFilesMentioningPath": [
+        "OrganizationsQuota.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "processes",
+      "documentedOperations": 8,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "resource_matches",
+      "documentedOperations": 1,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "revisions",
+      "documentedOperations": 3,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "roles",
+      "documentedOperations": 4,
+      "sourceFilesMentioningPath": [
+        "Organizations.js",
+        "Spaces.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "global-root",
+      "documentedOperations": 1,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "v3-root",
+      "documentedOperations": 1,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "route_policies",
+      "documentedOperations": 5,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "routes",
+      "documentedOperations": 14,
+      "sourceFilesMentioningPath": [
+        "AppsDeployment.js",
+        "Routes.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "security_groups",
+      "documentedOperations": 9,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "service_brokers",
+      "documentedOperations": 5,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "service_offerings",
+      "documentedOperations": 4,
+      "sourceFilesMentioningPath": [
+        "Services.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "service_plans",
+      "documentedOperations": 8,
+      "sourceFilesMentioningPath": [
+        "ServicePlans.js",
+        "Services.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "service_instances",
+      "documentedOperations": 12,
+      "sourceFilesMentioningPath": [
+        "ServiceInstances.js",
+        "ServicePlans.js",
+        "UserProvidedServices.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "service_credential_bindings",
+      "documentedOperations": 7,
+      "sourceFilesMentioningPath": [
+        "AppsDeployment.js",
+        "ServiceBindings.js",
+        "ServiceInstances.js",
+        "UserProvidedServices.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "service_route_bindings",
+      "documentedOperations": 6,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "service_usage_events",
+      "documentedOperations": 3,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "sidecars",
+      "documentedOperations": 3,
+      "sourceFilesMentioningPath": [],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "space_quotas",
+      "documentedOperations": 7,
+      "sourceFilesMentioningPath": [
+        "SpacesQuota.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "stacks",
+      "documentedOperations": 6,
+      "sourceFilesMentioningPath": [
+        "Stacks.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "tasks",
+      "documentedOperations": 4,
+      "sourceFilesMentioningPath": [
+        "Jobs.js"
+      ],
+      "coverage": "unverified"
+    },
+    {
+      "resource": "users",
+      "documentedOperations": 5,
+      "sourceFilesMentioningPath": [
+        "Users.js"
+      ],
+      "coverage": "unverified"
+    }
+  ]
+}

@@ -59,6 +59,12 @@ export interface CloudControllerBaseOptions {
   cache?: boolean;
   /** Cache TTL in milliseconds (default: 30000) */
   cacheTTL?: number;
+  /** Explicitly trust self-signed certificates (off by default). */
+  skipSslValidation?: boolean;
+  /** PEM-encoded custom CA certificate or Buffer. */
+  ca?: string | Buffer;
+  /** Permit non-loopback HTTP endpoints (off by default). */
+  allowInsecureHttp?: boolean;
 }
 
 /**
@@ -111,6 +117,34 @@ export class CloudControllerBase {
     fetchFn: (filter?: FilterOptions) => Promise<ApiResponse<T>>,
     filter?: FilterOptions
   ): Promise<T[]>;
+}
+
+/** One documented Cloud Controller v3.237.0 operation. */
+export interface V3Operation {
+  anchor: string;
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+  path: string;
+  status: number | number[];
+  exampleContentType: string | null;
+  requiredParameters: string[];
+}
+
+/** Versioned low-level client for all documented v3.237.0 operations. */
+export class V3Api extends CloudControllerBase {
+  static readonly operations: V3Operation[];
+  invoke(
+    anchor: string,
+    options?: {
+      params?: Record<string, string | number>;
+      query?: Record<string, string | number | boolean | Array<string | number>>;
+      body?: object | string | Buffer;
+      expectedStatus?: number | number[];
+      headers?: Record<string, string>;
+      binary?: boolean;
+      /** Include the status and Location header (e.g. asynchronous job URL). */
+      responseMetadata?: boolean;
+    }
+  ): Promise<any>;
 }
 
 // ============================================================================
@@ -620,7 +654,7 @@ export interface LogEntry {
 }
 
 export class Logs {
-  constructor();
+  constructor(endPoint?: string, options?: CloudControllerBaseOptions);
 
   /** Set logging API endpoint */
   setEndPoint(endPoint: string): void;
@@ -644,7 +678,7 @@ export class UsersUAA {
   UAA_API_URL: string;
   UAA_TOKEN: OAuthToken;
 
-  constructor(endPoint: string);
+  constructor(endPoint: string, options?: CloudControllerBaseOptions);
 
   /** Set UAA API endpoint */
   setEndPoint(endPoint: string): void;
@@ -656,15 +690,17 @@ export class UsersUAA {
   updatePassword(uaaGuid: string, uaaOptions: any): Promise<any>;
   /** Delete a UAA user */
   remove(uaaGuid: string): Promise<any>;
-  /** Search/list UAA users */
-  getUsers(searchOptions?: string): Promise<any>;
+  /** Legacy raw query string (not escaped), or object parameters encoded as a query string. */
+  getUsers(searchOptions?: string | { filter?: string; startIndex?: number; count?: number; [key: string]: string | number | boolean | undefined }): Promise<any>;
+  /** Exact userName match; escapes SCIM string syntax and URL query delimiters. */
+  getUsersByUsername(username: string, options?: { startIndex?: number; count?: number }): Promise<any>;
   /** Login with username and password, returns OAuth token */
   login(username: string, password: string): Promise<OAuthToken>;
   /** Refresh an OAuth token */
   refreshToken(): Promise<OAuthToken>;
   /** Login with client_credentials grant type */
   loginWithClientCredentials(clientId: string, clientSecret: string): Promise<OAuthToken>;
-  /** Login with an API key (Bearer token) - for SAP BTP and similar platforms */
+  /** Wrap an API key as Bearer token; expiry, scope and JTI are unknown, not verified. */
   loginWithApiKey(apiKey: string): Promise<OAuthToken>;
   /** Login with a one-time passcode (SSO) */
   loginWithPasscode(passcode: string): Promise<OAuthToken>;
@@ -672,7 +708,7 @@ export class UsersUAA {
   loginWithAuthorizationCode(code: string, clientId: string, clientSecret: string, redirectUri: string): Promise<OAuthToken>;
   /** Validate and introspect a token server-side */
   getTokenInfo(token: string, clientId: string, clientSecret: string): Promise<any>;
-  /** Decode a JWT token locally (no signature verification) */
+  /** Decode locally only. Returned claims are untrusted; never authorize using them without signature verification or UAA introspection. */
   decodeToken(token: string): any;
 }
 

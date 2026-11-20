@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: model/cloudcontroller/V3Api.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+<!-- injected-banner-start -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<div id="promo-banner" style="padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-bottom:1px solid #e5e7eb;">
+  <a href="https://github.com/leotrinh/cf-node-client" target="_blank" rel="noreferrer" style="font-weight:700;font-size:14px;color:#333;text-decoration:none;margin-right:auto;">cf-node-client</a>
+  <div style="width:1px;height:32px;background:#e7ebf3;margin:0 4px;"></div>
+  <a href="https://me.momo.vn/2pIou1iyFkuKtGT9TbIy" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#d42a87;color:#ffffff;padding:8px 16px;border-radius:9999px;font-weight:700;font-size:13px;text-decoration:none;box-shadow:0 1px 2px rgba(0,0,0,.1);transition:background .2s;" onmouseover="this.style.background='#d42a87'" onmouseout="this.style.background='#d42a87'">
+    <span class="material-symbols-outlined" style="font-size:18px;">momo</span>
+  </a>
+  <a href="https://claudekit.cc/?ref=VAK416FU" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#4f46e5;color:#fff;padding:8px 16px;border-radius:9999px;font-weight:700;font-size:13px;text-decoration:none;box-shadow:0 1px 2px rgba(0,0,0,.1);transition:background .2s;" onmouseover="this.style.background='#4338ca'" onmouseout="this.style.background='#4f46e5'">
+    <span class="material-symbols-outlined" style="font-size:18px;">auto_awesome</span>
+    <span>BUY CLAUDE KIT WITH 20% OFF</span>
+  </a>
+  <a href="https://buymeacoffee.com/leotrinh" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#facc15;color:#b91c1c;padding:8px 16px;border-radius:9999px;font-weight:700;font-size:13px;text-decoration:none;box-shadow:0 1px 2px rgba(0,0,0,.1);transition:background .2s;" onmouseover="this.style.background='#fde047'" onmouseout="this.style.background='#facc15'">
+    <span class="material-symbols-outlined" style="font-size:18px;">coffee</span>
+    <span>BUY ME COFFEE</span>
+  </a>
+</div>
+<!-- injected-banner-end -->
+
+
+    <h1 class="page-title">Source: model/cloudcontroller/V3Api.js</h1>
+
+
+
+
+
+
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+const CloudControllerBase = require("./CloudControllerBase");
+const operations = require("./v3-237-operations.json");
+
+/** Version-pinned, low-level Cloud Controller v3 operations. */
+class V3Api extends CloudControllerBase {
+    /** Return a copy of the documented operation definitions. */
+    static get operations() { return operations.map(operation => ({ ...operation })); }
+
+    /**
+     * Invoke a named operation from the Cloud Controller 3.237.0 reference.
+     * Pass path variables in params, query parameters in query, and an object,
+     * Buffer, or FormData in body. For redirects use the redirect option.
+     */
+    invoke(anchor, { params = {}, query = {}, body, expectedStatus, headers = {}, binary = false, responseMetadata = false } = {}) {
+        const operation = operations.find(entry => entry.anchor === anchor);
+        if (!operation) throw new Error(`Unknown Cloud Foundry v3 operation: ${anchor}`);
+        const missing = [];
+        const route = operation.path.replace(/:([a-z_]+)/g, (_, name) => {
+            if (params[name] === undefined || params[name] === null) {
+                missing.push(name);
+                return "";
+            }
+            return encodeURIComponent(String(params[name]));
+        });
+        if (missing.length) throw new Error(`Missing path parameters: ${missing.join(", ")}`);
+        if (!this.API_URL) throw new Error("Cloud Controller endpoint is not set");
+        const url = `${this.API_URL.replace(/\/$/, "")}${route}`;
+        const options = {
+            method: operation.method,
+            url,
+            qs: query,
+            includeResponseMetadata: responseMetadata,
+            headers: {
+                ...(route === "/" || route === "/v3" ? {} : { Authorization: this.getAuthorizationHeader() }),
+                Accept: "application/json", ...headers
+            }
+        };
+        if (body !== undefined &amp;&amp; body !== null) {
+            if (operation.method === "GET" || operation.method === "DELETE") {
+                throw new Error(`${operation.method} ${route} does not accept a request body`);
+            }
+            if (Buffer.isBuffer(body) || typeof body === "string" || (body &amp;&amp; typeof body.getBoundary === "function")) {
+                options.body = body;
+                if (body &amp;&amp; typeof body.getHeaders === "function") Object.assign(options.headers, body.getHeaders());
+            } else {
+                options.body = JSON.stringify(body);
+                options.headers["Content-Type"] = "application/json";
+            }
+        }
+        if (operation.status === 302 || (Array.isArray(operation.status) &amp;&amp; operation.status.includes(302))) {
+            options.redirect = "manual";
+        }
+        if (binary) options.encoding = null;
+        const status = expectedStatus || operation.status;
+        if (!status) throw new Error(`Response status for ${anchor} is undocumented in the extracted example; provide expectedStatus`);
+        const statuses = Array.isArray(status) ? status : [status];
+        const jsonOutput = !binary &amp;&amp; !statuses.includes(302) &amp;&amp; operation.exampleContentType === "application/json";
+        return this.REST.request(options, status, jsonOutput);
+    }
+}
+
+module.exports = V3Api;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Apps.html">Apps</a></li><li><a href="AppsCopy.html">AppsCopy</a></li><li><a href="AppsCore.html">AppsCore</a></li><li><a href="AppsDeployment.html">AppsDeployment</a></li><li><a href="BuildPacks.html">BuildPacks</a></li><li><a href="CfIgnoreHelper.html">CfIgnoreHelper</a></li><li><a href="CloudController.html">CloudController</a></li><li><a href="CloudControllerBase.html">CloudControllerBase</a></li><li><a href="Domains.html">Domains</a></li><li><a href="Events.html">Events</a></li><li><a href="HttpUtils.html">HttpUtils</a></li><li><a href="Jobs.html">Jobs</a></li><li><a href="Logs.html">Logs</a></li><li><a href="Organizations.html">Organizations</a></li><li><a href="OrganizationsQuota.html">OrganizationsQuota</a></li><li><a href="Routes.html">Routes</a></li><li><a href="ServiceBindings.html">ServiceBindings</a></li><li><a href="ServiceInstances.html">ServiceInstances</a></li><li><a href="ServicePlans.html">ServicePlans</a></li><li><a href="Services.html">Services</a></li><li><a href="Spaces.html">Spaces</a></li><li><a href="SpacesQuota.html">SpacesQuota</a></li><li><a href="Stacks.html">Stacks</a></li><li><a href="UserProvidedServices.html">UserProvidedServices</a></li><li><a href="Users.html">Users</a></li><li><a href="UsersUAA.html">UsersUAA</a></li><li><a href="V3Api.html">V3Api</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Fri Nov 20 2026 15:46:59 GMT+0700 (Indochina Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
