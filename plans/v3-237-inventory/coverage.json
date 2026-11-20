@@ -1,7 +1,7 @@
 {
   "source": "https://v3-apidocs.cloudfoundry.org/version/3.237.0/",
   "method": "literal path mention, not verified method coverage",
-  "documentedOperations": 249,
+  "documentedOperations": 245,
   "resources": [
     {
       "resource": "admin",
@@ -11,7 +11,7 @@
     },
     {
       "resource": "apps",
-      "documentedOperations": 33,
+      "documentedOperations": 32,
       "sourceFilesMentioningPath": [
         "AppsCore.js",
         "AppsDeployment.js",
@@ -195,7 +195,7 @@
     },
     {
       "resource": "service_offerings",
-      "documentedOperations": 5,
+      "documentedOperations": 4,
       "sourceFilesMentioningPath": [
         "Services.js"
       ],
@@ -203,7 +203,7 @@
     },
     {
       "resource": "service_plans",
-      "documentedOperations": 9,
+      "documentedOperations": 8,
       "sourceFilesMentioningPath": [
         "ServicePlans.js",
         "Services.js"
@@ -275,7 +275,7 @@
     },
     {
       "resource": "users",
-      "documentedOperations": 6,
+      "documentedOperations": 5,
       "sourceFilesMentioningPath": [
         "Users.js"
       ],

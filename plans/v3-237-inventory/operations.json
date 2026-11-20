@@ -5,1501 +5,2311 @@
       "title": "Clear buildpack cache",
       "anchor": "clear-buildpack-cache",
       "method": "POST",
-      "path": "/v3/admin/actions/clear_buildpack_cache"
+      "path": "/v3/admin/actions/clear_buildpack_cache",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create an app",
       "anchor": "create-an-app",
       "method": "POST",
-      "path": "/v3/apps"
+      "path": "/v3/apps",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name",
+        "relationships.space"
+      ]
     },
     {
       "title": "Get an app",
       "anchor": "get-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid"
+      "path": "/v3/apps/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List apps",
       "anchor": "list-apps",
       "method": "GET",
-      "path": "/v3/apps"
+      "path": "/v3/apps",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update an app",
       "anchor": "update-an-app",
       "method": "PATCH",
-      "path": "/v3/apps/:guid"
+      "path": "/v3/apps/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete an app",
       "anchor": "delete-an-app",
       "method": "DELETE",
-      "path": "/v3/apps/:guid"
+      "path": "/v3/apps/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Get current droplet",
       "anchor": "get-current-droplet",
       "method": "GET",
-      "path": "/v3/apps/:guid/droplets/current"
+      "path": "/v3/apps/:guid/droplets/current",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get current droplet association for an app",
       "anchor": "get-current-droplet-association-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/relationships/current_droplet"
+      "path": "/v3/apps/:guid/relationships/current_droplet",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get environment for an app",
       "anchor": "get-environment-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/env"
+      "path": "/v3/apps/:guid/env",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get environment variables for an app",
       "anchor": "get-environment-variables-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/environment_variables"
+      "path": "/v3/apps/:guid/environment_variables",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get permissions for an app",
       "anchor": "get-permissions-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/permissions"
+      "path": "/v3/apps/:guid/permissions",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Set current droplet",
       "anchor": "set-current-droplet",
       "method": "PATCH",
-      "path": "/v3/apps/:guid/relationships/current_droplet"
+      "path": "/v3/apps/:guid/relationships/current_droplet",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get SSH enabled for an app",
       "anchor": "get-ssh-enabled-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/ssh_enabled"
+      "path": "/v3/apps/:guid/ssh_enabled",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Start an app",
       "anchor": "start-an-app",
       "method": "POST",
-      "path": "/v3/apps/:guid/actions/start"
+      "path": "/v3/apps/:guid/actions/start",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Stop an app",
       "anchor": "stop-an-app",
       "method": "POST",
-      "path": "/v3/apps/:guid/actions/stop"
+      "path": "/v3/apps/:guid/actions/stop",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Restart an app",
       "anchor": "restart-an-app",
       "method": "POST",
-      "path": "/v3/apps/:guid/actions/restart"
+      "path": "/v3/apps/:guid/actions/restart",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Clear buildpack cache for application",
       "anchor": "clear-buildpack-cache-for-application",
       "method": "POST",
-      "path": "/v3/apps/:guid/actions/clear_buildpack_cache"
+      "path": "/v3/apps/:guid/actions/clear_buildpack_cache",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Update environment variables for an app",
       "anchor": "update-environment-variables-for-an-app",
       "method": "PATCH",
-      "path": "/v3/apps/:guid/environment_variables"
+      "path": "/v3/apps/:guid/environment_variables",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get an app feature",
       "anchor": "get-an-app-feature",
       "method": "GET",
-      "path": "/v3/apps/:guid/features/:name"
+      "path": "/v3/apps/:guid/features/:name",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List app features",
       "anchor": "list-app-features",
       "method": "GET",
-      "path": "/v3/apps/:guid/features"
+      "path": "/v3/apps/:guid/features",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update an app feature",
       "anchor": "update-an-app-feature",
       "method": "PATCH",
-      "path": "/v3/apps/:guid/features/:name"
+      "path": "/v3/apps/:guid/features/:name",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "enabled"
+      ]
     },
     {
       "title": "Get an app usage event",
       "anchor": "get-an-app-usage-event",
       "method": "GET",
-      "path": "/v3/app_usage_events/:guid"
+      "path": "/v3/app_usage_events/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List app usage events",
       "anchor": "list-app-usage-events",
       "method": "GET",
-      "path": "/v3/app_usage_events"
+      "path": "/v3/app_usage_events",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Purge and seed app usage events",
       "anchor": "purge-and-seed-app-usage-events",
       "method": "POST",
-      "path": "/v3/app_usage_events/actions/destructively_purge_all_and_reseed"
+      "path": "/v3/app_usage_events/actions/destructively_purge_all_and_reseed",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get an audit event",
       "anchor": "get-an-audit-event",
       "method": "GET",
-      "path": "/v3/audit_events/:guid"
+      "path": "/v3/audit_events/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List audit events",
       "anchor": "list-audit-events",
       "method": "GET",
-      "path": "/v3/audit_events"
+      "path": "/v3/audit_events",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create a build",
       "anchor": "create-a-build",
       "method": "POST",
-      "path": "/v3/builds"
+      "path": "/v3/builds",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "package"
+      ]
     },
     {
       "title": "Get a build",
       "anchor": "get-a-build",
       "method": "GET",
-      "path": "/v3/builds/:guid"
+      "path": "/v3/builds/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List builds",
       "anchor": "list-builds",
       "method": "GET",
-      "path": "/v3/builds"
+      "path": "/v3/builds",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List builds for an app",
       "anchor": "list-builds-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/builds"
+      "path": "/v3/apps/:guid/builds",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a build",
       "anchor": "update-a-build",
       "method": "PATCH",
-      "path": "/v3/builds/:guid"
+      "path": "/v3/builds/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create a buildpack",
       "anchor": "create-a-buildpack",
       "method": "POST",
-      "path": "/v3/buildpacks"
+      "path": "/v3/buildpacks",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name"
+      ]
     },
     {
       "title": "Get a buildpack",
       "anchor": "get-a-buildpack",
       "method": "GET",
-      "path": "/v3/buildpacks/:guid"
+      "path": "/v3/buildpacks/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List buildpacks",
       "anchor": "list-buildpacks",
       "method": "GET",
-      "path": "/v3/buildpacks"
+      "path": "/v3/buildpacks",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a buildpack",
       "anchor": "update-a-buildpack",
       "method": "PATCH",
-      "path": "/v3/buildpacks/:guid"
+      "path": "/v3/buildpacks/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a buildpack",
       "anchor": "delete-a-buildpack",
       "method": "DELETE",
-      "path": "/v3/buildpacks/:guid"
+      "path": "/v3/buildpacks/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Upload buildpack bits",
       "anchor": "upload-buildpack-bits",
       "method": "POST",
-      "path": "/v3/buildpacks/:guid/upload"
+      "path": "/v3/buildpacks/:guid/upload",
+      "status": 202,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "bits"
+      ]
     },
     {
       "title": "Create a deployment",
       "anchor": "create-a-deployment",
       "method": "POST",
-      "path": "/v3/deployments"
+      "path": "/v3/deployments",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "relationships.app"
+      ]
     },
     {
       "title": "Get a deployment",
       "anchor": "get-a-deployment",
       "method": "GET",
-      "path": "/v3/deployments/:guid"
+      "path": "/v3/deployments/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List deployments",
       "anchor": "list-deployments",
       "method": "GET",
-      "path": "/v3/deployments"
+      "path": "/v3/deployments",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a deployment",
       "anchor": "update-a-deployment",
       "method": "PATCH",
-      "path": "/v3/deployments/:guid"
+      "path": "/v3/deployments/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Cancel a deployment",
       "anchor": "cancel-a-deployment",
       "method": "POST",
-      "path": "/v3/deployments/:guid/actions/cancel"
+      "path": "/v3/deployments/:guid/actions/cancel",
+      "status": 200,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Continue a deployment",
       "anchor": "continue-a-deployment",
       "method": "POST",
-      "path": "/v3/deployments/:guid/actions/continue"
+      "path": "/v3/deployments/:guid/actions/continue",
+      "status": 200,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a domain",
       "anchor": "create-a-domain",
       "method": "POST",
-      "path": "/v3/domains"
+      "path": "/v3/domains",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name"
+      ]
     },
     {
       "title": "Get a domain",
       "anchor": "get-a-domain",
       "method": "GET",
-      "path": "/v3/domains/:guid"
+      "path": "/v3/domains/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List domains",
       "anchor": "list-domains",
       "method": "GET",
-      "path": "/v3/domains"
+      "path": "/v3/domains",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List domains for an organization",
       "anchor": "list-domains-for-an-organization",
       "method": "GET",
-      "path": "/v3/organizations/:guid/domains"
+      "path": "/v3/organizations/:guid/domains",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a domain",
       "anchor": "update-a-domain",
       "method": "PATCH",
-      "path": "/v3/domains/:guid"
+      "path": "/v3/domains/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a domain",
       "anchor": "delete-a-domain",
       "method": "DELETE",
-      "path": "/v3/domains/:guid"
+      "path": "/v3/domains/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Share a domain",
       "anchor": "share-a-domain",
       "method": "POST",
-      "path": "/v3/domains/:guid/relationships/shared_organizations"
+      "path": "/v3/domains/:guid/relationships/shared_organizations",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "data"
+      ]
     },
     {
       "title": "Unshare a domain",
       "anchor": "unshare-a-domain",
       "method": "DELETE",
-      "path": "/v3/domains/:guid/relationships/shared_organizations/:org_guid"
+      "path": "/v3/domains/:guid/relationships/shared_organizations/:org_guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a droplet",
       "anchor": "create-a-droplet",
       "method": "POST",
-      "path": "/v3/droplets"
+      "path": "/v3/droplets",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "app"
+      ]
     },
     {
       "title": "Get a droplet",
       "anchor": "get-a-droplet",
       "method": "GET",
-      "path": "/v3/droplets/:guid"
+      "path": "/v3/droplets/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List droplets",
       "anchor": "list-droplets",
       "method": "GET",
-      "path": "/v3/droplets"
+      "path": "/v3/droplets",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List droplets for a package",
       "anchor": "list-droplets-for-a-package",
       "method": "GET",
-      "path": "/v3/packages/:guid/droplets"
+      "path": "/v3/packages/:guid/droplets",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List droplets for an app",
       "anchor": "list-droplets-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/droplets"
+      "path": "/v3/apps/:guid/droplets",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a droplet",
       "anchor": "update-a-droplet",
       "method": "PATCH",
-      "path": "/v3/droplets/:guid"
+      "path": "/v3/droplets/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a droplet",
       "anchor": "delete-a-droplet",
       "method": "DELETE",
-      "path": "/v3/droplets/:guid"
+      "path": "/v3/droplets/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Copy a droplet",
       "anchor": "copy-a-droplet",
       "method": "POST",
-      "path": "/v3/droplets"
+      "path": "/v3/droplets",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "relationships.app"
+      ]
     },
     {
       "title": "Download droplet bits",
       "anchor": "download-droplet-bits",
       "method": "GET",
-      "path": "/v3/droplets/:guid/download"
+      "path": "/v3/droplets/:guid/download",
+      "status": 302,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Upload droplet bits",
       "anchor": "upload-droplet-bits",
       "method": "POST",
-      "path": "/v3/droplets/:guid/upload"
+      "path": "/v3/droplets/:guid/upload",
+      "status": 202,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "bits"
+      ]
     },
     {
       "title": "Get an environment variable group",
       "anchor": "get-an-environment-variable-group",
       "method": "GET",
-      "path": "/v3/environment_variable_groups/:name"
+      "path": "/v3/environment_variable_groups/:name",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update environment variable group",
       "anchor": "update-environment-variable-group",
       "method": "PATCH",
-      "path": "/v3/environment_variable_groups/:name"
+      "path": "/v3/environment_variable_groups/:name",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get a feature flag",
       "anchor": "get-a-feature-flag",
       "method": "GET",
-      "path": "/v3/feature_flags/:name"
+      "path": "/v3/feature_flags/:name",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List feature flags",
       "anchor": "list-feature-flags",
       "method": "GET",
-      "path": "/v3/feature_flags"
+      "path": "/v3/feature_flags",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a feature flag",
       "anchor": "update-a-feature-flag",
       "method": "PATCH",
-      "path": "/v3/feature_flags/:name"
+      "path": "/v3/feature_flags/:name",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get platform info",
       "anchor": "get-platform-info",
       "method": "GET",
-      "path": "/v3/info"
+      "path": "/v3/info",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get platform usage summary",
       "anchor": "get-platform-usage-summary",
       "method": "GET",
-      "path": "/v3/info/usage_summary"
+      "path": "/v3/info/usage_summary",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create an isolation segment",
       "anchor": "create-an-isolation-segment",
       "method": "POST",
-      "path": "/v3/isolation_segments"
+      "path": "/v3/isolation_segments",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name",
+        "metadata.labels",
+        "metadata.annotations"
+      ]
     },
     {
       "title": "Get an isolation segment",
       "anchor": "get-an-isolation-segment",
       "method": "GET",
-      "path": "/v3/isolation_segments/:guid"
+      "path": "/v3/isolation_segments/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List isolation segments",
       "anchor": "list-isolation-segments",
       "method": "GET",
-      "path": "/v3/isolation_segments"
+      "path": "/v3/isolation_segments",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List organizations relationship",
       "anchor": "list-organizations-relationship",
       "method": "GET",
-      "path": "/v3/isolation_segments/:guid/relationships/organizations"
+      "path": "/v3/isolation_segments/:guid/relationships/organizations",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List spaces relationship",
       "anchor": "list-spaces-relationship",
       "method": "GET",
-      "path": "/v3/isolation_segments/:guid/relationships/spaces"
+      "path": "/v3/isolation_segments/:guid/relationships/spaces",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update an isolation segment",
       "anchor": "update-an-isolation-segment",
       "method": "PATCH",
-      "path": "/v3/isolation_segments/:guid"
+      "path": "/v3/isolation_segments/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete an isolation segment",
       "anchor": "delete-an-isolation-segment",
       "method": "DELETE",
-      "path": "/v3/isolation_segments/:guid"
+      "path": "/v3/isolation_segments/:guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Entitle organizations for an isolation segment",
       "anchor": "entitle-organizations-for-an-isolation-segment",
       "method": "POST",
-      "path": "/v3/isolation_segments/:guid/relationships/organizations"
+      "path": "/v3/isolation_segments/:guid/relationships/organizations",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "data"
+      ]
     },
     {
       "title": "Revoke entitlement to isolation segment for an organization",
       "anchor": "revoke-entitlement-to-isolation-segment-for-an-organization",
       "method": "DELETE",
-      "path": "/v3/isolation_segments/:guid/relationships/organizations/:org_guid"
+      "path": "/v3/isolation_segments/:guid/relationships/organizations/:org_guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Get a job",
       "anchor": "get-a-job",
       "method": "GET",
-      "path": "/v3/jobs/:guid"
+      "path": "/v3/jobs/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Apply a manifest to a space",
       "anchor": "apply-a-manifest-to-a-space",
       "method": "POST",
-      "path": "/v3/spaces/:guid/actions/apply_manifest"
+      "path": "/v3/spaces/:guid/actions/apply_manifest",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Generate a manifest for an app",
       "anchor": "generate-a-manifest-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/manifest"
+      "path": "/v3/apps/:guid/manifest",
+      "status": 200,
+      "exampleContentType": "application/x-yaml",
+      "requiredParameters": []
     },
     {
       "title": "Create a manifest diff for a space (experimental)",
       "anchor": "create-a-manifest-diff-for-a-space-experimental",
       "method": "POST",
-      "path": "/v3/spaces/:guid/manifest_diff"
+      "path": "/v3/spaces/:guid/manifest_diff",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create an organization",
       "anchor": "create-an-organization",
       "method": "POST",
-      "path": "/v3/organizations"
+      "path": "/v3/organizations",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name"
+      ]
     },
     {
       "title": "Get an organization",
       "anchor": "get-an-organization",
       "method": "GET",
-      "path": "/v3/organizations/:guid"
+      "path": "/v3/organizations/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List organizations",
       "anchor": "list-organizations",
       "method": "GET",
-      "path": "/v3/organizations"
+      "path": "/v3/organizations",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List organizations for isolation segment",
       "anchor": "list-organizations-for-isolation-segment",
       "method": "GET",
-      "path": "/v3/isolation_segments/:guid/organizations"
+      "path": "/v3/isolation_segments/:guid/organizations",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update an organization",
       "anchor": "update-an-organization",
       "method": "PATCH",
-      "path": "/v3/organizations/:guid"
+      "path": "/v3/organizations/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete an organization",
       "anchor": "delete-an-organization",
       "method": "DELETE",
-      "path": "/v3/organizations/:guid"
+      "path": "/v3/organizations/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Assign default isolation segment",
       "anchor": "assign-default-isolation-segment",
       "method": "PATCH",
-      "path": "/v3/organizations/:guid/relationships/default_isolation_segment"
+      "path": "/v3/organizations/:guid/relationships/default_isolation_segment",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "data"
+      ]
     },
     {
       "title": "Get default isolation segment",
       "anchor": "get-default-isolation-segment",
       "method": "GET",
-      "path": "/v3/organizations/:guid/relationships/default_isolation_segment"
+      "path": "/v3/organizations/:guid/relationships/default_isolation_segment",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get default domain",
       "anchor": "get-default-domain",
       "method": "GET",
-      "path": "/v3/organizations/:guid/domains/default"
+      "path": "/v3/organizations/:guid/domains/default",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get usage summary",
       "anchor": "get-usage-summary",
       "method": "GET",
-      "path": "/v3/organizations/:guid/usage_summary"
+      "path": "/v3/organizations/:guid/usage_summary",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List users for an organization",
       "anchor": "list-users-for-an-organization",
       "method": "GET",
-      "path": "/v3/organizations/:guid/users"
+      "path": "/v3/organizations/:guid/users",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create an organization quota",
       "anchor": "create-an-organization-quota",
       "method": "POST",
-      "path": "/v3/organization_quotas"
+      "path": "/v3/organization_quotas",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name"
+      ]
     },
     {
       "title": "Get an organization quota",
       "anchor": "get-an-organization-quota",
       "method": "GET",
-      "path": "/v3/organization_quotas/:guid"
+      "path": "/v3/organization_quotas/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List organization quotas",
       "anchor": "list-organization-quotas",
       "method": "GET",
-      "path": "/v3/organization_quotas"
+      "path": "/v3/organization_quotas",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Apply an organization quota to an organization",
       "anchor": "apply-an-organization-quota-to-an-organization",
       "method": "POST",
-      "path": "/v3/organization_quotas/:quota_guid/relationships/organizations"
+      "path": "/v3/organization_quotas/:quota_guid/relationships/organizations",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "data"
+      ]
     },
     {
       "title": "Delete an organization quota",
       "anchor": "delete-an-organization-quota",
       "method": "DELETE",
-      "path": "/v3/organization_quotas/:guid"
+      "path": "/v3/organization_quotas/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Update an organization quota",
       "anchor": "update-an-organization-quota",
       "method": "PATCH",
-      "path": "/v3/organization_quotas/:guid"
+      "path": "/v3/organization_quotas/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create a package",
       "anchor": "create-a-package",
       "method": "POST",
-      "path": "/v3/packages"
+      "path": "/v3/packages",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "type",
+        "relationships.app"
+      ]
     },
     {
       "title": "Get a package",
       "anchor": "get-a-package",
       "method": "GET",
-      "path": "/v3/packages/:guid"
+      "path": "/v3/packages/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List packages",
       "anchor": "list-packages",
       "method": "GET",
-      "path": "/v3/packages"
+      "path": "/v3/packages",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List packages for an app",
       "anchor": "list-packages-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/packages"
+      "path": "/v3/apps/:guid/packages",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a package",
       "anchor": "update-a-package",
       "method": "PATCH",
-      "path": "/v3/packages/:guid"
+      "path": "/v3/packages/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a package",
       "anchor": "delete-a-package",
       "method": "DELETE",
-      "path": "/v3/packages/:guid"
+      "path": "/v3/packages/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Copy a package",
       "anchor": "copy-a-package",
       "method": "POST",
-      "path": "/v3/packages"
+      "path": "/v3/packages",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "relationships.app"
+      ]
     },
     {
       "title": "Download package bits",
       "anchor": "download-package-bits",
       "method": "GET",
-      "path": "/v3/packages/:guid/download"
+      "path": "/v3/packages/:guid/download",
+      "status": 302,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Upload package bits",
       "anchor": "upload-package-bits",
       "method": "POST",
-      "path": "/v3/packages/:guid/upload"
+      "path": "/v3/packages/:guid/upload",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get a process",
       "anchor": "get-a-process",
       "method": "GET",
-      "path": "/v3/processes/:guid"
+      "path": "/v3/processes/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get stats for a process",
       "anchor": "get-stats-for-a-process",
       "method": "GET",
-      "path": "/v3/processes/:guid/stats"
+      "path": "/v3/processes/:guid/stats",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get process instances for a process (experimental)",
       "anchor": "get-process-instances-for-a-process-experimental",
       "method": "GET",
-      "path": "/v3/processes/:guid/process_instances"
+      "path": "/v3/processes/:guid/process_instances",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List processes",
       "anchor": "list-processes",
       "method": "GET",
-      "path": "/v3/processes"
+      "path": "/v3/processes",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List processes for app",
       "anchor": "list-processes-for-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/processes"
+      "path": "/v3/apps/:guid/processes",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a process",
       "anchor": "update-a-process",
       "method": "PATCH",
-      "path": "/v3/processes/:guid"
+      "path": "/v3/processes/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Scale a process",
       "anchor": "scale-a-process",
       "method": "POST",
-      "path": "/v3/processes/:guid/actions/scale"
+      "path": "/v3/processes/:guid/actions/scale",
+      "status": 202,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Terminate a process instance",
       "anchor": "terminate-a-process-instance",
       "method": "DELETE",
-      "path": "/v3/processes/:guid/instances/:index"
+      "path": "/v3/processes/:guid/instances/:index",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a resource match",
       "anchor": "create-a-resource-match",
       "method": "POST",
-      "path": "/v3/resource_matches"
+      "path": "/v3/resource_matches",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "resources"
+      ]
     },
     {
       "title": "Get a revision",
       "anchor": "get-a-revision",
       "method": "GET",
-      "path": "/v3/revisions/:guid"
+      "path": "/v3/revisions/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get environment variables for a revision",
       "anchor": "get-environment-variables-for-a-revision",
       "method": "GET",
-      "path": "/v3/revisions/:guid/environment_variables"
+      "path": "/v3/revisions/:guid/environment_variables",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List revisions for an app",
       "anchor": "list-revisions-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/revisions"
+      "path": "/v3/apps/:guid/revisions",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List deployed revisions for an app",
       "anchor": "list-deployed-revisions-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/revisions/deployed"
+      "path": "/v3/apps/:guid/revisions/deployed",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a revision",
       "anchor": "update-a-revision",
       "method": "PATCH",
-      "path": "/v3/revisions/:guid"
+      "path": "/v3/revisions/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create a role",
       "anchor": "create-a-role",
       "method": "POST",
-      "path": "/v3/roles"
+      "path": "/v3/roles",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "type",
+        "relationships.user",
+        "relationships.organization",
+        "relationships.space"
+      ]
     },
     {
       "title": "Get a role",
       "anchor": "get-a-role",
       "method": "GET",
-      "path": "/v3/roles/:guid"
+      "path": "/v3/roles/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List roles",
       "anchor": "list-roles",
       "method": "GET",
-      "path": "/v3/roles"
+      "path": "/v3/roles",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a role",
       "anchor": "delete-a-role",
       "method": "DELETE",
-      "path": "/v3/roles/:guid"
+      "path": "/v3/roles/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a route policy",
       "anchor": "create-a-route-policy",
       "method": "POST",
-      "path": "/v3/route_policies"
+      "path": "/v3/route_policies",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "source",
+        "relationships.route"
+      ]
     },
     {
       "title": "Get a route policy",
       "anchor": "get-a-route-policy",
       "method": "GET",
-      "path": "/v3/route_policies/:guid"
+      "path": "/v3/route_policies/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List route policies",
       "anchor": "list-route-policies",
       "method": "GET",
-      "path": "/v3/route_policies"
+      "path": "/v3/route_policies",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a route policy",
       "anchor": "update-a-route-policy",
       "method": "PATCH",
-      "path": "/v3/route_policies/:guid"
+      "path": "/v3/route_policies/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a route policy",
       "anchor": "delete-a-route-policy",
       "method": "DELETE",
-      "path": "/v3/route_policies/:guid"
+      "path": "/v3/route_policies/:guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a route",
       "anchor": "create-a-route",
       "method": "POST",
-      "path": "/v3/routes"
+      "path": "/v3/routes",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "relationships.space",
+        "relationships.domain"
+      ]
     },
     {
       "title": "Get a route",
       "anchor": "get-a-route",
       "method": "GET",
-      "path": "/v3/routes/:guid"
+      "path": "/v3/routes/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List routes",
       "anchor": "list-routes",
       "method": "GET",
-      "path": "/v3/routes"
+      "path": "/v3/routes",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List routes for an app",
       "anchor": "list-routes-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/routes"
+      "path": "/v3/apps/:guid/routes",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a route",
       "anchor": "update-a-route",
       "method": "PATCH",
-      "path": "/v3/routes/:guid"
+      "path": "/v3/routes/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a route",
       "anchor": "delete-a-route",
       "method": "DELETE",
-      "path": "/v3/routes/:guid"
+      "path": "/v3/routes/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Check reserved routes for a domain",
       "anchor": "check-reserved-routes-for-a-domain",
       "method": "GET",
-      "path": "/v3/domains/:guid/route_reservations"
+      "path": "/v3/domains/:guid/route_reservations",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Lists shared spaces relationship (experimental)",
       "anchor": "lists-shared-spaces-relationship-experimental",
       "method": "GET",
-      "path": "/v3/routes/:guid/relationships/shared_spaces"
+      "path": "/v3/routes/:guid/relationships/shared_spaces",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Share a route with other spaces (experimental)",
       "anchor": "share-a-route-with-other-spaces-experimental",
       "method": "POST",
-      "path": "/v3/routes/:guid/relationships/shared_spaces"
+      "path": "/v3/routes/:guid/relationships/shared_spaces",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "data"
+      ]
     },
     {
       "title": "Unshare a route that was shared with another space (experimental)",
       "anchor": "unshare-a-route-that-was-shared-with-another-space-experimental",
       "method": "DELETE",
-      "path": "/v3/routes/:guid/relationships/shared_spaces/:space_guid"
+      "path": "/v3/routes/:guid/relationships/shared_spaces/:space_guid",
+      "status": null,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Transfer ownership (experimental)",
       "anchor": "transfer-ownership-experimental",
       "method": "PATCH",
-      "path": "/v3/routes/:route-guid/relationships/space"
+      "path": "/v3/routes/:route-guid/relationships/space",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "List destinations for a route",
       "anchor": "list-destinations-for-a-route",
       "method": "GET",
-      "path": "/v3/routes/:guid/destinations"
+      "path": "/v3/routes/:guid/destinations",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Insert destinations for a route",
       "anchor": "insert-destinations-for-a-route",
       "method": "POST",
-      "path": "/v3/routes/:guid/destinations"
+      "path": "/v3/routes/:guid/destinations",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "destinations"
+      ]
     },
     {
       "title": "Replace all destinations for a route",
       "anchor": "replace-all-destinations-for-a-route",
       "method": "PATCH",
-      "path": "/v3/routes/:guid/destinations"
+      "path": "/v3/routes/:guid/destinations",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "destinations"
+      ]
     },
     {
       "title": "Update a destination protocol for a route",
       "anchor": "update-a-destination-protocol-for-a-route",
       "method": "PATCH",
-      "path": "/v3/routes/:guid/destinations/:destination_guid"
+      "path": "/v3/routes/:guid/destinations/:destination_guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Remove destination for a route",
       "anchor": "remove-destination-for-a-route",
       "method": "DELETE",
-      "path": "/v3/routes/:guid/destinations/:destination_guid"
+      "path": "/v3/routes/:guid/destinations/:destination_guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Delete unmapped routes for a space",
       "anchor": "delete-unmapped-routes-for-a-space",
       "method": "DELETE",
-      "path": "/v3/spaces/:guid/routes"
+      "path": "/v3/spaces/:guid/routes",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a security group",
       "anchor": "create-a-security-group",
       "method": "POST",
-      "path": "/v3/security_groups"
+      "path": "/v3/security_groups",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name"
+      ]
     },
     {
       "title": "Get a security group",
       "anchor": "get-a-security-group",
       "method": "GET",
-      "path": "/v3/security_groups/:guid"
+      "path": "/v3/security_groups/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List security groups",
       "anchor": "list-security-groups",
       "method": "GET",
-      "path": "/v3/security_groups"
+      "path": "/v3/security_groups",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a security group",
       "anchor": "update-a-security-group",
       "method": "PATCH",
-      "path": "/v3/security_groups/:guid"
+      "path": "/v3/security_groups/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a security group",
       "anchor": "delete-a-security-group",
       "method": "DELETE",
-      "path": "/v3/security_groups/:guid"
+      "path": "/v3/security_groups/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Bind a running security group to spaces",
       "anchor": "bind-a-running-security-group-to-spaces",
       "method": "POST",
-      "path": "/v3/security_groups/:guid/relationships/running_spaces"
+      "path": "/v3/security_groups/:guid/relationships/running_spaces",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "data"
+      ]
     },
     {
       "title": "Bind a staging security group to spaces",
       "anchor": "bind-a-staging-security-group-to-spaces",
       "method": "POST",
-      "path": "/v3/security_groups/:guid/relationships/staging_spaces"
+      "path": "/v3/security_groups/:guid/relationships/staging_spaces",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "data"
+      ]
     },
     {
       "title": "Unbind a running security group from a space",
       "anchor": "unbind-a-running-security-group-from-a-space",
       "method": "DELETE",
-      "path": "/v3/security_groups/:guid/relationships/running_spaces/:space_guid"
+      "path": "/v3/security_groups/:guid/relationships/running_spaces/:space_guid",
+      "status": 204,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Unbind a staging security group from a space",
       "anchor": "unbind-a-staging-security-group-from-a-space",
       "method": "DELETE",
-      "path": "/v3/security_groups/:guid/relationships/staging_spaces/:space_guid"
+      "path": "/v3/security_groups/:guid/relationships/staging_spaces/:space_guid",
+      "status": 204,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List running security groups for a space",
       "anchor": "list-running-security-groups-for-a-space",
       "method": "GET",
-      "path": "/v3/spaces/:guid/running_security_groups"
+      "path": "/v3/spaces/:guid/running_security_groups",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List staging security groups for a space",
       "anchor": "list-staging-security-groups-for-a-space",
       "method": "GET",
-      "path": "/v3/spaces/:guid/staging_security_groups"
+      "path": "/v3/spaces/:guid/staging_security_groups",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create a service broker",
       "anchor": "create-a-service-broker",
       "method": "POST",
-      "path": "/v3/service_brokers"
+      "path": "/v3/service_brokers",
+      "status": 202,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name",
+        "url",
+        "authentication"
+      ]
     },
     {
       "title": "Get a service broker",
       "anchor": "get-a-service-broker",
       "method": "GET",
-      "path": "/v3/service_brokers/:guid"
+      "path": "/v3/service_brokers/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List service brokers",
       "anchor": "list-service-brokers",
       "method": "GET",
-      "path": "/v3/service_brokers"
+      "path": "/v3/service_brokers",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a service broker",
       "anchor": "update-a-service-broker",
       "method": "PATCH",
-      "path": "/v3/service_brokers/:guid"
+      "path": "/v3/service_brokers/:guid",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a service broker",
       "anchor": "delete-a-service-broker",
       "method": "DELETE",
-      "path": "/v3/service_brokers/:guid"
+      "path": "/v3/service_brokers/:guid",
+      "status": 202,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get a service offering",
       "anchor": "get-a-service-offering",
       "method": "GET",
-      "path": "/v3/service_offerings/:guid"
+      "path": "/v3/service_offerings/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List service offerings",
       "anchor": "list-service-offerings",
       "method": "GET",
-      "path": "/v3/service_offerings"
+      "path": "/v3/service_offerings",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a service offering",
       "anchor": "update-a-service-offering",
       "method": "PATCH",
-      "path": "/v3/service_offerings/:guid"
+      "path": "/v3/service_offerings/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a service offering",
       "anchor": "delete-a-service-offering",
       "method": "DELETE",
-      "path": "/v3/service_offerings/:guid"
+      "path": "/v3/service_offerings/:guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Get a service plan",
       "anchor": "get-a-service-plan",
       "method": "GET",
-      "path": "/v3/service_plans/:guid"
+      "path": "/v3/service_plans/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List service plans",
       "anchor": "list-service-plans",
       "method": "GET",
-      "path": "/v3/service_plans"
+      "path": "/v3/service_plans",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a service plan",
       "anchor": "update-a-service-plan",
       "method": "PATCH",
-      "path": "/v3/service_plans/:guid"
+      "path": "/v3/service_plans/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a service plan",
       "anchor": "delete-a-service-plan",
       "method": "DELETE",
-      "path": "/v3/service_plans/:guid"
+      "path": "/v3/service_plans/:guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Get a service plan visibility",
       "anchor": "get-a-service-plan-visibility",
       "method": "GET",
-      "path": "/v3/service_plans/:guid/visibility"
+      "path": "/v3/service_plans/:guid/visibility",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a service plan visibility",
       "anchor": "update-a-service-plan-visibility",
       "method": "PATCH",
-      "path": "/v3/service_plans/:guid/visibility"
+      "path": "/v3/service_plans/:guid/visibility",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Apply a service plan visibility",
       "anchor": "apply-a-service-plan-visibility",
       "method": "POST",
-      "path": "/v3/service_plans/:guid/visibility"
+      "path": "/v3/service_plans/:guid/visibility",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Remove organization from a service plan visibility",
       "anchor": "remove-organization-from-a-service-plan-visibility",
       "method": "DELETE",
-      "path": "/v3/service_plans/:guid/visibility/:organization_guid"
+      "path": "/v3/service_plans/:guid/visibility/:organization_guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a service instance",
       "anchor": "create-a-service-instance",
       "method": "POST",
-      "path": "/v3/service_instances"
+      "path": "/v3/service_instances",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get a service instance",
       "anchor": "get-a-service-instance",
       "method": "GET",
-      "path": "/v3/service_instances/:guid"
+      "path": "/v3/service_instances/:guid",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List service instances",
       "anchor": "list-service-instances",
       "method": "GET",
-      "path": "/v3/service_instances"
+      "path": "/v3/service_instances",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a service instance",
       "anchor": "delete-a-service-instance",
       "method": "DELETE",
-      "path": "/v3/service_instances/:guid"
+      "path": "/v3/service_instances/:guid",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a service instance",
       "anchor": "update-a-service-instance",
       "method": "PATCH",
-      "path": "/v3/service_instances/:guid"
+      "path": "/v3/service_instances/:guid",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get credentials for a user-provided service instance",
       "anchor": "get-credentials-for-a-user-provided-service-instance",
       "method": "GET",
-      "path": "/v3/service_instances/:guid/credentials"
+      "path": "/v3/service_instances/:guid/credentials",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get usage summary in shared spaces",
       "anchor": "get-usage-summary-in-shared-spaces",
       "method": "GET",
-      "path": "/v3/service_instances/:guid/relationships/shared_spaces/usage_summary"
+      "path": "/v3/service_instances/:guid/relationships/shared_spaces/usage_summary",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List shared spaces relationship",
       "anchor": "list-shared-spaces-relationship",
       "method": "GET",
-      "path": "/v3/service_instances/:guid/relationships/shared_spaces"
+      "path": "/v3/service_instances/:guid/relationships/shared_spaces",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get parameters for a managed service instance",
       "anchor": "get-parameters-for-a-managed-service-instance",
       "method": "GET",
-      "path": "/v3/service_instances/:guid/parameters"
+      "path": "/v3/service_instances/:guid/parameters",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get permissions for a service instance",
       "anchor": "get-permissions-for-a-service-instance",
       "method": "GET",
-      "path": "/v3/service_instances/:guid/permissions"
+      "path": "/v3/service_instances/:guid/permissions",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Share a service instance to other spaces",
       "anchor": "share-a-service-instance-to-other-spaces",
       "method": "POST",
-      "path": "/v3/service_instances/:guid/relationships/shared_spaces"
+      "path": "/v3/service_instances/:guid/relationships/shared_spaces",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "data"
+      ]
     },
     {
       "title": "Unshare a service instance from another space",
       "anchor": "unshare-a-service-instance-from-another-space",
       "method": "DELETE",
-      "path": "/v3/service_instances/:guid/relationships/shared_spaces/:space_guid"
+      "path": "/v3/service_instances/:guid/relationships/shared_spaces/:space_guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a service credential binding",
       "anchor": "create-a-service-credential-binding",
       "method": "POST",
-      "path": "/v3/service_credential_bindings"
+      "path": "/v3/service_credential_bindings",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "type",
+        "relationships.service_instance",
+        "name"
+      ]
     },
     {
       "title": "Get a service credential binding",
       "anchor": "get-a-service-credential-binding",
       "method": "GET",
-      "path": "/v3/service_credential_bindings/:guid"
+      "path": "/v3/service_credential_bindings/:guid",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List service credential bindings",
       "anchor": "list-service-credential-bindings",
       "method": "GET",
-      "path": "/v3/service_credential_bindings"
+      "path": "/v3/service_credential_bindings",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a service credential binding",
       "anchor": "update-a-service-credential-binding",
       "method": "PATCH",
-      "path": "/v3/service_credential_bindings/:guid"
+      "path": "/v3/service_credential_bindings/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a service credential binding",
       "anchor": "delete-a-service-credential-binding",
       "method": "DELETE",
-      "path": "/v3/service_credential_bindings/:guid"
+      "path": "/v3/service_credential_bindings/:guid",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get a service credential binding details",
       "anchor": "get-a-service-credential-binding-details",
       "method": "GET",
-      "path": "/v3/service_credential_bindings/:guid/details"
+      "path": "/v3/service_credential_bindings/:guid/details",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get parameters for a service credential binding",
       "anchor": "get-parameters-for-a-service-credential-binding",
       "method": "GET",
-      "path": "/v3/service_credential_bindings/:guid/parameters"
+      "path": "/v3/service_credential_bindings/:guid/parameters",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get a service route binding",
       "anchor": "get-a-service-route-binding",
       "method": "GET",
-      "path": "/v3/service_route_bindings/:guid"
+      "path": "/v3/service_route_bindings/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List service route bindings",
       "anchor": "list-service-route-bindings",
       "method": "GET",
-      "path": "/v3/service_route_bindings"
+      "path": "/v3/service_route_bindings",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create a service route binding",
       "anchor": "create-a-service-route-binding",
       "method": "POST",
-      "path": "/v3/service_route_bindings"
+      "path": "/v3/service_route_bindings",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "relationships.route",
+        "relationships.service_instance"
+      ]
     },
     {
       "title": "Update a service route binding",
       "anchor": "update-a-service-route-binding",
       "method": "PATCH",
-      "path": "/v3/service_route_bindings/:guid"
+      "path": "/v3/service_route_bindings/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a service route binding",
       "anchor": "delete-a-service-route-binding",
       "method": "DELETE",
-      "path": "/v3/service_route_bindings/:guid"
+      "path": "/v3/service_route_bindings/:guid",
+      "status": null,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get parameters for a route binding",
       "anchor": "get-parameters-for-a-route-binding",
       "method": "GET",
-      "path": "/v3/service_route_bindings/:guid/parameters"
+      "path": "/v3/service_route_bindings/:guid/parameters",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get a service usage event",
       "anchor": "get-a-service-usage-event",
       "method": "GET",
-      "path": "/v3/service_usage_events/:guid"
+      "path": "/v3/service_usage_events/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List service usage events",
       "anchor": "list-service-usage-events",
       "method": "GET",
-      "path": "/v3/service_usage_events"
+      "path": "/v3/service_usage_events",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Purge and seed service usage events",
       "anchor": "purge-and-seed-service-usage-events",
       "method": "POST",
-      "path": "/v3/service_usage_events/actions/destructively_purge_all_and_reseed"
+      "path": "/v3/service_usage_events/actions/destructively_purge_all_and_reseed",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create a sidecar associated with an app",
       "anchor": "create-a-sidecar-associated-with-an-app",
       "method": "POST",
-      "path": "/v3/apps/:guid/sidecars"
+      "path": "/v3/apps/:guid/sidecars",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name",
+        "command",
+        "process_types"
+      ]
     },
     {
       "title": "Get a sidecar",
       "anchor": "get-a-sidecar",
       "method": "GET",
-      "path": "/v3/sidecars/:guid"
+      "path": "/v3/sidecars/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a sidecar",
       "anchor": "update-a-sidecar",
       "method": "PATCH",
-      "path": "/v3/sidecars/:guid"
+      "path": "/v3/sidecars/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List sidecars for app",
       "anchor": "list-sidecars-for-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/sidecars"
+      "path": "/v3/apps/:guid/sidecars",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List sidecars for process",
       "anchor": "list-sidecars-for-process",
       "method": "GET",
-      "path": "/v3/processes/:guid/sidecars"
+      "path": "/v3/processes/:guid/sidecars",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a sidecar",
       "anchor": "delete-a-sidecar",
       "method": "DELETE",
-      "path": "/v3/sidecars/:guid"
+      "path": "/v3/sidecars/:guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a space",
       "anchor": "create-a-space",
       "method": "POST",
-      "path": "/v3/spaces"
+      "path": "/v3/spaces",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name",
+        "relationships.organization"
+      ]
     },
     {
       "title": "Get a space",
       "anchor": "get-a-space",
       "method": "GET",
-      "path": "/v3/spaces/:guid"
+      "path": "/v3/spaces/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List spaces",
       "anchor": "list-spaces",
       "method": "GET",
-      "path": "/v3/spaces"
+      "path": "/v3/spaces",
+      "status": 200,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Update a space",
       "anchor": "update-a-space",
       "method": "PATCH",
-      "path": "/v3/spaces/:guid"
+      "path": "/v3/spaces/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a space",
       "anchor": "delete-a-space",
       "method": "DELETE",
-      "path": "/v3/spaces/:guid"
+      "path": "/v3/spaces/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Get assigned isolation segment",
       "anchor": "get-assigned-isolation-segment",
       "method": "GET",
-      "path": "/v3/spaces/:guid/relationships/isolation_segment"
+      "path": "/v3/spaces/:guid/relationships/isolation_segment",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get space usage summary",
       "anchor": "get-space-usage-summary",
       "method": "GET",
-      "path": "/v3/spaces/:guid/usage_summary"
+      "path": "/v3/spaces/:guid/usage_summary",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Manage isolation segment",
       "anchor": "manage-isolation-segment",
       "method": "PATCH",
-      "path": "/v3/spaces/:guid/relationships/isolation_segment"
+      "path": "/v3/spaces/:guid/relationships/isolation_segment",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "data"
+      ]
     },
     {
       "title": "List users for a space",
       "anchor": "list-users-for-a-space",
       "method": "GET",
-      "path": "/v3/spaces/:guid/users"
+      "path": "/v3/spaces/:guid/users",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get a space feature",
       "anchor": "get-a-space-feature",
       "method": "GET",
-      "path": "/v3/spaces/:guid/features/:name"
+      "path": "/v3/spaces/:guid/features/:name",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List space features",
       "anchor": "list-space-features",
       "method": "GET",
-      "path": "/v3/spaces/:guid/features"
+      "path": "/v3/spaces/:guid/features",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update space features",
       "anchor": "update-space-features",
       "method": "PATCH",
-      "path": "/v3/spaces/:guid/features/:name"
+      "path": "/v3/spaces/:guid/features/:name",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create a space quota",
       "anchor": "create-a-space-quota",
       "method": "POST",
-      "path": "/v3/space_quotas"
+      "path": "/v3/space_quotas",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name",
+        "relationships.organization"
+      ]
     },
     {
       "title": "Get a space quota",
       "anchor": "get-a-space-quota",
       "method": "GET",
-      "path": "/v3/space_quotas/:guid"
+      "path": "/v3/space_quotas/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List space quotas",
       "anchor": "list-space-quotas",
       "method": "GET",
-      "path": "/v3/space_quotas"
+      "path": "/v3/space_quotas",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a space quota",
       "anchor": "update-a-space-quota",
       "method": "PATCH",
-      "path": "/v3/space_quotas/:guid"
+      "path": "/v3/space_quotas/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a space quota",
       "anchor": "delete-a-space-quota",
       "method": "DELETE",
-      "path": "/v3/space_quotas/:guid"
+      "path": "/v3/space_quotas/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Apply a space quota to a space",
       "anchor": "apply-a-space-quota-to-a-space",
       "method": "POST",
-      "path": "/v3/space_quotas/:quota_guid/relationships/spaces"
+      "path": "/v3/space_quotas/:quota_guid/relationships/spaces",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "data"
+      ]
     },
     {
       "title": "Remove a space quota from a space",
       "anchor": "remove-a-space-quota-from-a-space",
       "method": "DELETE",
-      "path": "/v3/space_quotas/:quota_guid/relationships/spaces/:space_guid"
+      "path": "/v3/space_quotas/:quota_guid/relationships/spaces/:space_guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a stack",
       "anchor": "create-a-stack",
       "method": "POST",
-      "path": "/v3/stacks"
+      "path": "/v3/stacks",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "name"
+      ]
     },
     {
       "title": "Get a stack",
       "anchor": "get-a-stack",
       "method": "GET",
-      "path": "/v3/stacks/:guid"
+      "path": "/v3/stacks/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List stacks",
       "anchor": "list-stacks",
       "method": "GET",
-      "path": "/v3/stacks"
+      "path": "/v3/stacks",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List apps on a stack",
       "anchor": "list-apps-on-a-stack",
       "method": "GET",
-      "path": "/v3/stacks/:guid/apps"
+      "path": "/v3/stacks/:guid/apps",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a stack",
       "anchor": "update-a-stack",
       "method": "PATCH",
-      "path": "/v3/stacks/:guid"
+      "path": "/v3/stacks/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Delete a stack",
       "anchor": "delete-a-stack",
       "method": "DELETE",
-      "path": "/v3/stacks/:guid"
+      "path": "/v3/stacks/:guid",
+      "status": 204,
+      "exampleContentType": null,
+      "requiredParameters": []
     },
     {
       "title": "Create a task",
       "anchor": "create-a-task",
       "method": "POST",
-      "path": "/v3/apps/:guid/tasks"
+      "path": "/v3/apps/:guid/tasks",
+      "status": 202,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Get a task",
       "anchor": "get-a-task",
       "method": "GET",
-      "path": "/v3/tasks/:guid"
+      "path": "/v3/tasks/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List tasks",
       "anchor": "list-tasks",
       "method": "GET",
-      "path": "/v3/tasks"
+      "path": "/v3/tasks",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List tasks for an app",
       "anchor": "list-tasks-for-an-app",
       "method": "GET",
-      "path": "/v3/apps/:guid/tasks"
+      "path": "/v3/apps/:guid/tasks",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a task",
       "anchor": "update-a-task",
       "method": "PATCH",
-      "path": "/v3/tasks/:guid"
+      "path": "/v3/tasks/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Cancel a task",
       "anchor": "cancel-a-task",
       "method": "POST",
-      "path": "/v3/tasks/:guid/actions/cancel"
+      "path": "/v3/tasks/:guid/actions/cancel",
+      "status": 202,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Create a user",
       "anchor": "create-a-user",
       "method": "POST",
-      "path": "/v3/users"
+      "path": "/v3/users",
+      "status": 201,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "guid",
+        "username",
+        "origin",
+        "metadata.labels",
+        "metadata.annotations"
+      ]
     },
     {
       "title": "Get a user",
       "anchor": "get-a-user",
       "method": "GET",
-      "path": "/v3/users/:guid"
+      "path": "/v3/users/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "List users",
       "anchor": "list-users",
       "method": "GET",
-      "path": "/v3/users"
+      "path": "/v3/users",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": []
     },
     {
       "title": "Update a user",
       "anchor": "update-a-user",
       "method": "PATCH",
-      "path": "/v3/users/:guid"
+      "path": "/v3/users/:guid",
+      "status": 200,
+      "exampleContentType": "application/json",
+      "requiredParameters": [
+        "metadata.labels",
+        "metadata.annotations"
+      ]
     },
     {
       "title": "Delete a user",
       "anchor": "delete-a-user",
       "method": "DELETE",
-      "path": "/v3/users/:guid"
-    },
-    {
-      "title": "Resource Summaries",
-      "anchor": "resource-summaries",
-      "method": "GET",
-      "path": "/v3/apps"
-    },
-    {
-      "title": "Security Groups in V3",
-      "anchor": "security-groups-in-v3",
-      "method": "PATCH",
-      "path": "/v3/security_groups/:guid"
-    },
-    {
-      "title": "Service Offerings in V3",
-      "anchor": "service-offerings-in-v3",
-      "method": "GET",
-      "path": "/v3/service_offerings"
-    },
-    {
-      "title": "Service Plans in V3",
-      "anchor": "service-plans-in-v3",
-      "method": "GET",
-      "path": "/v3/service_plans"
-    },
-    {
-      "title": "Users and Roles in V3",
-      "anchor": "users-and-roles-in-v3",
-      "method": "GET",
-      "path": "/v3/users"
+      "path": "/v3/users/:guid",
+      "status": 202,
+      "exampleContentType": null,
+      "requiredParameters": []
     }
   ]
 }

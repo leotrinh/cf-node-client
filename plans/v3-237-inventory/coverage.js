@@ -1,7 +1,7 @@
 ﻿"use strict";
 const fs=require('fs'),path=require('path');
 const repo=path.resolve(__dirname,'../..');
-const operations=require('./operations.json').operations.filter(o=>o.title!=='Security Groups in V3');
+const operations=require('./operations.json').operations;
 const files=fs.readdirSync(path.join(repo,'lib/model/cloudcontroller')).filter(x=>x.endsWith('.js'));
 const sources=files.map(f=>({name:f,text:fs.readFileSync(path.join(repo,'lib/model/cloudcontroller',f),'utf8')}));
 const roots=[...new Set(operations.map(o=>o.path.split('/')[2]))];
